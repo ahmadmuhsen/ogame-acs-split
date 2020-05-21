@@ -1,7 +1,9 @@
 {
     "en": {
         "translation": {
-            "SiteName": "ACS Split"
+            "SiteName": "ACS Split",
+            "Repository": "Repository",
+            "ReportIssue": "Report Issue"
         }
     }
 }

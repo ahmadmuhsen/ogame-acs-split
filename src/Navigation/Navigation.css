@@ -12,3 +12,36 @@
     font-size: 25px;
     color: white;
 }
+
+.navigation .github {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 310px;
+}
+
+.navigation a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-decoration: none;
+    color: white;
+    background-color: black;
+    padding: 0px 10px;
+    border-radius: 10px;
+    height: 35px;
+}
+
+.navigation a.repo{
+    width: 140px;
+}
+
+.navigation a.issue{
+    width: 160px;
+}
+
+.navigation .fab,
+.navigation .fas  {
+    color: white;
+    font-size: 20px;
+}
