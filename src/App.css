@@ -1,0 +1,23 @@
+body {
+  background-image: url("assets/background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+:root {
+  --main-panel-bg-color: rgb(0, 0, 0, 0.7);
+}
+
+::-webkit-scrollbar {
+  width: 3px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--primary-bg-color);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--info-bg-color);;
+}
