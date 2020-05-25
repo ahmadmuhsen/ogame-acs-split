@@ -31,7 +31,7 @@ export default function PlayerPanel({ combatReports, player, id, isDefender, isC
 
     return (
         <div className="player-panel">
-            <div className="name">{`[${player.alliance}] ${player.name}`}</div>
+            <div className="name">{`${ player.alliance != null ? `[${player.alliance}]` : ""} ${player.name}`}</div>
             <hr />
             {FleetStatistics}
         </div>
