@@ -33,7 +33,10 @@
             "SmallShieldDome": "SDome",
             "LargeShieldDome": "LDome",
             "AntiBallisticMissiles": "ABM",
-            "InterplanetaryMissiles": "IPM"
+            "InterplanetaryMissiles": "IPM",
+            "InvalidKey": "The key is invalid.",
+            "ServerError": "Internal Server Error. Please Contact Administrator.",
+            "UnknownError": "Something Went Wrong. Please Contact Administrator."
         }
     }
 }

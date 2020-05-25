@@ -3,7 +3,6 @@
 }
 
 .api-keys-input{
-    margin-bottom: 20px;
     display: flex;
     justify-content: space-between;
 }
@@ -22,4 +21,11 @@
 
 .main .player-panel{
     margin-bottom: 20px;
+}
+
+.main .api-key-validity-message{
+    margin-bottom: 20px;
+    color: var(--main-invalid-message-color);
+    font-size: 20px;
+    padding: 5px;
 }

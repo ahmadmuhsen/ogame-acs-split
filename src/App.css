@@ -9,6 +9,7 @@ body {
   --main-panel-bg-color: rgb(0, 0, 0, 0.7);
   --main-input-bg-color: rgb(0, 0, 0);
   --main-invalid-bg-color: rgb(255, 8, 0, 0.3);
+  --main-invalid-message-color: rgb(255, 8, 0);
 }
 
 ::-webkit-scrollbar {

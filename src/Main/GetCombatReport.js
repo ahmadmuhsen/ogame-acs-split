@@ -1,7 +1,7 @@
 import axios from 'axios';
 import config from '../config.json';
 
-export const GetCombatReport = (combatReport, CombatReports, setCombatReports, setApiKeyInputValidity, setLoading) => {
+export const GetCombatReport = (combatReport, CombatReports, setCombatReports, setApiKeyInputValidity, setLoading, setApiKeyInputValidityMessage) => {
     setLoading(true);
     const request = {
         method: "GET",
@@ -11,32 +11,50 @@ export const GetCombatReport = (combatReport, CombatReports, setCombatReports, s
     axios(request)
         .then(function (response) {
             let data = response.data;
-            console.log(data);
-            let crdata = {};
-            crdata.key = data.Id;
-            crdata.attackers = ParseFleeterData(
-                data.attackers,
-                data.rounds.length > 0 ? data.rounds[data.rounds.length - 1].attacker_ships : [],
-                false,
-                data.repaired_defenses
-            );
 
-            crdata.defenders = ParseFleeterData(
-                data.defenders,
-                data.rounds.length > 0 ? data.rounds[data.rounds.length - 1].defender_ships : [],
-                true,
-                data.repaired_defenses
-            );
+            if (CombatReports.length > 0 && CombatReports[0].coordinates !== data.generic.combat_coordinates) {
+                setApiKeyInputValidity(false);
+                setApiKeyInputValidityMessage("InvalidCoordinates");
+            } else {
+                let crdata = {};
+                crdata.key = data.Id;
+                crdata.coordinates = data.generic.combat_coordinates;
+                crdata.attackers = ParseFleeterData(
+                    data.attackers,
+                    data.rounds.length > 0 ? data.rounds[data.rounds.length - 1].attacker_ships : [],
+                    false,
+                    data.repaired_defenses
+                );
 
-            let crs = [...CombatReports];
-            crs.push(crdata);
-            setApiKeyInputValidity(true);
-            setCombatReports(crs);
+                crdata.defenders = ParseFleeterData(
+                    data.defenders,
+                    data.rounds.length > 0 ? data.rounds[data.rounds.length - 1].defender_ships : [],
+                    true,
+                    data.repaired_defenses
+                );
+
+                let crs = [...CombatReports];
+                console.log(crdata);
+                crs.push(crdata);
+                setApiKeyInputValidity(true);
+                setApiKeyInputValidityMessage("");
+                setCombatReports(crs);
+            }
         })
         .catch(function (error) {
             setLoading(false);
             setApiKeyInputValidity(false);
             console.log(error.response);
+            switch (error.response.status) {
+                case 400:
+                    setApiKeyInputValidityMessage("InvalidKey");
+                    break;
+                case 500:
+                    setApiKeyInputValidityMessage("ServerError");
+                    break;
+                default:
+                    setApiKeyInputValidityMessage("UnknownError");
+            }
         })
 }
 
@@ -69,11 +87,11 @@ function ParseFleeterData(data, finalRound, isDefender, repairedDefences) {
         })
     }
 
-    if(isDefender)
+    if (isDefender)
         repairedDefences.forEach(repaired => {
             let fleeterids = Object.keys(fleeters);
-            if(fleeterids.length > 0 && fleeters[fleeterids[0]].fleet[repaired.repaired_type]){
-               fleeters[fleeterids[0]].fleet[repaired.repaired_type].postCount = repaired.repaired_count;
+            if (fleeterids.length > 0 && fleeters[fleeterids[0]].fleet[repaired.repaired_type]) {
+                fleeters[fleeterids[0]].fleet[repaired.repaired_type].postCount = repaired.repaired_count;
             }
         })
     return fleeters;

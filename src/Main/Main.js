@@ -21,6 +21,7 @@ export default function Main() {
     const [DefendersPanels, setDefendersPanels] = useState([])
     const [ApiKeyInput, setApiKeyInput] = useState("")
     const [ApiKeyInputValidity, setApiKeyInputValidity] = useState(true)
+    const [ApiKeyInputValidityMessage, setApiKeyInputValidityMessage] = useState("")
     const [Loading, setLoading] = useState(false)
 
     const GetReport = () => {
@@ -28,14 +29,17 @@ export default function Main() {
         if (keyArray.length === 4) {
             switch (keyArray[0]) {
                 case "cr":
-                    GetCombatReport(ApiKeyInput, CombatReports, setCombatReports, setApiKeyInputValidity, setLoading);
+                    GetCombatReport(ApiKeyInput, CombatReports, setCombatReports, setApiKeyInputValidity, setLoading, setApiKeyInputValidityMessage);
                     break;
                 default:
                     setApiKeyInputValidity(false);
+                    setApiKeyInputValidityMessage("InvalidKey");
                     break;
             }
-        } else
+        } else{
             setApiKeyInputValidity(false);
+            setApiKeyInputValidityMessage("InvalidKey");
+        }
     }
 
     useEffect(() => {
@@ -93,6 +97,9 @@ export default function Main() {
                     disabled={Loading}
                 >{Loading ? t("Loading") : t("AddKey")}
                 </Button>
+            </div>
+            <div className="api-key-validity-message">
+                {t(ApiKeyInputValidityMessage)}
             </div>
             <SectionTitle title="Attackers" icon="fighter-jet" />
             {AttackersPanels}
