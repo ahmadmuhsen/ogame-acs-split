@@ -15,6 +15,7 @@ export const GetCombatReport = (combatReport, CombatReports, setCombatReports, s
             if (CombatReports.length > 0 && CombatReports[0].coordinates !== data.generic.combat_coordinates) {
                 setApiKeyInputValidity(false);
                 setApiKeyInputValidityMessage("InvalidCoordinates");
+                setLoading(false);
             } else {
                 let crdata = {};
                 crdata.key = data.Id;
