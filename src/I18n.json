@@ -36,7 +36,8 @@
             "InterplanetaryMissiles": "IPM",
             "InvalidKey": "The key is invalid.",
             "ServerError": "Internal Server Error. Please Contact Administrator.",
-            "UnknownError": "Something Went Wrong. Please Contact Administrator."
+            "UnknownError": "Something Went Wrong. Please Contact Administrator.",
+            "InvalidCoordinates": "The report belongs to different coordinates."
         }
     }
 }
