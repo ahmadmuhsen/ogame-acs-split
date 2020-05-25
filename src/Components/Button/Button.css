@@ -1,0 +1,18 @@
+.button{
+    color: white;
+    background-color: black;
+    padding: 0px 10px;
+    border-radius: 5px;
+    height: 35px;
+    border: none;
+    cursor: pointer;
+}
+
+.button:focus{
+    outline: none;
+}
+
+.button.large{
+    height: 40px;
+    font-size: 25px;
+}

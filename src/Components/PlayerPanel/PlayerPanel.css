@@ -1,0 +1,47 @@
+.player-panel{
+    background-color: var(--main-panel-bg-color);
+    color: white;
+    padding: 10px;
+}
+
+.fleet-stats {
+    display: flex;
+    margin-bottom: 5px;
+}
+
+.fleet-stats .fleet-label{
+    width: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.fleet-stats .fleet-numbers{
+    width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.ship-statistic{
+    display: flex;
+    flex-direction: column;
+    padding: 5px 0px;
+    width: 6.66%;
+}
+
+.ship-statistic .ship-name{
+    text-align: center;
+}
+
+.ship-statistic .total-ships{
+    text-align: center;
+    font-size: 13px;
+}
+
+.ship-statistic .text-input{
+    text-align: center;
+    border-radius: 0px;
+    height: 25px;
+    border-bottom: 1px solid grey;
+}

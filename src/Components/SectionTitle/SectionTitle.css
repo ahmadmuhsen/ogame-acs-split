@@ -1,0 +1,19 @@
+.section-title{
+    background-color: var(--main-panel-bg-color);
+    width: auto;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    padding: 0px 10px;
+}
+
+.section-title .fas{
+    color: white;
+    font-size: 25px;
+}
+
+.section-title .title{
+    color: white;
+    font-size: 25px;
+    margin-left: 10px;
+}

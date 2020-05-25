@@ -1,0 +1,33 @@
+{
+    "ships": {
+        "202": "SmallCargo",
+        "203": "LargeCargo",
+        "204": "LightFighter",
+        "205": "HeavyFighter",
+        "206": "Cruiser",
+        "207": "BattleShip",
+        "208": "ColonyShip",
+        "209": "Recycler",
+        "210": "EspionageProbe",
+        "211": "Bomber",
+        "213": "Destroyer",
+        "214": "Deathstar",
+        "215": "BattleCruiser",
+        "218": "Reaper",
+        "219": "Pathfinder"
+    },
+    "defence": {
+        "212": "SolarSatellite",
+        "217": "Crawler",
+        "401": "RocketLauncher",
+        "402": "LightLaser",
+        "403": "HeavyLaser",
+        "404": "GaussCannon",
+        "405": "IonCannon",
+        "406": "PlasmaTurret",
+        "407": "SmallShieldDome",
+        "408": "LargeShieldDome",
+        "502": "AntiBallisticMissiles",
+        "503": "InterplanetaryMissiles"
+    }
+}

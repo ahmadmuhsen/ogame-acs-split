@@ -7,17 +7,19 @@ body {
 
 :root {
   --main-panel-bg-color: rgb(0, 0, 0, 0.7);
+  --main-input-bg-color: rgb(0, 0, 0);
+  --main-invalid-bg-color: rgb(255, 8, 0, 0.3);
 }
 
 ::-webkit-scrollbar {
   width: 3px;
 }
 ::-webkit-scrollbar-track {
-  background: transparent;
+  background: var(--main-panel-bg-color);
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--primary-bg-color);
+  background: black;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--info-bg-color);;
+  background: white;
 }

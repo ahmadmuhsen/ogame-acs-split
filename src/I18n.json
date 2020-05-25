@@ -3,7 +3,37 @@
         "translation": {
             "SiteName": "ACS Split",
             "Repository": "Repository",
-            "ReportIssue": "Report Issue"
+            "ReportIssue": "Report Issue",
+            "ApiKeysInputPlaceholder": "Combat/Recycler Report API",
+            "AddKey": "Add Key",
+            "Loading": "Loading",
+            "SmallCargo": "SC",
+            "LargeCargo": "LC",
+            "LightFighter": "LF",
+            "HeavyFighter": "HF",
+            "Cruiser": "CR",
+            "BattleShip": "BS",
+            "ColonyShip": "CS",
+            "Recycler": "Rec",
+            "EspionageProbe": "Esp",
+            "Bomber": "Bomber",
+            "SolarSatellite": "SS",
+            "Destroyer": "Des",
+            "Deathstar": "RIP",
+            "BattleCruiser": "BC",
+            "Crawler": "Crawler",
+            "Reaper": "Reaper",
+            "Pathfinder": "PF",
+            "RocketLauncher": "RL",
+            "LightLaser": "LL",
+            "HeavyLaser": "HL",
+            "GaussCannon": "Gauss",
+            "IonCannon": "Ion",
+            "PlasmaTurret": "Plasma",
+            "SmallShieldDome": "SDome",
+            "LargeShieldDome": "LDome",
+            "AntiBallisticMissiles": "ABM",
+            "InterplanetaryMissiles": "IPM"
         }
     }
 }

@@ -1,0 +1,25 @@
+.main{
+    padding: 30px;
+}
+
+.api-keys-input{
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.api-keys-input .text-input{
+    width: 80%;
+}
+
+.api-keys-input .button{
+    width: 18%;
+}
+
+.main .section-title{
+    margin-bottom: 20px;
+}
+
+.main .player-panel{
+    margin-bottom: 20px;
+}
