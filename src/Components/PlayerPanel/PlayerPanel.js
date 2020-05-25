@@ -103,10 +103,10 @@ function ShipStatistic({ ship, name }) {
                 valid={true}
             />
             <TextInput
-                value={-(ship.preCount - ship.postCount)}
+                value={ship.postCount}
                 valid={true}
             />
-            <div className="total-ships">{ship.postCount}</div>
+            <div className="total-loss">{-(ship.preCount - ship.postCount)}</div>
         </div>
     )
 }

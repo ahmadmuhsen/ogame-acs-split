@@ -28,20 +28,21 @@
     flex-direction: column;
     padding: 5px 0px;
     width: 6.66%;
+    align-items: center;
 }
 
 .ship-statistic .ship-name{
     text-align: center;
 }
 
-.ship-statistic .total-ships{
+.ship-statistic .total-loss{
     text-align: center;
     font-size: 13px;
 }
 
 .ship-statistic .text-input{
     text-align: center;
-    border-radius: 0px;
     height: 25px;
-    border-bottom: 1px solid grey;
+    width: 90%;
+    margin-top: 5px;
 }

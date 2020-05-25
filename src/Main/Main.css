@@ -9,6 +9,8 @@
 
 .api-keys-input .text-input{
     width: 80%;
+    background-color: var(--main-panel-bg-color);
+    color: var(--main-panel-txt-color);
 }
 
 .api-keys-input .button{
