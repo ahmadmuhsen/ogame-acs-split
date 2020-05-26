@@ -21,15 +21,15 @@
             "Destroyer": "Des",
             "Deathstar": "RIP",
             "BattleCruiser": "BC",
-            "Crawler": "Crawler",
+            "Crawler": "CRWL",
             "Reaper": "Reaper",
             "Pathfinder": "PF",
             "RocketLauncher": "RL",
             "LightLaser": "LL",
             "HeavyLaser": "HL",
-            "GaussCannon": "Gauss",
-            "IonCannon": "Ion",
-            "PlasmaTurret": "Plasma",
+            "GaussCannon": "GC",
+            "IonCannon": "IC",
+            "PlasmaTurret": "PT",
             "SmallShieldDome": "SDome",
             "LargeShieldDome": "LDome",
             "AntiBallisticMissiles": "ABM",
@@ -37,7 +37,11 @@
             "InvalidKey": "The key is invalid.",
             "ServerError": "Internal Server Error. Please Contact Administrator.",
             "UnknownError": "Something Went Wrong. Please Contact Administrator.",
-            "InvalidCoordinates": "The report belongs to different coordinates."
+            "InvalidCoordinates": "The report belongs to different coordinates.",
+            "Ship": "Ship",
+            "PreAttack": "Pre",
+            "PostAttack": "Post",
+            "Losses": "Losses"
         }
     }
 }

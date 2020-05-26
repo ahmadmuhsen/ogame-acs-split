@@ -1,0 +1,36 @@
+.fleet-statistic {
+  display: flex;
+  margin-bottom: 5px;
+}
+
+.fleet-statistic .fleet-results {
+  width: 40%;
+}
+
+.fleet-statistic .fleet-composition {
+  width: 60%;
+  display: flex;
+}
+
+.fleet-statistic .fleet-composition .composition-labels {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-size: 12px;
+  width: 5%;
+  height: 80px;
+}
+
+.fleet-statistic .fleet-composition .composition-labels div{
+    height: 25%;
+    display: flex;
+    align-items: center;
+  }
+
+.fleet-statistic .fleet-composition .composition-statistics {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  font-size: 12px;
+  width: 95%;
+}

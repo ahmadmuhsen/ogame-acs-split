@@ -1,0 +1,24 @@
+.ship-statistic {
+    display:flex;
+    flex-direction: column;
+    height: 80px;
+    justify-content: space-between;
+    width: 6.66%;
+    padding: 0px 2px;
+}
+
+.ship-statistic .ship-name{
+    text-align: center;
+}
+
+.ship-statistic .text-input{
+    font-size: 12px;
+    height: 20px;
+    padding: 0px;
+    text-align: center;
+}
+
+.ship-statistic .ship-loss{
+    text-align: center;
+    font-size: 12px;
+}

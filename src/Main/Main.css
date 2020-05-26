@@ -1,5 +1,8 @@
 .main{
-    padding: 30px;
+    padding: 10px;
+    width: 100%;
+    max-width: 1575px;
+    margin: auto;
 }
 
 .api-keys-input{
@@ -18,11 +21,11 @@
 }
 
 .main .section-title{
-    margin-bottom: 20px;
+    margin-bottom: 5px;
 }
 
 .main .player-panel{
-    margin-bottom: 20px;
+    margin-bottom: 5px;
 }
 
 .main .api-key-validity-message{
