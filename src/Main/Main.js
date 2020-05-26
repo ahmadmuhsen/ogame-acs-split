@@ -4,6 +4,7 @@ import SectionTitle from '../Components/SectionTitle/SectionTitle';
 import TextInput from '../Components/TextInput/TextInput';
 import Button from '../Components/Button/Button';
 import PlayerPanel from '../Components/PlayerPanel/PlayerPanel';
+import ACSAttackResult from '../Components/ACSAttackResults/ACSAttackResults';
 
 import { useTranslation } from "react-i18next";
 import { GetCombatReport } from './GetCombatReport';
@@ -36,7 +37,7 @@ export default function Main() {
                     setApiKeyInputValidityMessage("InvalidKey");
                     break;
             }
-        } else{
+        } else {
             setApiKeyInputValidity(false);
             setApiKeyInputValidityMessage("InvalidKey");
         }
@@ -51,7 +52,6 @@ export default function Main() {
     useEffect(() => {
         let attackerPanels = [];
         let defenderPanels = [];
-
         Attackers.forEach((attacker, id) => {
             attackerPanels.push((
                 <PlayerPanel
@@ -101,12 +101,15 @@ export default function Main() {
             <div className="api-key-validity-message">
                 {t(ApiKeyInputValidityMessage)}
             </div>
+            <SectionTitle title="ACS Attack Results" icon="users" />
+            <ACSAttackResult combatReports={CombatReports} />
+
             <SectionTitle title="Attackers" icon="fighter-jet" />
             {AttackersPanels}
 
             <SectionTitle title="Defenders" icon="shield-alt" />
             {DefendersPanels}
-            
+
         </div>
     )
 }

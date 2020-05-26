@@ -7,6 +7,7 @@ body {
 
 :root {
   --main-panel-bg-color: rgb(0, 0, 0, 0.7);
+  --main-paneltitle-bg-color: rgb(0, 0, 0);
   --main-panel-txt-color: rgb(255, 255, 255);
   
   --main-input-bg-color: rgb(255, 255, 255, 0.9);

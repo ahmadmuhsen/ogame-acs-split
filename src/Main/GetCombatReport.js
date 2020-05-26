@@ -20,6 +20,15 @@ export const GetCombatReport = (combatReport, CombatReports, setCombatReports, s
                 let crdata = {};
                 crdata.key = data.Id;
                 crdata.coordinates = data.generic.combat_coordinates;
+
+                crdata.metalLoot = data.generic.loot_metal;
+                crdata.crystalLoot = data.generic.loot_crystal;
+                crdata.deuterium = data.generic.loot_deuterium;
+                crdata.debrisMetal = data.generic.debris_metal;
+                crdata.debrisCrystal = data.generic.debris_crystal;
+                crdata.debrisReaperMetal = data.generic.debris_reaper_metal_retrieved;
+                crdata.debrisReaperCrystal = data.generic.debris_reaper_crystal_retrieved;
+
                 crdata.attackers = ParseFleeterData(
                     data.attackers,
                     data.rounds.length > 0 ? data.rounds[data.rounds.length - 1].attacker_ships : [],
@@ -35,7 +44,6 @@ export const GetCombatReport = (combatReport, CombatReports, setCombatReports, s
                 );
 
                 let crs = [...CombatReports];
-                console.log(crdata);
                 crs.push(crdata);
                 setApiKeyInputValidity(true);
                 setApiKeyInputValidityMessage("");

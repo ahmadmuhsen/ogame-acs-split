@@ -41,7 +41,16 @@
             "Ship": "Ship",
             "PreAttack": "Pre",
             "PostAttack": "Post",
-            "Losses": "Losses"
+            "Losses": "Losses",
+            "ACSAttack": "ACS Attack",
+            "Attack": "Attack",
+            "Metal": "Metal",
+            "Crystal": "Crystal",
+            "Dueterium": "Dueterium",
+            "DFMetal": "DF Metal",
+            "DFCrystal": "DF Crystal",
+            "DFReaperMetal": "Reaper Metal",
+            "DFReaperCrystal": "Reaper Crystal"
         }
     }
 }

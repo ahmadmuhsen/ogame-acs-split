@@ -1,5 +1,5 @@
 .section-title{
-    background-color: var(--main-panel-bg-color);
+    background-color: var(--main-paneltitle-bg-color);
     width: auto;
     height: 30px;
     display: flex;
