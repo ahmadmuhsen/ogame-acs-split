@@ -9,6 +9,7 @@ import ACSAttackResult from '../Components/ACSAttackResults/ACSAttackResults';
 import { useTranslation } from "react-i18next";
 import { GetCombatReport } from './GetCombatReport';
 import { SetCombatStatistics } from './SetCombatStatistics';
+import { SetResourceStatistics } from './SetResourceStatistics';
 
 import './Main.css';
 
@@ -51,11 +52,13 @@ export default function Main() {
         SetCombatStatistics(CombatReports, setAttackers, setDefenders);
         setLoading(false);
         setApiKeyInput("");
+        SetResourceStatistics(CombatReports);
     }, [CombatReports])
 
     useEffect(() => {
         let attackerPanels = [];
         let defenderPanels = [];
+
         Attackers.forEach((attacker, id) => {
             attackerPanels.push((
                 <PlayerPanel

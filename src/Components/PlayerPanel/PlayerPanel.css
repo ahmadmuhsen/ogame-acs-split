@@ -9,8 +9,32 @@
   display: flex;
 }
 
-.player-section .fleet-section {
+.player-panel .fleet-section {
   width: 100%;
   display: flex;
   flex-direction: column;
+}
+
+.player-panel .fleet-section .labels {
+  width: 100%;
+  display: flex;
+}
+
+.player-panel .fleet-section .labels .resource-statistics-labels {
+  width: 40%;
+  display: flex;
+}
+
+.player-panel .fleet-section .labels .resource-statistics-labels div {
+  width: calc(100% / 4);
+  text-align: center;
+}
+
+.player-panel .fleet-section .labels .resource-statistics-labels div.hidden {
+  display: none;
+}
+
+.player-panel .fleet-section .labels .fleet-statistics-labels {
+  text-align: center;
+  width: 60%;
 }
