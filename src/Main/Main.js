@@ -43,6 +43,10 @@ export default function Main() {
         }
     }
 
+    const ResetCombatReports = () => {
+        setCombatReports([]);
+    }
+
     useEffect(() => {
         SetCombatStatistics(CombatReports, setAttackers, setDefenders);
         setLoading(false);
@@ -84,7 +88,6 @@ export default function Main() {
         <div className="main">
             <div className="api-keys-input">
                 <TextInput
-                    size="large"
                     placeholder={t("ApiKeysInputPlaceholder")}
                     value={ApiKeyInput}
                     onChange={(event) => setApiKeyInput(event.target.value)}
@@ -92,10 +95,18 @@ export default function Main() {
                     disabled={Loading}
                 />
                 <Button
-                    size="large"
                     onClick={GetReport}
                     disabled={Loading}
-                >{Loading ? t("Loading") : t("AddKey")}
+                >
+                    <i className={`fas fa-${Loading ? "spinner" : "plus"}`} />
+                    {Loading ? t("Loading") : t("AddKey")}
+                </Button>
+                <Button
+                    onClick={ResetCombatReports}
+                    disabled={Loading}
+                >
+                    <i className="fas fa-trash-alt" />
+                    {t("Reset")}
                 </Button>
             </div>
             <div className="api-key-validity-message">
