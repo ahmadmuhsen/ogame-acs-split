@@ -11,13 +11,13 @@
 }
 
 .api-keys-input .text-input{
-    width: 80%;
+    width: 78%;
     background-color: var(--main-panel-bg-color);
     color: var(--main-panel-txt-color);
 }
 
 .api-keys-input .button{
-    width: 18%;
+    width: 10%;
 }
 
 .main .section-title{
