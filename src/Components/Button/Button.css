@@ -11,8 +11,3 @@
 .button:focus{
     outline: none;
 }
-
-.button.large{
-    height: 40px;
-    font-size: 25px;
-}

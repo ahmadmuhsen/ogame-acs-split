@@ -17,7 +17,7 @@
 }
 
 .acs-attack-result .labels div{
-    width: calc(100% / 6);
+    width: calc(100% / 8);
     color: white;
     display: flex;
     justify-content: center;

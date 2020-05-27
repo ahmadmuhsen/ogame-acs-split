@@ -1,10 +1,10 @@
 import React from 'react';
 import './Button.css';
 
-export default function Button({ size, children, onClick, disabled }) {
+export default function Button({ children, onClick, disabled }) {
     return (
         <button
-            className={`button ${size}`}
+            className={`button`}
             onClick={onClick}
             disabled={disabled}
         >

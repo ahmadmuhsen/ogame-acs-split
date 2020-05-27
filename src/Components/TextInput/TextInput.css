@@ -13,8 +13,3 @@
 .text-input:focus{
     outline: none;
 }
-
-.text-input.large{
-    height: 40px;
-    font-size: 25px;
-}
