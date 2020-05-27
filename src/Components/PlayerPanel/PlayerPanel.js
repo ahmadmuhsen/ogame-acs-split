@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from "react-i18next";
 
-import TextInput from "../TextInput/TextInput";
 import FleetStatistic from "./FleetStatistic/FleetStatistic";
 import './PlayerPanel.css';
 
 export default function PlayerPanel({ combatReports, player, id, isDefender, isCoordinateOwner }) {
-
+    const { t } = useTranslation();
     const [FleetStatistics, setFleetStatistics] = useState([])
 
     useEffect(() => {
@@ -34,6 +33,17 @@ export default function PlayerPanel({ combatReports, player, id, isDefender, isC
                 <div className="name">{`${player.alliance != null ? `[${player.alliance}]` : ""} ${player.name}`}</div>
             </div>
             <div className="fleet-section">
+                <div className="labels">
+                    <div className="resource-statistics-labels">
+                        <div className={isDefender ? "hidden" : ""}>{t("Metal")}</div>
+                        <div className={isDefender ? "hidden" : ""}>{t("Crystal")}</div>
+                        <div className={isDefender ? "hidden" : ""}>{t("Deuterium")}</div>
+                        <div className={isDefender ? "hidden" : ""}>{t("Cargo")}</div>
+                    </div>
+                    <div className="fleet-statistics-labels">
+                        {t("FleetComposition")}
+                    </div>
+                </div>
                 {FleetStatistics}
             </div>
         </div>

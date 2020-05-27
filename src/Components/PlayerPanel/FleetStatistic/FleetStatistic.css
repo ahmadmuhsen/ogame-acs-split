@@ -5,6 +5,22 @@
 
 .fleet-statistic .fleet-results {
   width: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.fleet-statistic .fleet-results .resources-collected {
+  display: flex;
+}
+
+.fleet-statistic .fleet-results .resources-collected div {
+  width: calc(100% / 3);
+  text-align: center;
+}
+
+.fleet-statistic .fleet-results .resources-collected .hidden {
+  display: none;
 }
 
 .fleet-statistic .fleet-composition {
@@ -21,11 +37,11 @@
   height: 80px;
 }
 
-.fleet-statistic .fleet-composition .composition-labels div{
-    height: 25%;
-    display: flex;
-    align-items: center;
-  }
+.fleet-statistic .fleet-composition .composition-labels div {
+  height: 25%;
+  display: flex;
+  align-items: center;
+}
 
 .fleet-statistic .fleet-composition .composition-statistics {
   display: flex;

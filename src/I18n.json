@@ -46,12 +46,15 @@
             "Attack": "Attack",
             "Metal": "Metal",
             "Crystal": "Crystal",
-            "Dueterium": "Dueterium",
+            "Deuterium": "Deuterium",
             "DFMetal": "DF Metal",
             "DFCrystal": "DF Crystal",
             "DFReaperMetal": "Reaper Metal",
             "DFReaperCrystal": "Reaper Crystal",
-            "Total": "Total"
+            "Total": "Total",
+            "ResCollected": "Loot",
+            "FleetComposition": "Fleet Composition",
+            "Cargo": "Cargo"
         }
     }
 }

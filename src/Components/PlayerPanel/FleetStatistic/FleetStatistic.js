@@ -7,10 +7,10 @@ import './FleetStatistic.css';
 
 export default function FleetStatistic({ fleet, number, isDefender, isCoordinateOwner }) {
     const { t } = useTranslation();
-    const [ShipStatistics, setShipStatistics] = useState([])
-    const [DefenceStatistics, setDefenceStatistics] = useState([])
-    useEffect(() => {
+    const [ShipStatistics, setShipStatistics] = useState([]);
+    const [DefenceStatistics, setDefenceStatistics] = useState([]);
 
+    useEffect(() => {
         let shipStatistics = [];
         Object.keys(FleetTypes.ships).forEach(shipId => {
             let emptyStat = {
@@ -21,7 +21,7 @@ export default function FleetStatistic({ fleet, number, isDefender, isCoordinate
                 <ShipStatistic
                     ship={fleet.fleet[shipId] ? fleet.fleet[shipId] : emptyStat}
                     key={shipId}
-                    name={t(FleetTypes.ships[shipId])}
+                    name={t(FleetTypes.ships[shipId].i18nKey)}
                 />
             ))
         })
@@ -51,7 +51,12 @@ export default function FleetStatistic({ fleet, number, isDefender, isCoordinate
     return (
         <div className="fleet-statistic">
             <div className="fleet-results">
-
+                <div className="resources-collected">
+                    <div className={isDefender ? "hidden" : ""}>{Math.round(fleet.metalLoot)}</div>
+                    <div className={isDefender ? "hidden" : ""}>{Math.round(fleet.crystalLoot)}</div>
+                    <div className={isDefender ? "hidden" : ""}>{Math.round(fleet.deuteriumLoot)}</div>
+                    <div className={isDefender ? "hidden" : ""}>{Math.round(fleet.fleetCapacity)}</div>
+                </div>
             </div>
             <div className="fleet-composition">
                 <div className="composition-labels">

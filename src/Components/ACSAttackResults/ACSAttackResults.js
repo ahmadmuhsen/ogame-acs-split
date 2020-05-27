@@ -49,7 +49,7 @@ export default function ACSAttackResult({ combatReports }) {
                 <div>{t("ACSAttack")}</div>
                 <div>{t("Metal")}</div>
                 <div>{t("Crystal")}</div>
-                <div>{t("Dueterium")}</div>
+                <div>{t("Deuterium")}</div>
                 <div>{t("DFMetal")}</div>
                 <div>{t("DFCrystal")}</div>
                 <div>{t("DFReaperMetal")}</div>

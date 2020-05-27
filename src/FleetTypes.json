@@ -1,20 +1,65 @@
 {
     "ships": {
-        "202": "SmallCargo",
-        "203": "LargeCargo",
-        "204": "LightFighter",
-        "205": "HeavyFighter",
-        "206": "Cruiser",
-        "207": "BattleShip",
-        "208": "ColonyShip",
-        "209": "Recycler",
-        "210": "EspionageProbe",
-        "211": "Bomber",
-        "213": "Destroyer",
-        "214": "Deathstar",
-        "215": "BattleCruiser",
-        "218": "Reaper",
-        "219": "Pathfinder"
+        "202":{
+            "i18nKey": "SmallCargo",
+            "baseCapacity": 5000
+        },
+        "203":{
+            "i18nKey": "LargeCargo",
+            "baseCapacity": 25000
+        },
+        "204":{
+            "i18nKey": "LightFighter",
+            "baseCapacity": 50
+        },
+        "205":{
+            "i18nKey": "HeavyFighter",
+            "baseCapacity": 100
+        },
+        "206":{
+            "i18nKey": "Cruiser",
+            "baseCapacity": 800
+        },
+        "207":{
+            "i18nKey": "BattleShip",
+            "baseCapacity": 1500
+        },
+        "208":{
+            "i18nKey": "ColonyShip",
+            "baseCapacity": 7500
+        },
+        "209":{
+            "i18nKey": "Recycler",
+            "baseCapacity": 20000
+        },
+        "210":{
+            "i18nKey": "EspionageProbe",
+            "baseCapacity": 0
+        },
+        "211":{
+            "i18nKey": "Bomber",
+            "baseCapacity": 500
+        },
+        "213":{
+            "i18nKey": "Destroyer",
+            "baseCapacity": 2000
+        },
+        "214":{
+            "i18nKey": "Deathstar",
+            "baseCapacity": 1000000
+        },
+        "215":{
+            "i18nKey": "BattleCruiser",
+            "baseCapacity": 750
+        },
+        "218":{
+            "i18nKey": "Reaper",
+            "baseCapacity": 10000
+        },
+        "219":{
+            "i18nKey": "Pathfinder",
+            "baseCapacity": 10000
+        }
     },
     "defence": {
         "212": "SolarSatellite",
