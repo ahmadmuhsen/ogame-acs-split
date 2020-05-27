@@ -23,7 +23,7 @@ export const GetCombatReport = (combatReport, CombatReports, setCombatReports, s
 
                 crdata.metalLoot = data.generic.loot_metal;
                 crdata.crystalLoot = data.generic.loot_crystal;
-                crdata.deuterium = data.generic.loot_deuterium;
+                crdata.deuteriumLoot = data.generic.loot_deuterium;
                 crdata.debrisMetal = data.generic.debris_metal;
                 crdata.debrisCrystal = data.generic.debris_crystal;
                 crdata.debrisReaperMetal = data.generic.debris_reaper_metal_retrieved;

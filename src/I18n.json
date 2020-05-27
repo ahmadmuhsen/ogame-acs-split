@@ -50,7 +50,8 @@
             "DFMetal": "DF Metal",
             "DFCrystal": "DF Crystal",
             "DFReaperMetal": "Reaper Metal",
-            "DFReaperCrystal": "Reaper Crystal"
+            "DFReaperCrystal": "Reaper Crystal",
+            "Total": "Total"
         }
     }
 }

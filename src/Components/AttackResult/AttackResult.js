@@ -23,7 +23,7 @@ export default function AttackResult({ combatReport, number }) {
             </div>
             <div>
                 <TextInput
-                    value={combatReport.deuterium}
+                    value={combatReport.deuteriumLoot}
                     valid={true}
                 />
             </div>
