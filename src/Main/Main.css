@@ -14,10 +14,31 @@
     width: 78%;
     background-color: var(--main-panel-bg-color);
     color: var(--main-panel-txt-color);
+    font-size: 15px;
 }
 
 .api-keys-input .button{
     width: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 15px;
+}
+
+.api-keys-input .button .fas{
+    margin-right: 5px;
+}
+
+.api-keys-input .button .fa-spinner{
+    animation: loading-spinner 2s linear infinite;
+}
+@keyframes loading-spinner {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 .main .section-title{

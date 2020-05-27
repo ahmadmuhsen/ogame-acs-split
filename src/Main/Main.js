@@ -97,12 +97,16 @@ export default function Main() {
                 <Button
                     onClick={GetReport}
                     disabled={Loading}
-                >{Loading ? t("Loading") : t("AddKey")}
+                >
+                    <i className={`fas fa-${Loading ? "spinner" : "plus"}`} />
+                    {Loading ? t("Loading") : t("AddKey")}
                 </Button>
                 <Button
                     onClick={ResetCombatReports}
                     disabled={Loading}
-                >{t("Reset")}
+                >
+                    <i className="fas fa-trash-alt" />
+                    {t("Reset")}
                 </Button>
             </div>
             <div className="api-key-validity-message">
