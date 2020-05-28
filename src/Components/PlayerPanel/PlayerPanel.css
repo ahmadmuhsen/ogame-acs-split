@@ -26,7 +26,7 @@
 }
 
 .player-panel .fleet-section .labels .resource-statistics-labels div {
-  width: calc(100% / 4);
+  width: calc(100% / 3);
   text-align: center;
 }
 
