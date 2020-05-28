@@ -14,27 +14,3 @@
   display: flex;
   flex-direction: column;
 }
-
-.player-panel .fleet-section .labels {
-  width: 100%;
-  display: flex;
-}
-
-.player-panel .fleet-section .labels .resource-statistics-labels {
-  width: 40%;
-  display: flex;
-}
-
-.player-panel .fleet-section .labels .resource-statistics-labels div {
-  width: calc(100% / 3);
-  text-align: center;
-}
-
-.player-panel .fleet-section .labels .resource-statistics-labels div.hidden {
-  display: none;
-}
-
-.player-panel .fleet-section .labels .fleet-statistics-labels {
-  text-align: center;
-  width: 60%;
-}

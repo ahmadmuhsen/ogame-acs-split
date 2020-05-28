@@ -1,0 +1,53 @@
+.panel-statistics-label {
+  width: 100%;
+  display: flex;
+  background-color: var(--main-paneltitle-bg-color);
+  color: var(--main-panel-txt-color);
+  margin-bottom: 5px;
+}
+
+.panel-statistics-label .resource-statistics-labels {
+  width: 40%;
+  display: flex;
+}
+
+.panel-statistics-label .resource-statistics-labels > div {
+  width: calc(100% / 6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.panel-statistics-label .resource-statistics-labels div.hidden {
+  display: none;
+}
+
+.panel-statistics-label .fleet-statistics-label {
+  width: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.resource-icon {
+  background: url("../../assets/resources.jpg");
+  background-size: 200px;
+  width: 40px;
+  height: 26.6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: red;
+  font-weight: 700;
+  font-size: 25px;
+}
+.metal-icon {
+  background-position: 0px;
+}
+
+.crystal-icon {
+  background-position: -40px;
+}
+
+.deuterium-icon {
+  background-position: -80px;
+}

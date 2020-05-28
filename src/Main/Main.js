@@ -5,6 +5,7 @@ import TextInput from '../Components/TextInput/TextInput';
 import Button from '../Components/Button/Button';
 import PlayerPanel from '../Components/PlayerPanel/PlayerPanel';
 import ACSAttackResult from '../Components/ACSAttackResults/ACSAttackResults';
+import PanelStatisticsLabel from '../Components/PanelStatisticsLabel/PanelStatisticsLabel';
 
 import { useTranslation } from "react-i18next";
 import { GetCombatReport } from './GetCombatReport';
@@ -119,6 +120,7 @@ export default function Main() {
             <ACSAttackResult combatReports={CombatReports} />
 
             <SectionTitle title="Attackers" icon="fighter-jet" />
+            <PanelStatisticsLabel isDefender={false} />
             {AttackersPanels}
 
             <SectionTitle title="Defenders" icon="shield-alt" />

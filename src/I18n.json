@@ -54,7 +54,10 @@
             "Total": "Total",
             "ResCollected": "Loot",
             "FleetComposition": "Fleet Composition",
-            "Cargo": "Cargo"
+            "Cargo": "Cargo",
+            "Launch": "Launch",
+            "Type": "Type",
+            "DF": "DF"
         }
     }
 }
