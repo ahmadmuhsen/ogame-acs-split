@@ -55,7 +55,6 @@ export default function FleetStatistic({ fleet, number, isDefender, isCoordinate
                     <div className={isDefender ? "hidden" : ""}>{Math.round(fleet.metalLoot)}</div>
                     <div className={isDefender ? "hidden" : ""}>{Math.round(fleet.crystalLoot)}</div>
                     <div className={isDefender ? "hidden" : ""}>{Math.round(fleet.deuteriumLoot)}</div>
-                    <div className={isDefender ? "hidden" : ""}>{Math.round(fleet.fleetCapacity)}</div>
                 </div>
             </div>
             <div className="fleet-composition">

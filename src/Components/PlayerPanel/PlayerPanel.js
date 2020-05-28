@@ -38,7 +38,6 @@ export default function PlayerPanel({ combatReports, player, id, isDefender, isC
                         <div className={isDefender ? "hidden" : ""}>{t("Metal")}</div>
                         <div className={isDefender ? "hidden" : ""}>{t("Crystal")}</div>
                         <div className={isDefender ? "hidden" : ""}>{t("Deuterium")}</div>
-                        <div className={isDefender ? "hidden" : ""}>{t("Cargo")}</div>
                     </div>
                     <div className="fleet-statistics-labels">
                         {t("FleetComposition")}
