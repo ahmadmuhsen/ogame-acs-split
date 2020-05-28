@@ -3,6 +3,12 @@
   margin-bottom: 5px;
 }
 
+.fleet-statistic-seperator {
+  border-color: var(--main-paneltitle-bg-color);
+  background-color: var(--main-paneltitle-bg-color);
+  height: 7px;
+}
+
 .fleet-statistic .fleet-results {
   width: 40%;
   display: flex;

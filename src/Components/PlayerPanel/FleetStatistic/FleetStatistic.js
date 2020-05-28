@@ -49,30 +49,33 @@ export default function FleetStatistic({ fleet, number, isDefender, isCoordinate
     }, [fleet])
 
     return (
-        <div className="fleet-statistic">
-            <div className="fleet-results">
-                <div className="resources-collected">
-                    <div className={isDefender ? "hidden" : ""}>{Math.round(fleet.metalLoot)}</div>
-                    <div className={isDefender ? "hidden" : ""}>{Math.round(fleet.crystalLoot)}</div>
-                    <div className={isDefender ? "hidden" : ""}>{Math.round(fleet.deuteriumLoot)}</div>
-                </div>
-            </div>
-            <div className="fleet-composition">
-                <div className="composition-labels">
-                    <div>
-                    </div>
-                    <div>
-                        {t("PreAttack")}
-                    </div>
-                    <div>
-                        {t("PostAttack")}
-                    </div>
-                    <div>
+        <div>
+            <hr className="fleet-statistic-seperator"/>
+            <div className="fleet-statistic">
+                <div className="fleet-results">
+                    <div className="resources-collected">
+                        <div className={isDefender ? "hidden" : ""}>{Math.round(fleet.metalLoot)}</div>
+                        <div className={isDefender ? "hidden" : ""}>{Math.round(fleet.crystalLoot)}</div>
+                        <div className={isDefender ? "hidden" : ""}>{Math.round(fleet.deuteriumLoot)}</div>
                     </div>
                 </div>
-                <div className="composition-statistics">
-                    {ShipStatistics}
-                    {DefenceStatistics}
+                <div className="fleet-composition">
+                    <div className="composition-labels">
+                        <div>
+                        </div>
+                        <div>
+                            {t("PreAttack")}
+                        </div>
+                        <div>
+                            {t("PostAttack")}
+                        </div>
+                        <div>
+                        </div>
+                    </div>
+                    <div className="composition-statistics">
+                        {ShipStatistics}
+                        {DefenceStatistics}
+                    </div>
                 </div>
             </div>
         </div>
