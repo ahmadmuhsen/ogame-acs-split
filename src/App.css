@@ -9,12 +9,15 @@ body {
   --main-panel-bg-color: rgb(0, 0, 0, 0.7);
   --main-paneltitle-bg-color: rgb(0, 0, 0);
   --main-panel-txt-color: rgb(255, 255, 255);
-  
+
   --main-input-bg-color: rgb(255, 255, 255, 0.9);
   --main-input-txt-color: rgb(0, 0, 0);
-  
+
   --main-invalid-bg-color: rgb(255, 8, 0, 0.3);
   --main-invalid-message-color: rgb(255, 8, 0);
+
+  --main-gain-bg-color: rgb(36, 56, 32);
+  --main-loss-bg-color: rgb(167, 31, 35);
 }
 
 ::-webkit-scrollbar {

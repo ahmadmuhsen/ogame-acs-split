@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from "react-i18next";
+import { FormatUnits } from "../../../Main/FormatUnits";
 
 import ShipStatistic from "./ShipStatistic/ShipStatistic";
 import FleetTypes from "../../../FleetTypes.json";
@@ -49,33 +50,37 @@ export default function FleetStatistic({ fleet, number, isDefender, isCoordinate
     }, [fleet])
 
     return (
-        <div>
-            <hr className="fleet-statistic-seperator"/>
-            <div className="fleet-statistic">
-                <div className="fleet-results">
-                    <div className="resources-collected">
-                        <div className={isDefender ? "hidden" : ""}>{Math.round(fleet.metalLoot)}</div>
-                        <div className={isDefender ? "hidden" : ""}>{Math.round(fleet.crystalLoot)}</div>
-                        <div className={isDefender ? "hidden" : ""}>{Math.round(fleet.deuteriumLoot)}</div>
+        <div className="fleet-statistic">
+            <div className="fleet-results">
+                <div className={`resources-result gain ${isDefender ? "hidden" : ""}`}>
+                    <div>{`${t("Loot")}`}</div>
+                    <div>{FormatUnits(Math.round(fleet.metalLoot))}</div>
+                    <div>{FormatUnits(Math.round(fleet.crystalLoot))}</div>
+                    <div>{FormatUnits(Math.round(fleet.deuteriumLoot))}</div>
+                </div>
+                <div className={`resources-result loss ${isDefender ? "hidden" : ""}`}>
+                    <div>{`${t("UnitsLost")}`}</div>
+                    <div>{FormatUnits(0)}</div>
+                    <div>{FormatUnits(0)}</div>
+                    <div>{FormatUnits(0)}</div>
+                </div>
+            </div>
+            <div className="fleet-composition">
+                <div className="composition-labels">
+                    <div>
+                    </div>
+                    <div>
+                        {t("PreAttack")}
+                    </div>
+                    <div>
+                        {t("PostAttack")}
+                    </div>
+                    <div>
                     </div>
                 </div>
-                <div className="fleet-composition">
-                    <div className="composition-labels">
-                        <div>
-                        </div>
-                        <div>
-                            {t("PreAttack")}
-                        </div>
-                        <div>
-                            {t("PostAttack")}
-                        </div>
-                        <div>
-                        </div>
-                    </div>
-                    <div className="composition-statistics">
-                        {ShipStatistics}
-                        {DefenceStatistics}
-                    </div>
+                <div className="composition-statistics">
+                    {ShipStatistics}
+                    {DefenceStatistics}
                 </div>
             </div>
         </div>
