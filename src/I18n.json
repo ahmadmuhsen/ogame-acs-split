@@ -52,12 +52,13 @@
             "DFReaperMetal": "Reaper Metal",
             "DFReaperCrystal": "Reaper Crystal",
             "Total": "Total",
-            "ResCollected": "Loot",
+            "Loot": "Loot",
             "FleetComposition": "Fleet Composition",
             "Cargo": "Cargo",
             "Launch": "Launch",
             "Type": "Type",
-            "DF": "DF"
+            "DF": "DF",
+            "UnitsLost": "Units Lost"
         }
     }
 }

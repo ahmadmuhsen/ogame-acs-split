@@ -119,8 +119,9 @@ export default function Main() {
             <SectionTitle title="ACS Attack Results" icon="users" />
             <ACSAttackResult combatReports={CombatReports} />
 
+            <PanelStatisticsLabel hidden={CombatReports.length > 0 ? false : true}/>
+
             <SectionTitle title="Attackers" icon="fighter-jet" />
-            <PanelStatisticsLabel isDefender={false} />
             {AttackersPanels}
 
             <SectionTitle title="Defenders" icon="shield-alt" />
