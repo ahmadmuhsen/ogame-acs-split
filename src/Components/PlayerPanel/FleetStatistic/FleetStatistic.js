@@ -58,11 +58,11 @@ export default function FleetStatistic({ fleet, number, isDefender, isCoordinate
                     <div>{FormatUnits(Math.round(fleet.crystalLoot))}</div>
                     <div>{FormatUnits(Math.round(fleet.deuteriumLoot))}</div>
                 </div>
-                <div className={`resources-result loss ${isDefender ? "hidden" : ""}`}>
+                <div className={`resources-result loss`}>
                     <div>{`${t("UnitsLost")}`}</div>
-                    <div>{FormatUnits(0)}</div>
-                    <div>{FormatUnits(0)}</div>
-                    <div>{FormatUnits(0)}</div>
+                    <div>{FormatUnits(fleet.unitsLost.metal)}</div>
+                    <div>{FormatUnits(fleet.unitsLost.crystal)}</div>
+                    <div>{FormatUnits(fleet.unitsLost.deuterium)}</div>
                 </div>
             </div>
             <div className="fleet-composition">

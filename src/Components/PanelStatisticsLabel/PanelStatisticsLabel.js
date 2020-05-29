@@ -8,7 +8,7 @@ export default function PanelStatisticsLabel({ hidden }) {
     return (
         <div className={`panel-statistics-label ${hidden ? "hidden" : ""}`}>
             <div className="resource-statistics-labels">
-                <div>{t("Type")}</div>
+                <div></div>
                 <div>
                     <div className="resource-icon metal-icon"></div>
                 </div>

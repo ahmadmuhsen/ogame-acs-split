@@ -1,6 +1,6 @@
 import FleetTypes from '../FleetTypes.json';
 
-export function SetResourceStatistics(combatReports){
+export function SetResourceStatistics(combatReports) {
     combatReports.forEach(report => {
         let totalCapacity = 0;
         report.attackers.forEach(attacker => {
@@ -17,5 +17,32 @@ export function SetResourceStatistics(combatReports){
             attacker.crystalLoot = report.crystalLoot * (attacker.fleetCapacity / totalCapacity)
             attacker.deuteriumLoot = report.deuteriumLoot * (attacker.fleetCapacity / totalCapacity)
         })
+
+        CalculateLossFromShips(report.attackers);
+        CalculateLossFromShips(report.defenders);
+    })
+}
+
+function CalculateLossFromShips(fleeters) {
+    fleeters.forEach(fleeter => {
+        let totalLoss = {
+            metal: 0,
+            crystal: 0,
+            deuterium: 0
+        };
+        Object.keys(fleeter.fleet).forEach(shipId => {
+            let shipsLost = fleeter.fleet[shipId].preCount - fleeter.fleet[shipId].postCount;
+            if (FleetTypes.ships[shipId]) {
+                totalLoss.metal += shipsLost * FleetTypes.ships[shipId].buildCost.metal;
+                totalLoss.crystal += shipsLost * FleetTypes.ships[shipId].buildCost.crystal;
+                totalLoss.deuterium += shipsLost * FleetTypes.ships[shipId].buildCost.deuterium;
+            }
+            else {
+                totalLoss.metal += shipsLost * FleetTypes.defence[shipId].buildCost.metal;
+                totalLoss.crystal += shipsLost * FleetTypes.defence[shipId].buildCost.crystal;
+                totalLoss.deuterium += shipsLost * FleetTypes.defence[shipId].buildCost.deuterium;
+            }
+        })
+        fleeter.unitsLost = totalLoss
     })
 }
