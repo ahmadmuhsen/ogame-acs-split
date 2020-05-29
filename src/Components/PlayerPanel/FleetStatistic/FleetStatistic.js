@@ -39,7 +39,7 @@ export default function FleetStatistic({ fleet, number, isDefender, isCoordinate
                     <ShipStatistic
                         ship={fleet.fleet[defenceId] ? fleet.fleet[defenceId] : emptyStat}
                         key={defenceId}
-                        name={t(FleetTypes.defence[defenceId])}
+                        name={t(FleetTypes.defence[defenceId].i18nKey)}
                         t={t}
                     />
                 ))
