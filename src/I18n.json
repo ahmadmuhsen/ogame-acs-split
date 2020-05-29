@@ -56,7 +56,6 @@
             "FleetComposition": "Fleet Composition",
             "Cargo": "Cargo",
             "Launch": "Launch",
-            "Type": "Type",
             "DF": "DF",
             "UnitsLost": "Units Lost"
         }
