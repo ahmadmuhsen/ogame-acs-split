@@ -57,7 +57,8 @@
             "Cargo": "Cargo",
             "Launch": "Launch",
             "DF": "DF",
-            "UnitsLost": "Units Lost"
+            "UnitsLost": "Units Lost",
+            "DeutConsumption": "Deuterium Consumption"
         }
     }
 }

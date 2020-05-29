@@ -38,6 +38,27 @@
   display: none;
 }
 
+.fleet-statistic .fleet-results .deuterium-consumption {
+  display: flex;
+}
+
+.fleet-statistic .fleet-results .deuterium-consumption .label {
+  width:75%;
+  display: flex;
+  justify-content: center;
+  font-weight: 700;
+  color: rgb(0, 29, 250);
+}
+
+.fleet-statistic .fleet-results .deuterium-consumption .input {
+  width:25%;
+}
+
+.fleet-statistic .fleet-results .deuterium-consumption .input .text-input {
+  width:100%;
+  text-align: center;
+}
+
 .fleet-statistic .fleet-composition {
   width: 60%;
   display: flex;

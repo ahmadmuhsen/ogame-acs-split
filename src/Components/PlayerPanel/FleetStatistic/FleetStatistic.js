@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useTranslation } from "react-i18next";
 import { FormatUnits } from "../../../Main/FormatUnits";
 
+import TextInput from "../../TextInput/TextInput";
 import ShipStatistic from "./ShipStatistic/ShipStatistic";
 import FleetTypes from "../../../FleetTypes.json";
 import './FleetStatistic.css';
@@ -12,6 +13,7 @@ export default function FleetStatistic({ fleet, number, isDefender, isCoordinate
     const [DefenceStatistics, setDefenceStatistics] = useState([]);
 
     useEffect(() => {
+        console.log(fleet);
         let shipStatistics = [];
         Object.keys(FleetTypes.ships).forEach(shipId => {
             let emptyStat = {
@@ -53,8 +55,8 @@ export default function FleetStatistic({ fleet, number, isDefender, isCoordinate
         <div className="fleet-statistic">
             <div className="fleet-results">
                 <div className="report-number">
-                    {`${isDefender ? 
-                        t("Defence") : 
+                    {`${isDefender ?
+                        t("Defence") :
                         ("Attack")} [${number}]`}
                 </div>
                 <div className={`resources-result gain ${isDefender ? "hidden" : ""}`}>
@@ -68,6 +70,15 @@ export default function FleetStatistic({ fleet, number, isDefender, isCoordinate
                     <div>{FormatUnits(fleet.unitsLost.metal)}</div>
                     <div>{FormatUnits(fleet.unitsLost.crystal)}</div>
                     <div>{FormatUnits(fleet.unitsLost.deuterium)}</div>
+                </div>
+                <div className={`deuterium-consumption ${isCoordinateOwner ? "hidden" : ""}`}>
+                    <div className="label">{`${t("DeutConsumption")}`}</div>
+                    <div className="input">
+                        <TextInput
+                            value={fleet.deuteriumConsumption}
+                            valid={true}
+                        />
+                    </div>
                 </div>
             </div>
             <div className="fleet-composition">
