@@ -7,7 +7,7 @@ export default function AttackResult({ combatReport, number }) {
     return (
         <div className="attack-result">
             <div className="attack-number">
-                {`#${number}`}
+                {`[${number}]`}
             </div>
             <div>
                 <TextInput

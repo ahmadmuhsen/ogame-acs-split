@@ -52,6 +52,11 @@ export default function FleetStatistic({ fleet, number, isDefender, isCoordinate
     return (
         <div className="fleet-statistic">
             <div className="fleet-results">
+                <div className="report-number">
+                    {`${isDefender ? 
+                        t("Defence") : 
+                        ("Attack")} [${number}]`}
+                </div>
                 <div className={`resources-result gain ${isDefender ? "hidden" : ""}`}>
                     <div>{`${t("Loot")}`}</div>
                     <div>{FormatUnits(Math.round(fleet.metalLoot))}</div>

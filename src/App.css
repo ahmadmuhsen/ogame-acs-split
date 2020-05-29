@@ -16,8 +16,8 @@ body {
   --main-invalid-bg-color: rgb(255, 8, 0, 0.3);
   --main-invalid-message-color: rgb(255, 8, 0);
 
-  --main-gain-bg-color: rgb(36, 56, 32);
-  --main-loss-bg-color: rgb(167, 31, 35);
+  --main-gain-bg-color: rgb(13, 255, 0);
+  --main-loss-bg-color: rgb(252, 3, 32);
 }
 
 ::-webkit-scrollbar {

@@ -11,17 +11,22 @@
   padding-right: 5px;
 }
 
+.fleet-statistic .fleet-results .report-number {
+  display: flex;
+  justify-content: center;
+}
+
 .fleet-statistic .fleet-results .resources-result {
   display: flex;
   font-weight: 700;
 }
 
 .fleet-statistic .fleet-results .resources-result.gain {
-  background-color: var(--main-gain-bg-color);
+  color: var(--main-gain-bg-color);
 }
 
 .fleet-statistic .fleet-results .resources-result.loss {
-  background-color: var(--main-loss-bg-color);
+  color: var(--main-loss-bg-color);
 }
 
 .fleet-statistic .fleet-results .resources-result div {
