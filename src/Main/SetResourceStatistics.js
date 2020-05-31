@@ -5,8 +5,8 @@ export function SetResourceStatistics(combatReports) {
         let totalCapacity = 0;
         report.attackers.forEach(attacker => {
             let playerCapacity = 0;
-            Object.keys(attacker.fleet).forEach(shipId => {
-                playerCapacity += attacker.fleet[shipId].postCount * FleetTypes.ships[shipId].baseCapacity;
+            attacker.fleet.forEach(ship => {
+                playerCapacity += ship.postCount * FleetTypes.ships[ship.shipType].baseCapacity;
             })
             attacker.fleetCapacity = playerCapacity;
             totalCapacity += playerCapacity;
@@ -32,17 +32,17 @@ function CalculateLossFromShips(fleeters) {
             crystal: 0,
             deuterium: 0
         };
-        Object.keys(fleeter.fleet).forEach(shipId => {
-            let shipsLost = fleeter.fleet[shipId].preCount - fleeter.fleet[shipId].postCount;
-            if (FleetTypes.ships[shipId]) {
-                totalLoss.metal += shipsLost * FleetTypes.ships[shipId].buildCost.metal;
-                totalLoss.crystal += shipsLost * FleetTypes.ships[shipId].buildCost.crystal;
-                totalLoss.deuterium += shipsLost * FleetTypes.ships[shipId].buildCost.deuterium;
+        fleeter.fleet.forEach(ship => {
+            let shipsLost = ship.preCount - ship.postCount;
+            if (FleetTypes.ships[ship.shipType]) {
+                totalLoss.metal += shipsLost * FleetTypes.ships[ship.shipType].buildCost.metal;
+                totalLoss.crystal += shipsLost * FleetTypes.ships[ship.shipType].buildCost.crystal;
+                totalLoss.deuterium += shipsLost * FleetTypes.ships[ship.shipType].buildCost.deuterium;
             }
             else {
-                totalLoss.metal += shipsLost * FleetTypes.defence[shipId].buildCost.metal;
-                totalLoss.crystal += shipsLost * FleetTypes.defence[shipId].buildCost.crystal;
-                totalLoss.deuterium += shipsLost * FleetTypes.defence[shipId].buildCost.deuterium;
+                totalLoss.metal += shipsLost * FleetTypes.defence[ship.shipType].buildCost.metal;
+                totalLoss.crystal += shipsLost * FleetTypes.defence[ship.shipType].buildCost.crystal;
+                totalLoss.deuterium += shipsLost * FleetTypes.defence[ship.shipType].buildCost.deuterium;
             }
         })
         fleeter.unitsLost = totalLoss
