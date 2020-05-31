@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import TextInput from '../Components/TextInput/TextInput';
 import Button from '../Components/Button/Button';
 import ReportKeyInput from '../Components/ReportKeyInput/ReportKeyInput';
+import ChooseSide from '../Components/ChooseSide/ChooseSide';
 
 import { useTranslation } from "react-i18next";
 import { GetCombatReport } from './GetCombatReport';
@@ -12,6 +13,7 @@ import './Main.css';
 
 export default function Main() {
     const { t } = useTranslation();
+    const [Side, setSide] = useState(-1);
     const [CombatReports, setCombatReports] = useState([]);
     const [ApiKeyInput, setApiKeyInput] = useState("");
     const [ApiKeyInputValidity, setApiKeyInputValidity] = useState(true);
@@ -38,6 +40,7 @@ export default function Main() {
 
     const ResetCombatReports = () => {
         setCombatReports([]);
+        setSide(-1);
     }
 
     useEffect(() => {
@@ -46,9 +49,12 @@ export default function Main() {
         SetResourceStatistics(CombatReports);
     }, [CombatReports])
 
+    if (Side === -1)
+        return (<ChooseSide setSide={setSide} />)
+
     return (
         <div className="main">
-            <ReportKeyInput 
+            <ReportKeyInput
                 loading={Loading}
                 apiKeyInput={ApiKeyInput}
                 setApiKeyInput={setApiKeyInput}

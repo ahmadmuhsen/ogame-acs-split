@@ -2,11 +2,12 @@ import React from 'react';
 import TextInput from '../TextInput/TextInput';
 import Button from '../Button/Button';
 import { useTranslation } from "react-i18next";
+import './ReportKeyInput.css';
 
 export default function ReportKeyInput({ loading, setApiKeyInput, apiKeyInput, apiKeyInputValidity, apiKeyInputValidityMessage, getReport, resetCombatReports }) {
     const { t } = useTranslation();
     return (
-        <div className="main">
+        <div>
             <div className="api-keys-input">
                 <TextInput
                     placeholder={t("ApiKeysInputPlaceholder")}

@@ -58,7 +58,8 @@
             "Launch": "Launch",
             "DF": "DF",
             "UnitsLost": "Units Lost",
-            "DeutConsumption": "Deuterium Consumption"
+            "DeutConsumption": "Deuterium Consumption",
+            "ChooseSidePrompt": "Which side are you on?"
         }
     }
 }
