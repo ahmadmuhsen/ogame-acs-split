@@ -59,7 +59,9 @@
             "DF": "DF",
             "UnitsLost": "Units Lost",
             "DeutConsumption": "Deuterium Consumption",
-            "ChooseSidePrompt": "Which side are you on?"
+            "ChooseSidePrompt": "Which side are you on?",
+            "Attackers": "Attackers",
+            "Defenders": "Defenders"
         }
     }
 }
