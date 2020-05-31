@@ -4,6 +4,7 @@ import TextInput from '../Components/TextInput/TextInput';
 import Button from '../Components/Button/Button';
 import ReportKeyInput from '../Components/ReportKeyInput/ReportKeyInput';
 import ChooseSide from '../Components/ChooseSide/ChooseSide';
+import AttackersPanel from '../AttackersPanel/AttackersPanel';
 
 import { useTranslation } from "react-i18next";
 import { GetCombatReport } from './GetCombatReport';
@@ -63,6 +64,7 @@ export default function Main() {
                 apiKeyInputValidity={ApiKeyInputValidity}
                 apiKeyInputValidityMessage={ApiKeyInputValidityMessage}
             />
+            {Side === 0 ? <AttackersPanel /> : "Defenders Panel Still Not Set"}
         </div>
     )
 }
