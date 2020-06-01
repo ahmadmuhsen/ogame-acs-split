@@ -79,6 +79,7 @@ function ParseFleeterData(data, finalRound, isDefender, repairedDefences) {
                 ownerId: item.fleet_owner_id,
                 name: item.fleet_owner,
                 alliance: item.fleet_owner_alliance_tag,
+                hyperspaceTech: 0,
                 fleet: []
             })
         }

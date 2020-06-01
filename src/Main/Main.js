@@ -64,7 +64,13 @@ export default function Main() {
                 apiKeyInputValidity={ApiKeyInputValidity}
                 apiKeyInputValidityMessage={ApiKeyInputValidityMessage}
             />
-            {Side === 0 ? <AttackersPanel /> : "Defenders Panel Still Not Set"}
+            {Side === 0 ?
+                <AttackersPanel
+                    combatReports={CombatReports}
+                    setCombatReports={setCombatReports}
+                />
+                : "Defenders Panel Still Not Set"
+            }
         </div>
     )
 }
