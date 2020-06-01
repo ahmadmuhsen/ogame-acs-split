@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from "react-i18next";
 import TextInput from '../TextInput/TextInput';
+import SectionTitle from '../SectionTitle/SectionTitle';
+
 import './ACSAttackResults.css';
 
-export default function ACSAttackResults({ combatReports, setCombatReports, visible }) {
+export default function ACSAttackResults({ combatReports, setCombatReports }) {
     const { t } = useTranslation();
     const [AttackResultsRows, setAttackResultsRows] = useState([]);
+    const [ACSAttackResultsVisible, setACSAttackResultsVisible] = useState(true)
 
     const onResourceChange = (event, index, resourceType) => {
         let newCRs = [...combatReports];
@@ -58,21 +61,29 @@ export default function ACSAttackResults({ combatReports, setCombatReports, visi
     }, [combatReports])
 
     return (
-        <div
-            className="acs-attack-results"
-            style={{ display: visible ? "flex" : "none" }}
-        >
-            <div className="row">
-                <div><i className={`fas fa-fighter-jet`} /></div>
-                <div>{t("Metal")}</div>
-                <div>{t("Crystal")}</div>
-                <div>{t("Deuterium")}</div>
-                <div>{t("DFMetal")}</div>
-                <div>{t("DFCrystal")}</div>
-                <div>{t("DFReaperMetal")}</div>
-                <div>{t("DFReaperCrystal")}</div>
+        <div>
+            <SectionTitle
+                title={t("ACSAttackResults")}
+                icon={ACSAttackResultsVisible ? "caret-up" : "caret-down"}
+                onClick={() => setACSAttackResultsVisible(!ACSAttackResultsVisible)}
+            />
+            <div
+                className="acs-attack-results"
+                style={{ display: ACSAttackResultsVisible ? "flex" : "none" }}
+            >
+                <div className="row">
+                    <div><i className={`fas fa-fighter-jet`} /></div>
+                    <div>{t("Metal")}</div>
+                    <div>{t("Crystal")}</div>
+                    <div>{t("Deuterium")}</div>
+                    <div>{t("DFMetal")}</div>
+                    <div>{t("DFCrystal")}</div>
+                    <div>{t("DFReaperMetal")}</div>
+                    <div>{t("DFReaperCrystal")}</div>
+                </div>
+                {AttackResultsRows}
             </div>
-            {AttackResultsRows}
         </div>
+
     )
 }
