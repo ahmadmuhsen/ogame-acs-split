@@ -1,0 +1,8 @@
+.attacks-overview-main{
+    margin-top: 20px;
+}
+
+.attacks-overview{
+    display: flex;
+    flex-direction: column;
+}

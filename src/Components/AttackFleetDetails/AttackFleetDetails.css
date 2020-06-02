@@ -1,0 +1,6 @@
+.attack-fleet-details{
+    width: 19%;
+    background-color: var(--main-panel-bg-color);
+    border-radius: 5px;
+    padding: 5px;
+}

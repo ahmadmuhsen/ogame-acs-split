@@ -1,0 +1,15 @@
+.attack-details{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5px;
+}
+
+.attack-details .label{
+    writing-mode: vertical-rl ;
+    transform: rotate(180deg);
+    color: var(--main-panel-txt-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 2%;
+}

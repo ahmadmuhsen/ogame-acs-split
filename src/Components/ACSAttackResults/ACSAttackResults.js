@@ -8,7 +8,7 @@ import './ACSAttackResults.css';
 export default function ACSAttackResults({ combatReports, setCombatReports }) {
     const { t } = useTranslation();
     const [AttackResultsRows, setAttackResultsRows] = useState([]);
-    const [ACSAttackResultsVisible, setACSAttackResultsVisible] = useState(true)
+    const [DataVisible, setDataVisible] = useState(true)
 
     const onResourceChange = (event, index, resourceType) => {
         let newCRs = [...combatReports];
@@ -64,12 +64,12 @@ export default function ACSAttackResults({ combatReports, setCombatReports }) {
         <div>
             <SectionTitle
                 title={t("ACSAttackResults")}
-                icon={ACSAttackResultsVisible ? "caret-up" : "caret-down"}
-                onClick={() => setACSAttackResultsVisible(!ACSAttackResultsVisible)}
+                icon={DataVisible ? "caret-up" : "caret-down"}
+                onClick={() => setDataVisible(!DataVisible)}
             />
             <div
                 className="acs-attack-results"
-                style={{ display: ACSAttackResultsVisible ? "flex" : "none" }}
+                style={{ display: DataVisible ? "flex" : "none" }}
             >
                 <div className="row">
                     <div><i className={`fas fa-fighter-jet`} /></div>

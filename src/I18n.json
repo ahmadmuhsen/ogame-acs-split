@@ -62,7 +62,8 @@
             "ChooseSidePrompt": "Which side are you on?",
             "Attackers": "Attackers",
             "Defenders": "Defenders",
-            "ACSAttackResults": "ACS Attack Results"
+            "ACSAttackResults": "ACS Attack Results",
+            "AttacksOverview": "Attacks Overview"
         }
     }
 }
