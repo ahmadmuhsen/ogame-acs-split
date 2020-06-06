@@ -18,11 +18,5 @@ export function FormatUnits(unitsint) {
     }
 
     let unitsFormatted = string.join("");
-    if (unitsFormatted.length > 7) {
-        let unitsFormattedSplit = unitsFormatted.split(".");
-        let unitsAbbr = `${unitsFormattedSplit[0]}.${unitsFormattedSplit[1]}`;
-        return `${unitsAbbr}${abbr}`;
-    }
-    else
-        return `${unitsFormatted}`;
+    return `${unitsFormatted}`;
 }

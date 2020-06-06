@@ -1,10 +1,9 @@
 .attack-details{
     display: flex;
-    justify-content: space-between;
     margin-top: 5px;
 }
 
-.attack-details .label{
+.attack-details .attack-label{
     writing-mode: vertical-rl ;
     transform: rotate(180deg);
     color: var(--main-panel-txt-color);

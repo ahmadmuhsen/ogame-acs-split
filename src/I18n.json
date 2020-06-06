@@ -58,12 +58,13 @@
             "Launch": "Launch",
             "DF": "DF",
             "UnitsLost": "Units Lost",
-            "DeutConsumption": "Deuterium Consumption",
+            "FlightConsumption": "Flight Consumption",
             "ChooseSidePrompt": "Which side are you on?",
             "Attackers": "Attackers",
             "Defenders": "Defenders",
             "ACSAttackResults": "ACS Attack Results",
-            "AttacksOverview": "Attacks Overview"
+            "AttacksOverview": "Attacks Overview",
+            "HyperspaceTech": "Hyperspace Tech"
         }
     }
 }

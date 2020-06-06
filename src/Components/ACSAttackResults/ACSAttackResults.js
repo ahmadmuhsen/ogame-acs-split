@@ -30,32 +30,33 @@ export default function ACSAttackResults({ combatReports, setCombatReports }) {
     useEffect(() => {
         let attackResultsRows = []
         combatReports.forEach((report, index) => {
-            attackResultsRows.push((
-                <div className="row" key={`ACSATTACKRESULT${report.key}`}>
-                    <div>#{index + 1} </div>
-                    <div>
-                        <TextInput value={report.metalLoot} onChange={event => onResourceChange(event, index, 0)} />
+            if (report.attackers.length > 1)
+                attackResultsRows.push((
+                    <div className="row" key={`ACSATTACKRESULT${report.key}`}>
+                        <div>#{index + 1} </div>
+                        <div>
+                            <TextInput value={report.metalLoot} onChange={event => onResourceChange(event, index, 0)} />
+                        </div>
+                        <div>
+                            <TextInput value={report.crystalLoot} onChange={event => onResourceChange(event, index, 1)} />
+                        </div>
+                        <div>
+                            <TextInput value={report.deuteriumLoot} onChange={event => onResourceChange(event, index, 2)} />
+                        </div>
+                        <div>
+                            <TextInput value={report.debrisMetal} onChange={event => onResourceChange(event, index, 3)} />
+                        </div>
+                        <div>
+                            <TextInput value={report.debrisCrystal} onChange={event => onResourceChange(event, index, 4)} />
+                        </div>
+                        <div>
+                            <TextInput value={report.debrisReaperMetal} onChange={event => onResourceChange(event, index, 5)} />
+                        </div>
+                        <div>
+                            <TextInput value={report.debrisReaperCrystal} onChange={event => onResourceChange(event, index, 6)} />
+                        </div>
                     </div>
-                    <div>
-                        <TextInput value={report.crystalLoot} onChange={event => onResourceChange(event, index, 1)} />
-                    </div>
-                    <div>
-                        <TextInput value={report.deuteriumLoot} onChange={event => onResourceChange(event, index, 2)} />
-                    </div>
-                    <div>
-                        <TextInput value={report.debrisMetal} onChange={event => onResourceChange(event, index, 3)} />
-                    </div>
-                    <div>
-                        <TextInput value={report.debrisCrystal} onChange={event => onResourceChange(event, index, 4)} />
-                    </div>
-                    <div>
-                        <TextInput value={report.debrisReaperMetal} onChange={event => onResourceChange(event, index, 5)} />
-                    </div>
-                    <div>
-                        <TextInput value={report.debrisReaperCrystal} onChange={event => onResourceChange(event, index, 6)} />
-                    </div>
-                </div>
-            ))
+                ))
         })
         setAttackResultsRows(attackResultsRows);
     }, [combatReports])

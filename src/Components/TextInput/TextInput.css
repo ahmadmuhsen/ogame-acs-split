@@ -8,6 +8,7 @@
 
 .text-input.invalid{
     background-color: var(--main-invalid-bg-color);
+    color: var(--main-invalid-txt-color);
 }
 
 .text-input:focus{
