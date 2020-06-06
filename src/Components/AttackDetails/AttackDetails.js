@@ -9,7 +9,8 @@ import './AttackDetails.css';
 
 export default function AttackDetails({ combatReports, setCombatReports, index }) {
     const { t } = useTranslation();
-    const [AttacksFleetDetails, setAttacksFleetDetails] = useState([])
+    const [AttacksFleetDetails, setAttacksFleetDetails] = useState([]);
+    const [DataVisible, setDataVisible] = useState(true)
 
     const onHyperTechnologyChange = (crIndex, attackerIndex, hyperspaceTech) => {
         let combatNew = [...combatReports];
@@ -80,8 +81,16 @@ export default function AttackDetails({ combatReports, setCombatReports, index }
 
     return (
         <div className="attack-details">
-            <div className="attack-label">{t("Attack")} #{index + 1}</div>
-            {AttacksFleetDetails}
+            <div
+                className={`attack-label ${DataVisible ? "expanded" : ""}`}
+                onClick={() => setDataVisible(!DataVisible)}
+            >
+                <i className={`fas fa-${DataVisible ? "caret-right" : "caret-down"}`} />
+                {t("Attack")} #{index + 1}
+            </div>
+            <div className="attack-fleet-details-panel" style={{ display: DataVisible ? "flex" : "none" }}>
+                {AttacksFleetDetails}
+            </div>
         </div>
     )
 }

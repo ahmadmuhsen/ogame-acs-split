@@ -1,14 +1,37 @@
-.attack-details{
-    display: flex;
-    margin-top: 5px;
+.attack-details {
+  display: flex;
+  margin-top: 5px;
 }
 
-.attack-details .attack-label{
-    writing-mode: vertical-rl ;
-    transform: rotate(180deg);
-    color: var(--main-panel-txt-color);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 2%;
+.attack-details .attack-label {
+  color: var(--main-panel-txt-color);
+  background-color: var(--main-panel-bg-color);;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 15px;
+}
+
+.attack-details .attack-label.expanded {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  background-color: transparent;
+  width: 2%;
+}
+
+.attack-details .attack-fleet-details-panel {
+  width: 98%;
+  display: flex;
+}
+
+.attack-details .attack-label .fa-caret-right {
+  font-size: 20px;
+  margin-bottom: 8px;
+}
+
+.attack-details .attack-label .fa-caret-down {
+  font-size: 20px;
+  margin-right: 8px;
 }
