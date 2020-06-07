@@ -1,7 +1,7 @@
 import React from 'react';
 import './TextInput.css';
 
-export default function TextInput({placeholder, value, onChange, valid, disabled }) {
+export default function TextInput({ placeholder, value, onChange, valid = true, disabled = false }) {
     return (
         <input
             type="text"
