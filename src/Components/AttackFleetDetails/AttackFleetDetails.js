@@ -59,7 +59,7 @@ export default function AttackFleetDetails({
                 <TextInput
                     value={attackFleet.hyperspaceTech}
                     onChange={event => onHyperTechnologyChange(crIndex, index, parseInt(event.target.value))}
-                    valid={attackFleet.hyperspaceTech === 0 ? false : true}
+                    valid={attackFleet.hyperspaceTech <= 0 ? false : true}
                 />
             </div>
 
@@ -108,7 +108,7 @@ export default function AttackFleetDetails({
                 <TextInput
                     value={Math.round(attackFleet.deuteriumConsumption)}
                     onChange={event => onDeuteriumConsumptionChange(crIndex, index, parseInt(event.target.value))}
-                    valid={attackFleet.deuteriumConsumption < 0 ? false : true}
+                    valid={attackFleet.deuteriumConsumption <= 0 ? false : true}
                 />
             </div>
 
