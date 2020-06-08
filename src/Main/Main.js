@@ -41,6 +41,8 @@ export default function Main() {
 
     const ResetCombatReports = () => {
         setCombatReports([]);
+        setApiKeyInputValidity(true);
+        setApiKeyInputValidityMessage("");
         setSide(-1);
     }
 
