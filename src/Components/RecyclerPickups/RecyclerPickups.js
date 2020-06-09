@@ -13,9 +13,9 @@ export default function RecyclerPickups({ recycleReports, setRecycleReports }) {
     const [RecyclerPickupDetails, setRecyclerPickupDetails] = useState([])
 
     const updateReport = (index, type, value) => {
-            let reportsNew = [...recycleReports];
-            reportsNew[index][type] = !isNaN(value) ? value > 0 ? value : 0 : 0;
-            setRecycleReports(reportsNew);
+        let reportsNew = [...recycleReports];
+        reportsNew[index][type] = !isNaN(value) ? value > 0 ? value : 0 : 0;
+        setRecycleReports(reportsNew);
     }
 
     useEffect(() => {
@@ -27,7 +27,7 @@ export default function RecyclerPickups({ recycleReports, setRecycleReports }) {
                     key={`RECYCLEREPORTDETAILS${index}`}
                 >
                     <div className="card">
-                        <div className="label">{report.ownerName}</div>
+                        <div className="label">{`${t("Pickup")} #${index + 1}`} - {report.ownerName}</div>
 
                         <div className="label">{t("FlightConsumption")}</div>
                         <div className="resource">
