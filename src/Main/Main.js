@@ -44,18 +44,22 @@ export default function Main() {
         }
     }
 
-    const ResetCombatReports = () => {
+    const ResetReports = () => {
         setCombatReports([]);
+        setRecycleReports([]);
         setApiKeyInputValidity(true);
         setApiKeyInputValidityMessage("");
         setSide(-1);
     }
 
     useEffect(() => {
-        setLoading(false);
-        setApiKeyInput("");
         SetResourceStatistics(CombatReports);
     }, [CombatReports])
+
+    useEffect(() => {
+        setLoading(false);
+        setApiKeyInput("");
+    }, [CombatReports, RecycleReports])
 
     if (Side === -1)
         return (<ChooseSide setSide={setSide} />)
@@ -67,7 +71,7 @@ export default function Main() {
                 apiKeyInput={ApiKeyInput}
                 setApiKeyInput={setApiKeyInput}
                 getReport={GetReport}
-                resetCombatReports={ResetCombatReports}
+                resetReports={ResetReports}
                 apiKeyInputValidity={ApiKeyInputValidity}
                 apiKeyInputValidityMessage={ApiKeyInputValidityMessage}
             />
@@ -75,6 +79,8 @@ export default function Main() {
                 <AttackersPanel
                     combatReports={CombatReports}
                     setCombatReports={setCombatReports}
+                    recycleReports={RecycleReports}
+                    setRecycleReports={setRecycleReports}
                 />
                 : "Defenders Panel Still Not Set"
             }

@@ -23,12 +23,12 @@ export const GetRecycleReport = (recycleReport, RecycleReports, setRecycleReport
                     metal: data.generic.recycler_metal_retrieved + data.generic.reaper_metal_retrieved,
                     crystal: data.generic.recycler_crystal_retrieved + data.generic.reaper_crystal_retrieved,
                     ownerId: data.generic.owner_id,
-                    ownerName: data.generic.owner_name
+                    ownerName: data.generic.owner_name,
+                    deuteriumConsumption: 0
                 };
 
                 let rrs = [...RecycleReports];
                 rrs.push(rrdata);
-                setLoading(false);
                 setApiKeyInputValidity(true);
                 setApiKeyInputValidityMessage("");
                 setRecycleReports(rrs);

@@ -1,0 +1,53 @@
+.recycler-pickups-main {
+  margin-top: 20px;
+}
+
+.recycler-pickups {
+  display: flex;
+}
+
+.recycler-pickups .recycle-icon {
+  width: 2%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--main-panel-txt-color);
+  font-size: 18px;
+}
+
+.recycler-pickups .recyclers-details-panel {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 2.5px;
+  width: 98%;
+}
+
+.recycler-pickups .recycler-report-details {
+  width: calc(100% / 5);
+  padding: 2.5px
+}
+
+.recycler-pickups .recycler-report-details .card {
+  background-color: var(--main-panel-bg-color);
+  color: var(--main-panel-txt-color);
+  font-size: 13px;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.recycler-pickups .recycler-report-details .card .label {
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.recycler-pickups .recycler-report-details .card .resource {
+  display: flex;
+  justify-content: space-between;
+}
+
+.recycler-pickups .recycler-report-details .card .text-input {
+  text-align: center;
+  width: 120px;
+  height: 15px;
+  font-size: 13px;
+}
