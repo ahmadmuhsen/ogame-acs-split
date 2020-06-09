@@ -4,7 +4,7 @@ import Button from '../Button/Button';
 import { useTranslation } from "react-i18next";
 import './ReportKeyInput.css';
 
-export default function ReportKeyInput({ loading, setApiKeyInput, apiKeyInput, apiKeyInputValidity, apiKeyInputValidityMessage, getReport, resetCombatReports }) {
+export default function ReportKeyInput({ loading, setApiKeyInput, apiKeyInput, apiKeyInputValidity, apiKeyInputValidityMessage, getReport, resetReports }) {
     const { t } = useTranslation();
     return (
         <div>
@@ -24,7 +24,7 @@ export default function ReportKeyInput({ loading, setApiKeyInput, apiKeyInput, a
                     {loading ? t("Loading") : t("AddKey")}
                 </Button>
                 <Button
-                    onClick={resetCombatReports}
+                    onClick={resetReports}
                     disabled={loading}
                 >
                     <i className="fas fa-trash-alt" />
