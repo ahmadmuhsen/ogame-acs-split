@@ -8,6 +8,7 @@ import AttackersPanel from '../AttackersPanel/AttackersPanel';
 
 import { useTranslation } from "react-i18next";
 import { GetCombatReport } from './GetCombatReport';
+import { GetRecycleReport } from './GetRecycleReport';
 import { SetResourceStatistics } from './SetResourceStatistics';
 
 import './Main.css';
@@ -16,6 +17,7 @@ export default function Main() {
     const { t } = useTranslation();
     const [Side, setSide] = useState(-1);
     const [CombatReports, setCombatReports] = useState([]);
+    const [RecycleReports, setRecycleReports] = useState([]);
     const [ApiKeyInput, setApiKeyInput] = useState("");
     const [ApiKeyInputValidity, setApiKeyInputValidity] = useState(true);
     const [ApiKeyInputValidityMessage, setApiKeyInputValidityMessage] = useState("");
@@ -27,6 +29,9 @@ export default function Main() {
             switch (keyArray[0]) {
                 case "cr":
                     GetCombatReport(ApiKeyInput, CombatReports, setCombatReports, setApiKeyInputValidity, setLoading, setApiKeyInputValidityMessage);
+                    break;
+                case "rr":
+                    GetRecycleReport(ApiKeyInput, RecycleReports, setRecycleReports, setApiKeyInputValidity, setLoading, setApiKeyInputValidityMessage);
                     break;
                 default:
                     setApiKeyInputValidity(false);
