@@ -1,6 +1,8 @@
 .acs-attack-results{
     background-color: var(--main-panel-bg-color);
     flex-direction: column;
+    margin-top: 5px;
+    border-radius: 5px;
 }
 
 .acs-attack-results .row{

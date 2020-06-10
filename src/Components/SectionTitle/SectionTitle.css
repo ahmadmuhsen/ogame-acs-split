@@ -7,6 +7,7 @@
   justify-content: center;
   padding: 0px 5px;
   cursor: pointer;
+  border-radius: 5px;
 }
 
 .section-title .fas {
