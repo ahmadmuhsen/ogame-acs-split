@@ -1,11 +1,14 @@
 .attack-fleet-details {
   width: 20%;
+  padding: 2.5px;
+}
+
+.attack-fleet-details .card{
   background-color: var(--main-panel-bg-color);
   border-radius: 5px;
   padding: 5px 10px;
   font-size: 13px;
   color: var(--main-panel-txt-color);
-  margin-left: 5px;
 }
 
 .attack-fleet-details .player-name {
