@@ -24,7 +24,9 @@ export const GetRecycleReport = (recycleReport, RecycleReports, setRecycleReport
                     crystal: data.generic.recycler_crystal_retrieved + data.generic.reaper_crystal_retrieved,
                     ownerId: data.generic.owner_id,
                     ownerName: data.generic.owner_name,
-                    deuteriumConsumption: 0
+                    deuteriumConsumption: 0,
+                    recyclers: data.generic.recycler_count,
+                    reapers: data.generic.reaper_count
                 };
 
                 let rrs = [...RecycleReports];

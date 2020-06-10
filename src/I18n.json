@@ -65,8 +65,8 @@
             "ACSAttackResults": "ACS Attack Results",
             "AttacksOverview": "Attacks Overview",
             "HyperspaceTech": "Hyperspace Tech",
-            "RecyclerPickups": "Recycler Pickups",
-            "Pickup": "Pickup"
+            "HarvestsOverview": "Harvests Overview",
+            "Harvest": "Harvest"
         }
     }
 }

@@ -27,10 +27,10 @@ export default function RecyclerPickups({ recycleReports, setRecycleReports }) {
                     key={`RECYCLEREPORTDETAILS${index}`}
                 >
                     <div className="card">
-                        <div className="label">{`${t("Pickup")} #${index + 1}`} - {report.ownerName}</div>
+                        <div className="label">{`${t("Harvest")} #${index + 1}`} - {report.ownerName}</div>
 
                         <div className="label">{t("FlightConsumption")}</div>
-                        <div className="resource">
+                        <div className="input-row">
                             {t("Deuterium")}
                             <TextInput
                                 value={report.deuteriumConsumption}
@@ -39,8 +39,26 @@ export default function RecyclerPickups({ recycleReports, setRecycleReports }) {
                             />
                         </div>
 
+                        <div className="label">{t("FleetComposition")}</div>
+                        <div className="input-row">
+                            {t("Recycler")}
+                            <TextInput
+                                value={report.recyclers}
+                                onChange={event => updateReport(index, "recyclers", parseInt(event.target.value))}
+                                valid={report.recyclers < 0 ? false : true}
+                            />
+                        </div>
+                        <div className="input-row">
+                            {t("Reaper")}
+                            <TextInput
+                                value={report.reapers}
+                                onChange={event => updateReport(index, "reapers", parseInt(event.target.value))}
+                                valid={report.reapers < 0 ? false : true}
+                            />
+                        </div>
+
                         <div className="label">{t("Resources")}</div>
-                        <div className="resource">
+                        <div className="input-row">
                             {t("Metal")}
                             <TextInput
                                 value={report.metal}
@@ -48,7 +66,7 @@ export default function RecyclerPickups({ recycleReports, setRecycleReports }) {
                                 valid={report.metal <= 0 ? false : true}
                             />
                         </div>
-                        <div className="resource">
+                        <div className="input-row">
                             {t("Crystal")}
                             <TextInput
                                 value={report.crystal}
@@ -56,6 +74,7 @@ export default function RecyclerPickups({ recycleReports, setRecycleReports }) {
                                 valid={report.crystal <= 0 ? false : true}
                             />
                         </div>
+
                     </div>
                 </div>
             );
@@ -65,7 +84,7 @@ export default function RecyclerPickups({ recycleReports, setRecycleReports }) {
     return (
         <div className="recycler-pickups-main">
             <SectionTitle
-                title={t("RecyclerPickups")}
+                title={t("HarvestsOverview")}
                 icon={DataVisible ? "caret-up" : "caret-down"}
                 onClick={() => setDataVisible(!DataVisible)}
             />

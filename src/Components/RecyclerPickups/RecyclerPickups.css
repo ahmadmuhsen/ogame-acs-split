@@ -40,7 +40,7 @@
   margin-bottom: 5px;
 }
 
-.recycler-pickups .recycler-report-details .card .resource {
+.recycler-pickups .recycler-report-details .card .input-row {
   display: flex;
   justify-content: space-between;
 }
