@@ -8,6 +8,7 @@ import './ACSAttackResults.css';
 export default function ACSAttackResults({ combatReports, setCombatReports }) {
     const { t } = useTranslation();
     const [AttackResultsRows, setAttackResultsRows] = useState([]);
+    const [TotalResults, setTotalResults] = useState({});
     const [DataVisible, setDataVisible] = useState(true)
 
     const onResourceChange = (event, index, resourceType) => {
@@ -29,6 +30,15 @@ export default function ACSAttackResults({ combatReports, setCombatReports }) {
 
     useEffect(() => {
         let attackResultsRows = []
+        let totalResults = {
+            metal: 0,
+            crystal: 0,
+            deuterium: 0,
+            metalDF: 0,
+            crystalDF: 0,
+            reaperMetal: 0,
+            reaperCrystal: 0
+        }
         combatReports.forEach((report, index) => {
             if (report.attackers.length > 1)
                 attackResultsRows.push((
@@ -57,7 +67,26 @@ export default function ACSAttackResults({ combatReports, setCombatReports }) {
                         </div>
                     </div>
                 ))
+            totalResults.metal += report.metalLoot;
+            totalResults.crystal += report.crystalLoot;
+            totalResults.deuterium += report.deuteriumLoot;
+            totalResults.metalDF += report.debrisMetal;
+            totalResults.crystalDF += report.debrisCrystal;
+            totalResults.reaperMetal += report.debrisReaperMetal;
+            totalResults.reaperCrystal += report.debrisReaperCrystal;
         })
+        attackResultsRows.push((
+            <div className="row" key={`ACSATTACKRESULTTOTAL`}>
+                <div>{t("Total")}</div>
+                <div>{totalResults.metal}</div>
+                <div>{totalResults.crystal}</div>
+                <div>{totalResults.deuterium}</div>
+                <div>{totalResults.metalDF}</div>
+                <div>{totalResults.crystalDF}</div>
+                <div>{totalResults.reaperMetal}</div>
+                <div>{totalResults.reaperCrystal}</div>
+            </div>
+        ))
         setAttackResultsRows(attackResultsRows);
     }, [combatReports])
 
@@ -70,7 +99,7 @@ export default function ACSAttackResults({ combatReports, setCombatReports }) {
             />
             <div
                 className="acs-attack-results"
-                style={{ display: DataVisible ? "flex" : "none" }}
+                style={{ display: DataVisible && AttackResultsRows.length > 1 ? "flex" : "none" }}
             >
                 <div className="row">
                     <div><i className={`fas fa-fighter-jet`} /></div>
