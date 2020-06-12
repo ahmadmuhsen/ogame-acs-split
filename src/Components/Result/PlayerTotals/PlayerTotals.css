@@ -1,0 +1,34 @@
+.player-totals {
+  display: flex;
+  width: 100%;
+}
+
+.player-totals .player-totals-label {
+  color: var(--main-panel-txt-color);
+  background-color: var(--main-panel-bg-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 15px;
+  margin-top: 5px;
+}
+
+.player-totals .player-totals-label.expanded {
+    margin-top: 0px;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  background-color: transparent;
+  width: 2%;
+}
+
+.player-totals .player-totals-label .fa-caret-right {
+  font-size: 20px;
+  margin-bottom: 8px;
+}
+
+.player-totals .player-totals-label .fa-caret-down {
+  font-size: 20px;
+  margin-right: 8px;
+}

@@ -18,7 +18,6 @@ export default function RecyclerPickups({ recycleReports, setRecycleReports }) {
     }
 
     useEffect(() => {
-        console.log(recycleReports);
         setRecyclerPickupDetails(recycleReports.map((report, index) => {
             return (
                 <div

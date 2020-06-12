@@ -66,7 +66,9 @@
             "AttacksOverview": "Attacks Overview",
             "HyperspaceTech": "Hyperspace Tech",
             "HarvestsOverview": "Harvests Overview",
-            "Harvest": "Harvest"
+            "Harvest": "Harvest",
+            "Result": "Result",
+            "PlayerTotals": "Player Totals"
         }
     }
 }

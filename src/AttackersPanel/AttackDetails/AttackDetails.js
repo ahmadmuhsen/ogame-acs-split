@@ -72,10 +72,6 @@ export default function AttackDetails({ combatReports, setCombatReports, index }
         }))
     }, [combatReports])
 
-    useEffect(() => {
-        console.log("IVE CHANGED")
-    }, [AttacksFleetDetails])
-
     return (
         <div className="attack-details">
             <div

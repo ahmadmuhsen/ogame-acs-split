@@ -3,6 +3,7 @@ import React from 'react';
 import ACSAttackResults from './ACSAttackResults/ACSAttackResults';
 import AttacksOverview from './AttacksOverview/AttacksOverview';
 import RecyclerPickups from '../Components/RecyclerPickups/RecyclerPickups';
+import Result from '../Components/Result/Result';
 
 import { useTranslation } from "react-i18next";
 import './AttackersPanel.css';
@@ -22,6 +23,10 @@ export default function AttackersPanel({ combatReports, setCombatReports, recycl
             <RecyclerPickups
                 recycleReports={recycleReports}
                 setRecycleReports={setRecycleReports}
+            />
+            <Result
+                combatReports={combatReports}
+                recycleReports={recycleReports}
             />
         </div>
     )

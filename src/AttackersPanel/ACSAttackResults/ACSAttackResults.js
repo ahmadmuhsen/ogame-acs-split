@@ -8,7 +8,6 @@ import './ACSAttackResults.css';
 export default function ACSAttackResults({ combatReports, setCombatReports }) {
     const { t } = useTranslation();
     const [AttackResultsRows, setAttackResultsRows] = useState([]);
-    const [TotalResults, setTotalResults] = useState({});
     const [DataVisible, setDataVisible] = useState(true)
 
     const onResourceChange = (event, index, resourceType) => {

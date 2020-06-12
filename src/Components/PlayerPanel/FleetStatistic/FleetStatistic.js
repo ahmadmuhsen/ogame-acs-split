@@ -13,7 +13,6 @@ export default function FleetStatistic({ fleet, number, isDefender, isCoordinate
     const [DefenceStatistics, setDefenceStatistics] = useState([]);
 
     useEffect(() => {
-        console.log(fleet);
         let shipStatistics = [];
         Object.keys(FleetTypes.ships).forEach(shipId => {
             let emptyStat = {

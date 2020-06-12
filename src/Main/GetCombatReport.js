@@ -1,5 +1,6 @@
 import axios from 'axios';
 import config from '../config.json';
+import { SetResourceStatistics } from './SetResourceStatistics';
 
 export const GetCombatReport = (combatReport, CombatReports, setCombatReports, setApiKeyInputValidity, setLoading, setApiKeyInputValidityMessage) => {
     setLoading(true);
@@ -47,6 +48,7 @@ export const GetCombatReport = (combatReport, CombatReports, setCombatReports, s
                 crs.push(crdata);
                 setApiKeyInputValidity(true);
                 setApiKeyInputValidityMessage("");
+                SetResourceStatistics(crs);
                 setCombatReports(crs);
             }
         })
