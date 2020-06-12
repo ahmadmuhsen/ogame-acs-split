@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
 
-import TextInput from '../Components/TextInput/TextInput';
-import Button from '../Components/Button/Button';
 import ReportKeyInput from '../Components/ReportKeyInput/ReportKeyInput';
 import ChooseSide from '../Components/ChooseSide/ChooseSide';
 import AttackersPanel from '../AttackersPanel/AttackersPanel';

@@ -2,9 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useTranslation } from "react-i18next";
 import { FormatUnits } from '../../Main/FormatUnits';
 
-import TextInput from '../TextInput/TextInput';
-import SectionTitle from '../SectionTitle/SectionTitle';
-
+import TextInput from '../../Components/TextInput/TextInput';
 import FleetTypes from '../../FleetTypes.json';
 import './AttackFleetDetails.css';
 

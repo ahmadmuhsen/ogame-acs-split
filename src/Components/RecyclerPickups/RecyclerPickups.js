@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
 import TextInput from '../TextInput/TextInput';
-import Button from '../Button/Button';
 import SectionTitle from '../SectionTitle/SectionTitle';
 
 import { useTranslation } from "react-i18next";

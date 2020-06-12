@@ -1,8 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from "react-i18next";
-
-import TextInput from '../TextInput/TextInput';
-import SectionTitle from '../SectionTitle/SectionTitle';
 import AttackFleetDetails from '../AttackFleetDetails/AttackFleetDetails';
 
 import './AttackDetails.css';
