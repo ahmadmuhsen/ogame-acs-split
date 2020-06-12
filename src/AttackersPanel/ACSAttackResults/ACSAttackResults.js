@@ -6,6 +6,8 @@ import SectionTitle from '../../Components/SectionTitle/SectionTitle';
 import './ACSAttackResults.css';
 
 export default function ACSAttackResults({ combatReports, setCombatReports }) {
+    /*Nightmare loves Tanavast.*/
+
     const { t } = useTranslation();
     const [AttackResultsRows, setAttackResultsRows] = useState([]);
     const [DataVisible, setDataVisible] = useState(true)
