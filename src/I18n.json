@@ -68,7 +68,11 @@
             "HarvestsOverview": "Harvests Overview",
             "Harvest": "Harvest",
             "Result": "Result",
-            "PlayerTotals": "Player Totals"
+            "PlayerTotals": "Player Totals",
+            "ResCollected": "Resources Collected",
+            "Summary": "Summary",
+            "TotalGain": "Total Gain",
+            "TotalLoss": "Total Loss"
         }
     }
 }

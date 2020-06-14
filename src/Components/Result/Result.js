@@ -1,22 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import SectionTitle from '../SectionTitle/SectionTitle';
-import PlayerTotals from './PlayerTotals/PlayerTotals'
+import PlayerTotals from './PlayerTotals/PlayerTotals';
+import Summary from './Summary/Summary';
 import { useTranslation } from "react-i18next";
 import './Result.css';
 
 export default function Result({ combatReports, recycleReports }) {
     const { t } = useTranslation();
     const [DataVisible, setDataVisible] = useState(true);
-
+    const [PlayerTotalsStatistics, setPlayerTotalsStatistics] = useState([]);
+    const [TotalResult, setTotalResult] = useState({});
     useEffect(() => {
-        let result = {
-            playerTotals: []
-        }
+        let playerTotals = [];
         if (combatReports.length > 0)
             combatReports.forEach(report => {
                 report.attackers.forEach(attacker => {
-                    let player = result.playerTotals.find(plyr => plyr.ownerId === attacker.ownerId);
-                    
+                    let player = playerTotals.find(plyr => plyr.ownerId === attacker.ownerId);
+
                     let fleetTotal = {
                         preCount: 0,
                         postCount: 0
@@ -39,26 +39,86 @@ export default function Result({ combatReports, recycleReports }) {
                                 deuterium: attacker.unitsLost.deuterium,
                             },
                             deuteriumConsumption: attacker.deuteriumConsumption,
+                            fleet: fleetTotal,
+                            ownerId: attacker.ownerId,
                             name: attacker.name,
                             alliance: attacker.alliance,
-                            fleet: fleetTotal
                         }
-                        result.playerTotals.push(player);
+                        playerTotals.push(player);
                     }
                     else {
                         player.resources.metal += attacker.metalLoot;
                         player.resources.crystal += attacker.crystalLoot;
                         player.resources.deuterium += attacker.deuteriumLoot;
-                        player.losses.metal += attacker.unitsLost.metalLoot;
-                        player.losses.crystal += attacker.unitsLost.crystalLoot;
-                        player.losses.deuterium += attacker.unitsLost.deuteriumLoot;
+                        player.losses.metal += attacker.unitsLost.metal;
+                        player.losses.crystal += attacker.unitsLost.crystal;
+                        player.losses.deuterium += attacker.unitsLost.deuterium;
                         player.deuteriumConsumption += attacker.deuteriumConsumption;
-                        player.fleet.preCount = fleetTotal.preCount;
-                        player.fleet.postCount = fleetTotal.postCount;
+                        player.fleet.preCount += fleetTotal.preCount;
+                        player.fleet.postCount += fleetTotal.postCount;
                     }
                 });
             });
-        console.log(result);
+
+        if (recycleReports.length > 0)
+            recycleReports.forEach(report => {
+                let player = playerTotals.find(plyr => plyr.ownerId === report.ownerId);
+                if (!player) {
+                    player = {
+                        resources: {
+                            metal: report.metal,
+                            crystal: report.crystal,
+                            deuterium: report.deuterium,
+                        },
+                        losses: {
+                            metal: 0,
+                            crystal: 0,
+                            deuterium: 0,
+                        },
+                        deuteriumConsumption: report.deuteriumConsumption,
+                        fleet: {
+                            preCount: 0,
+                            postCount: 0
+                        },
+                        ownerId: report.ownerId,
+                        name: report.name
+                    }
+                    playerTotals.push(player);
+                }
+                else {
+                    player.resources.metal += report.metal;
+                    player.resources.crystal += report.crystal;
+                    player.deuteriumConsumption += report.deuteriumConsumption;
+                }
+            })
+
+
+        let gain = {
+            metal: 0,
+            crystal: 0,
+            deuterium: 0
+        };
+        let loss = {
+            metal: 0,
+            crystal: 0,
+            deuterium: 0
+        };
+        let deuteriumConsumption = 0;
+        playerTotals.forEach(total => {
+            gain.metal += total.resources.metal;
+            gain.crystal += total.resources.crystal;
+            gain.crystal += total.resources.crystal;
+            loss.metal += total.losses.metal;
+            loss.crystal += total.losses.crystal;
+            loss.crystal += total.losses.crystal;
+            deuteriumConsumption += total.deuteriumConsumption;
+        })
+        setTotalResult({
+            gain,
+            loss,
+            deuteriumConsumption
+        });
+        setPlayerTotalsStatistics(playerTotals);
     }, [combatReports, recycleReports])
 
     return (
@@ -70,10 +130,13 @@ export default function Result({ combatReports, recycleReports }) {
             />
             <div
                 className="result"
-                style={{ display: DataVisible ? "flex" : "none" }}
+                style={{ display: DataVisible && (combatReports.length > 0 || recycleReports.length > 0) ? "flex" : "none" }}
             >
+                <Summary
+                    totalResult={TotalResult}
+                />
                 <PlayerTotals
-
+                    playerTotalsStatistics={PlayerTotalsStatistics}
                 />
             </div>
         </div>

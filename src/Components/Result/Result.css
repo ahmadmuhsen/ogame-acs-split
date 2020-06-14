@@ -1,3 +1,7 @@
 .result-main {
     margin-top: 20px
 }
+
+.result-main .result{
+    flex-direction: column;
+}

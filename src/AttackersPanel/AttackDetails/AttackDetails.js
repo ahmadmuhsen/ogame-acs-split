@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from "react-i18next";
 import AttackFleetDetails from '../AttackFleetDetails/AttackFleetDetails';
+import { SetResourceStatistics } from '../../Main/SetResourceStatistics';
 
 import './AttackDetails.css';
 
@@ -12,6 +13,7 @@ export default function AttackDetails({ combatReports, setCombatReports, index }
     const onHyperTechnologyChange = (crIndex, attackerIndex, hyperspaceTech) => {
         let combatNew = [...combatReports];
         combatNew[crIndex].attackers[attackerIndex].hyperspaceTech = !isNaN(hyperspaceTech) ? hyperspaceTech : 0;
+        SetResourceStatistics(combatNew);
         setCombatReports(combatNew);
     }
 
@@ -34,6 +36,7 @@ export default function AttackDetails({ combatReports, setCombatReports, index }
         } else {
             ship.preCount = !isNaN(preCount) ? preCount > ship.postCount ? preCount : ship.postCount : ship.postCount;
         }
+        SetResourceStatistics(combatNew);
         setCombatReports(combatNew);
     }
 
@@ -44,6 +47,7 @@ export default function AttackDetails({ combatReports, setCombatReports, index }
         if (ship) {
             ship.postCount = !isNaN(postCount) ? (postCount < ship.preCount ? postCount : ship.preCount) : 0;
         }
+        SetResourceStatistics(combatNew);
         setCombatReports(combatNew);
     }
 

@@ -1,9 +1,9 @@
-.player-totals {
+.player-totals-main {
   display: flex;
   width: 100%;
 }
 
-.player-totals .player-totals-label {
+.player-totals-main .player-totals-label {
   color: var(--main-panel-txt-color);
   background-color: var(--main-panel-bg-color);
   display: flex;
@@ -15,20 +15,55 @@
   margin-top: 5px;
 }
 
-.player-totals .player-totals-label.expanded {
-    margin-top: 0px;
+.player-totals-main .player-totals-label.expanded {
+  margin-top: 0px;
   writing-mode: vertical-rl;
   transform: rotate(180deg);
   background-color: transparent;
   width: 2%;
 }
 
-.player-totals .player-totals-label .fa-caret-right {
+.player-totals-main .player-totals-label .fa-caret-right {
   font-size: 20px;
   margin-bottom: 8px;
 }
 
-.player-totals .player-totals-label .fa-caret-down {
+.player-totals-main .player-totals-label .fa-caret-down {
   font-size: 20px;
   margin-right: 8px;
+}
+
+.player-totals-main .player-totals {
+  width: 98%;
+  flex-wrap: wrap;
+}
+
+.player-totals-main .player-totals .player-total-main {
+  padding: 2.5px;
+  width: calc(100% / 5);
+}
+
+.player-totals-main .player-totals .player-total-main .player-total {
+  background: var(--main-panel-bg-color);
+  color: var(--main-panel-txt-color);
+  border-radius: 5px;
+  padding: 5px 10px;
+}
+
+.player-totals-main .player-totals .player-total-main .player-total .label{
+  text-align: center;
+  font-size: 13px;
+  margin: 5px 0px;
+}
+
+.player-totals-main .player-totals .player-total-main .player-total .player-name{
+  text-align: center;
+  font-size: 13px;
+  margin-bottom: 5px;
+}
+
+.player-totals-main .player-totals .player-total-main .player-total .data{
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
 }

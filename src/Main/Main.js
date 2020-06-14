@@ -7,7 +7,6 @@ import AttackersPanel from '../AttackersPanel/AttackersPanel';
 import { useTranslation } from "react-i18next";
 import { GetCombatReport } from './GetCombatReport';
 import { GetRecycleReport } from './GetRecycleReport';
-import { SetResourceStatistics } from './SetResourceStatistics';
 
 import './Main.css';
 
@@ -49,10 +48,6 @@ export default function Main() {
         setApiKeyInputValidityMessage("");
         setSide(-1);
     }
-
-    useEffect(() => {
-        SetResourceStatistics(CombatReports);
-    }, [CombatReports])
 
     useEffect(() => {
         setLoading(false);
