@@ -107,10 +107,10 @@ export default function Result({ combatReports, recycleReports }) {
         playerTotals.forEach(total => {
             gain.metal += total.resources.metal;
             gain.crystal += total.resources.crystal;
-            gain.crystal += total.resources.crystal;
+            gain.deuterium += total.resources.deuterium;
             loss.metal += total.losses.metal;
             loss.crystal += total.losses.crystal;
-            loss.crystal += total.losses.crystal;
+            loss.deuterium += total.losses.deuterium;
             deuteriumConsumption += total.deuteriumConsumption;
         })
         setTotalResult({

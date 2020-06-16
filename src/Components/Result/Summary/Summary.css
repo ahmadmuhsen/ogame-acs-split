@@ -1,19 +1,25 @@
 .result-summary {
-  width: 55%;
-  margin: 5px auto;
+  width: 98%;
+  padding: 2.5px;
+  display: flex;
+  justify-content: center;
+}
+
+.result-summary .data {
+  width: 60%;
   color: var(--main-panel-txt-color);
   background: var(--main-panel-bg-color);
   border-radius: 5px;
-  padding: 5px 10px;
   font-size: 13px;
-} 
+  padding: 5px 10px;
+}
 
 .result-summary .row {
   display: flex;
   justify-content: space-around;
 }
 
-.result-summary .row div{
+.result-summary .row div {
   width: 25%;
   text-align: center;
 }
