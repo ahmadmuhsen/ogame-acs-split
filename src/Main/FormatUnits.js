@@ -1,5 +1,11 @@
 export function FormatUnits(unitsint) {
+    let isPositive = true;
+    if (unitsint < 0) {
+        unitsint *= -1;
+        isPositive = false;
+    }
     let units = unitsint.toString();
+
     let abbr = "";
     if (units.length >= 7 && units.length < 10) abbr = "Mn";
     if (units.length >= 10 && units.length < 13) abbr = "Bn";
@@ -18,5 +24,5 @@ export function FormatUnits(unitsint) {
     }
 
     let unitsFormatted = string.join("");
-    return `${unitsFormatted}`;
+    return `${isPositive ? "" : "-"}${unitsFormatted}`;
 }
