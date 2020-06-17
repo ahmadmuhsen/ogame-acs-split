@@ -22,6 +22,7 @@ export default function Summary({ totalResult }) {
                             <div>{t("Crystal")}</div>
                             <div>{t("Deuterium")}</div>
                         </div>
+
                         <div className="row">
                             <div>{t("TotalGain")}</div>
                             <div>{FormatUnits(Math.round(totalResult.gain.metal))}</div>
