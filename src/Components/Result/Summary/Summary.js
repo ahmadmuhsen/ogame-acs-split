@@ -43,6 +43,13 @@ export default function Summary({ totalResult }) {
                             <div>{0}</div>
                             <div>{FormatUnits(Math.round(totalResult.deuteriumConsumption))}</div>
                         </div>
+
+                        <div className="row">
+                            <div>{t("NetGain")}</div>
+                            <div>{FormatUnits(Math.round(totalResult.gain.metal - totalResult.loss.metal))}</div>
+                            <div>{FormatUnits(Math.round(totalResult.gain.crystal - totalResult.loss.crystal))}</div>
+                            <div>{FormatUnits(Math.round(totalResult.gain.deuterium - totalResult.loss.deuterium - totalResult.deuteriumConsumption))}</div>
+                        </div>
                     </div>
                 </div>
             ))

@@ -72,7 +72,8 @@
             "ResCollected": "Resources Collected",
             "Summary": "Summary",
             "TotalGain": "Total Gain",
-            "TotalLoss": "Total Loss"
+            "TotalLoss": "Total Loss",
+            "NetGain": "Net Gain"
         }
     }
 }
