@@ -36,6 +36,13 @@ export default function Summary({ totalResult }) {
                             <div>{FormatUnits(Math.round(totalResult.loss.crystal))}</div>
                             <div>{FormatUnits(Math.round(totalResult.loss.deuterium))}</div>
                         </div>
+                        
+                        <div className="row">
+                            <div>{t("FlightConsumption")}</div>
+                            <div>{0}</div>
+                            <div>{0}</div>
+                            <div>{FormatUnits(Math.round(totalResult.deuteriumConsumption))}</div>
+                        </div>
                     </div>
                 </div>
             ))
