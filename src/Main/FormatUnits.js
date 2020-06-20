@@ -5,13 +5,6 @@ export function FormatUnits(unitsint) {
         isPositive = false;
     }
     let units = unitsint.toString();
-
-    let abbr = "";
-    if (units.length >= 7 && units.length < 10) abbr = "Mn";
-    if (units.length >= 10 && units.length < 13) abbr = "Bn";
-    if (units.length >= 13 && units.length < 16) abbr = "Tn";
-    if (units.length >= 16 && units.length < 19) abbr = "Qn";
-
     let count = 1;
     let string = []
     let numberString = units.toString().split("");
