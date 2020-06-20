@@ -100,8 +100,6 @@ export default function Result({ combatReports, recycleReports }) {
             }
         })
 
-        console.log(playerTotals);
-
         let resources = {
             metal: 0,
             crystal: 0,
@@ -120,6 +118,13 @@ export default function Result({ combatReports, recycleReports }) {
             loss.crystal += total.losses.crystal;
             loss.deuterium += total.losses.deuterium;
             deuteriumConsumption += total.deuteriumConsumption;
+        });
+
+        playerTotals.forEach(total => {
+            total.cut = {...resources};
+            total.cut.metal = gain.metal / playerTotals.length; 
+            total.cut.crystal = gain.crystal / playerTotals.length;
+            total.cut.deuterium = gain.deuterium / playerTotals.length;
         })
 
         net.metal = gain.metal - loss.metal;

@@ -73,7 +73,8 @@
             "Summary": "Summary",
             "TotalGain": "Total Gain",
             "TotalLoss": "Total Loss",
-            "NetGain": "Net Gain"
+            "NetGain": "Net Gain",
+            "PlayerCut": "Player Cut"
         }
     }
 }

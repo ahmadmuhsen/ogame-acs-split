@@ -69,6 +69,21 @@ export default function PlayerTotals({ playerTotalsStatistics }) {
                             <div>{t("Deuterium")}</div>
                             <div>{FormatUnits(Math.round(player.net.deuterium))}</div>
                         </div>
+
+                        
+                        <div className="label">{t("PlayerCut")}</div>
+                        <div className="data">
+                            <div>{t("Metal")}</div>
+                            <div>{FormatUnits(Math.round(player.cut.metal))}</div>
+                        </div>
+                        <div className="data">
+                            <div>{t("Crystal")}</div>
+                            <div>{FormatUnits(Math.round(player.cut.crystal))}</div>
+                        </div>
+                        <div className="data">
+                            <div>{t("Deuterium")}</div>
+                            <div>{FormatUnits(Math.round(player.cut.deuterium))}</div>
+                        </div>
                     </div>
                 </div>
             )
