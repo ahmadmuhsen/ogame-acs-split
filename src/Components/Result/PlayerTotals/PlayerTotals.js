@@ -59,15 +59,15 @@ export default function PlayerTotals({ playerTotalsStatistics }) {
                         <div className="label">{t("NetGain")}</div>
                         <div className="data">
                             <div>{t("Metal")}</div>
-                            <div>{FormatUnits(Math.round(player.resources.metal - player.losses.metal))}</div>
+                            <div>{FormatUnits(Math.round(player.net.metal))}</div>
                         </div>
                         <div className="data">
                             <div>{t("Crystal")}</div>
-                            <div>{FormatUnits(Math.round(player.resources.crystal - player.losses.crystal))}</div>
+                            <div>{FormatUnits(Math.round(player.net.crystal))}</div>
                         </div>
                         <div className="data">
                             <div>{t("Deuterium")}</div>
-                            <div>{FormatUnits(Math.round(player.resources.deuterium - player.losses.deuterium - player.deuteriumConsumption))}</div>
+                            <div>{FormatUnits(Math.round(player.net.deuterium))}</div>
                         </div>
                     </div>
                 </div>

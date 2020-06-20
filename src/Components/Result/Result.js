@@ -92,18 +92,26 @@ export default function Result({ combatReports, recycleReports }) {
                 }
             })
 
+        playerTotals.forEach(playerTotal => {
+            playerTotal.net = {
+                metal: playerTotal.resources.metal - playerTotal.losses.metal,
+                crystal: playerTotal.resources.crystal - playerTotal.losses.crystal,
+                deuterium: playerTotal.resources.deuterium - playerTotal.losses.deuterium - playerTotal.deuteriumConsumption,
+            }
+        })
 
-        let gain = {
+        console.log(playerTotals);
+
+        let resources = {
             metal: 0,
             crystal: 0,
             deuterium: 0
         };
-        let loss = {
-            metal: 0,
-            crystal: 0,
-            deuterium: 0
-        };
+        let gain = {...resources};
+        let loss = {...resources};
+        let net = {...resources};
         let deuteriumConsumption = 0;
+
         playerTotals.forEach(total => {
             gain.metal += total.resources.metal;
             gain.crystal += total.resources.crystal;
@@ -113,10 +121,16 @@ export default function Result({ combatReports, recycleReports }) {
             loss.deuterium += total.losses.deuterium;
             deuteriumConsumption += total.deuteriumConsumption;
         })
+
+        net.metal = gain.metal - loss.metal;
+        net.crystal = gain.crystal - loss.crystal;
+        net.deuterium = gain.deuterium - loss.deuterium - deuteriumConsumption;
+
         setTotalResult({
             gain,
             loss,
-            deuteriumConsumption
+            deuteriumConsumption,
+            net
         });
         setPlayerTotalsStatistics(playerTotals);
     }, [combatReports, recycleReports])
