@@ -2,11 +2,14 @@
   width: 98%;
   padding: 2.5px;
   display: flex;
-  justify-content: center;
 }
 
-.result-summary .data {
+.result-summary .result-resources{
   width: 60%;
+  padding: 0px 2.5px;
+}
+
+.result-summary .result-resources .data {
   color: var(--main-panel-txt-color);
   background: var(--main-panel-bg-color);
   border-radius: 5px;
@@ -21,9 +24,27 @@
 
 .result-summary .row div {
   width: 25%;
-  text-align: center;
+  text-align: right;
 }
 
-.result-summary .row.title {
-  margin-bottom: 5px;
+.result-summary .row div:first-child {
+  width: 25%;
+  text-align: left;
+}
+
+.result-summary .title {
+  width: 20%;
+  padding: 0px 2.5px;
+}
+
+.result-summary .title .text{
+  height: 100%;
+  color: var(--main-panel-txt-color);
+  background: var(--main-panel-bg-color);
+  border-radius: 5px;
+  font-size: 13px;
+  padding: 5px 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

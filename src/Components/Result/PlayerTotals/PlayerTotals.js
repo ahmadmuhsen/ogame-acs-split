@@ -13,76 +13,49 @@ export default function PlayerTotals({ playerTotalsStatistics }) {
         console.log(playerTotalsStatistics);
         setPlayersTotals(playerTotalsStatistics.map((player, index) => {
             return (
-                <div
-                    className="player-total-main"
-                    key={`PLAYERTOTAL${index}`}
-                >
-                    <div className="player-total">
-                        <div className="player-name">
-                            {`${player.alliance ? `[${player.alliance}]` : ""} ${player.name}`}
+                <div className="player-total">
+                    <div className="player-name">
+                        <div className="text">
+                            <div>
+                                {player.name}
+                            </div>
+                            <div>
+                                {`${player.alliance != null ? `[${player.alliance}]` : ""}`}
+                            </div>
                         </div>
-
-                        <div className="label">{t("ResCollected")}</div>
+                    </div>
+                    <div className="result-resources">
                         <div className="data">
-                            <div>{t("Metal")}</div>
-                            <div>{FormatUnits(Math.round(player.resources.metal))}</div>
-                        </div>
-                        <div className="data">
-                            <div>{t("Crystal")}</div>
-                            <div>{FormatUnits(Math.round(player.resources.crystal))}</div>
-                        </div>
-                        <div className="data">
-                            <div>{t("Deuterium")}</div>
-                            <div>{FormatUnits(Math.round(player.resources.deuterium))}</div>
-                        </div>
-
-                        <div className="label">{t("UnitsLost")}</div>
-                        <div className="data">
-                            <div>{t("Metal")}</div>
-                            <div>{FormatUnits(Math.round(player.losses.metal))}</div>
-                        </div>
-                        <div className="data">
-                            <div>{t("Crystal")}</div>
-                            <div>{FormatUnits(Math.round(player.losses.crystal))}</div>
-                        </div>
-                        <div className="data">
-                            <div>{t("Deuterium")}</div>
-                            <div>{FormatUnits(Math.round(player.losses.deuterium))}</div>
-                        </div>
-
-                        <div className="label">{t("FlightConsumption")}</div>
-                        <div className="data">
-                            <div>{t("Deuterium")}</div>
-                            <div>{FormatUnits(Math.round(player.deuteriumConsumption))}</div>
-                        </div>
-
-                        <div className="label">{t("NetGain")}</div>
-                        <div className="data">
-                            <div>{t("Metal")}</div>
-                            <div>{FormatUnits(Math.round(player.net.metal))}</div>
-                        </div>
-                        <div className="data">
-                            <div>{t("Crystal")}</div>
-                            <div>{FormatUnits(Math.round(player.net.crystal))}</div>
-                        </div>
-                        <div className="data">
-                            <div>{t("Deuterium")}</div>
-                            <div>{FormatUnits(Math.round(player.net.deuterium))}</div>
-                        </div>
-
-                        
-                        <div className="label">{t("PlayerCut")}</div>
-                        <div className="data">
-                            <div>{t("Metal")}</div>
-                            <div>{FormatUnits(Math.round(player.cut.metal))}</div>
-                        </div>
-                        <div className="data">
-                            <div>{t("Crystal")}</div>
-                            <div>{FormatUnits(Math.round(player.cut.crystal))}</div>
-                        </div>
-                        <div className="data">
-                            <div>{t("Deuterium")}</div>
-                            <div>{FormatUnits(Math.round(player.cut.deuterium))}</div>
+                            <div className="row">
+                                <div>{t("ResCollected")}</div>
+                                <div>{FormatUnits(Math.round(player.resources.metal))}</div>
+                                <div>{FormatUnits(Math.round(player.resources.crystal))}</div>
+                                <div>{FormatUnits(Math.round(player.resources.deuterium))}</div>
+                            </div>
+                            <div className="row">
+                                <div>{t("UnitsLost")}</div>
+                                <div>{FormatUnits(Math.round(player.losses.metal))}</div>
+                                <div>{FormatUnits(Math.round(player.losses.crystal))}</div>
+                                <div>{FormatUnits(Math.round(player.losses.deuterium))}</div>
+                            </div>
+                            <div className="row">
+                                <div>{t("FlightConsumption")}</div>
+                                <div>0</div>
+                                <div>0</div>
+                                <div>{FormatUnits(Math.round(player.deuteriumConsumption))}</div>
+                            </div>
+                            <div className="row">
+                                <div>{t("NetGain")}</div>
+                                <div>{FormatUnits(Math.round(player.net.metal))}</div>
+                                <div>{FormatUnits(Math.round(player.net.crystal))}</div>
+                                <div>{FormatUnits(Math.round(player.net.deuterium))}</div>
+                            </div>
+                            <div className="row">
+                                <div>{t("PlayerCut")}</div>
+                                <div>{FormatUnits(Math.round(player.cut.metal))}</div>
+                                <div>{FormatUnits(Math.round(player.cut.crystal))}</div>
+                                <div>{FormatUnits(Math.round(player.cut.deuterium))}</div>
+                            </div>
                         </div>
                     </div>
                 </div>

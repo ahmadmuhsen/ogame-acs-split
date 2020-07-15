@@ -105,9 +105,9 @@ export default function Result({ combatReports, recycleReports }) {
             crystal: 0,
             deuterium: 0
         };
-        let gain = {...resources};
-        let loss = {...resources};
-        let net = {...resources};
+        let gain = { ...resources };
+        let loss = { ...resources };
+        let net = { ...resources };
         let deuteriumConsumption = 0;
 
         playerTotals.forEach(total => {
@@ -121,8 +121,8 @@ export default function Result({ combatReports, recycleReports }) {
         });
 
         playerTotals.forEach(total => {
-            total.cut = {...resources};
-            total.cut.metal = gain.metal / playerTotals.length; 
+            total.cut = { ...resources };
+            total.cut.metal = gain.metal / playerTotals.length;
             total.cut.crystal = gain.crystal / playerTotals.length;
             total.cut.deuterium = gain.deuterium / playerTotals.length;
         })
@@ -151,6 +151,16 @@ export default function Result({ combatReports, recycleReports }) {
                 className="result"
                 style={{ display: DataVisible && (combatReports.length > 0 || recycleReports.length > 0) ? "flex" : "none" }}
             >
+
+                <div className="resources-bar">
+                    <div className="bar">
+                        <div><i className={`fas fa-calculator`} /></div>
+                        <div>{t("Metal")}</div>
+                        <div>{t("Crystal")}</div>
+                        <div>{t("Deuterium")}</div>
+                    </div>
+                </div>
+
                 <Summary
                     totalResult={TotalResult}
                 />

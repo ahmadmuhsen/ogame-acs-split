@@ -1,9 +1,32 @@
 .result-main {
-    margin-top: 5px
+  margin-top: 5px;
 }
 
-.result-main .result{
-    flex-direction: column; 
-    align-items: flex-end;
-    margin-top: 2.5px;
+.result-main .result {
+  flex-direction: column;
+  align-items: flex-end;
+  margin-top: 2.5px;
+}
+
+.result-main .resources-bar {
+  display: flex;
+  justify-content: center;
+  padding: 2.5px;
+  width: 98%;
+}
+
+.result-main .resources-bar .bar {
+  width: 60%;
+  display: flex;
+  justify-content: center;
+  color: var(--main-panel-txt-color);
+  background: var(--main-panel-bg-color);
+  border-radius: 5px;
+  font-size: 13px;
+  padding: 5px 10px;
+}
+
+.result-main .resources-bar .bar div {
+  width: 25%;
+  text-align: center;
 }

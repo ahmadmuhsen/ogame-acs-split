@@ -12,43 +12,41 @@ export default function Summary({ totalResult }) {
         if (totalResult.gain) {
             setSummaryView((
                 <div className="result-summary">
-                    <div className="data">
-                        <div className="row title">
-                            <div>{t("Summary")}</div>
+                    <div className="title">
+                        <div className="text">
+                            {t("Summary")}
                         </div>
-                        <div className="row">
-                            <div><i className={`fas fa-calculator`} /></div>
-                            <div>{t("Metal")}</div>
-                            <div>{t("Crystal")}</div>
-                            <div>{t("Deuterium")}</div>
-                        </div>
+                    </div>
 
-                        <div className="row">
-                            <div>{t("TotalGain")}</div>
-                            <div>{FormatUnits(Math.round(totalResult.gain.metal))}</div>
-                            <div>{FormatUnits(Math.round(totalResult.gain.crystal))}</div>
-                            <div>{FormatUnits(Math.round(totalResult.gain.deuterium))}</div>
-                        </div>
+                    <div className="result-resources">
+                        <div className="data">
+                            <div className="row">
+                                <div>{t("TotalGain")}</div>
+                                <div>{FormatUnits(Math.round(totalResult.gain.metal))}</div>
+                                <div>{FormatUnits(Math.round(totalResult.gain.crystal))}</div>
+                                <div>{FormatUnits(Math.round(totalResult.gain.deuterium))}</div>
+                            </div>
 
-                        <div className="row">
-                            <div>{t("TotalLoss")}</div>
-                            <div>{FormatUnits(Math.round(totalResult.loss.metal))}</div>
-                            <div>{FormatUnits(Math.round(totalResult.loss.crystal))}</div>
-                            <div>{FormatUnits(Math.round(totalResult.loss.deuterium))}</div>
-                        </div>
-                        
-                        <div className="row">
-                            <div>{t("FlightConsumption")}</div>
-                            <div>{0}</div>
-                            <div>{0}</div>
-                            <div>{FormatUnits(Math.round(totalResult.deuteriumConsumption))}</div>
-                        </div>
+                            <div className="row">
+                                <div>{t("TotalLoss")}</div>
+                                <div>{FormatUnits(Math.round(totalResult.loss.metal))}</div>
+                                <div>{FormatUnits(Math.round(totalResult.loss.crystal))}</div>
+                                <div>{FormatUnits(Math.round(totalResult.loss.deuterium))}</div>
+                            </div>
 
-                        <div className="row">
-                            <div>{t("NetGain")}</div>
-                            <div>{FormatUnits(Math.round(totalResult.net.metal))}</div>
-                            <div>{FormatUnits(Math.round(totalResult.net.crystal))}</div>
-                            <div>{FormatUnits(Math.round(totalResult.net.deuterium))}</div>
+                            <div className="row">
+                                <div>{t("FlightConsumption")}</div>
+                                <div>{0}</div>
+                                <div>{0}</div>
+                                <div>{FormatUnits(Math.round(totalResult.deuteriumConsumption))}</div>
+                            </div>
+
+                            <div className="row">
+                                <div>{t("NetGain")}</div>
+                                <div>{FormatUnits(Math.round(totalResult.net.metal))}</div>
+                                <div>{FormatUnits(Math.round(totalResult.net.crystal))}</div>
+                                <div>{FormatUnits(Math.round(totalResult.net.deuterium))}</div>
+                            </div>
                         </div>
                     </div>
                 </div>
