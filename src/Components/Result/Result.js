@@ -92,14 +92,6 @@ export default function Result({ combatReports, recycleReports }) {
                 }
             })
 
-        playerTotals.forEach(playerTotal => {
-            playerTotal.net = {
-                metal: playerTotal.resources.metal - playerTotal.losses.metal,
-                crystal: playerTotal.resources.crystal - playerTotal.losses.crystal,
-                deuterium: playerTotal.resources.deuterium - playerTotal.losses.deuterium - playerTotal.deuteriumConsumption,
-            }
-        })
-
         let resources = {
             metal: 0,
             crystal: 0,
@@ -110,26 +102,35 @@ export default function Result({ combatReports, recycleReports }) {
         let net = { ...resources };
         let deuteriumConsumption = 0;
 
-        playerTotals.forEach(total => {
-            gain.metal += total.resources.metal;
-            gain.crystal += total.resources.crystal;
-            gain.deuterium += total.resources.deuterium;
-            loss.metal += total.losses.metal;
-            loss.crystal += total.losses.crystal;
-            loss.deuterium += total.losses.deuterium;
-            deuteriumConsumption += total.deuteriumConsumption;
+        playerTotals.forEach(playerTotal => {
+            gain.metal += playerTotal.resources.metal;
+            gain.crystal += playerTotal.resources.crystal;
+            gain.deuterium += playerTotal.resources.deuterium;
+            loss.metal += playerTotal.losses.metal;
+            loss.crystal += playerTotal.losses.crystal;
+            loss.deuterium += playerTotal.losses.deuterium;
+            deuteriumConsumption += playerTotal.deuteriumConsumption;
         });
-
-        playerTotals.forEach(total => {
-            total.cut = { ...resources };
-            total.cut.metal = gain.metal / playerTotals.length;
-            total.cut.crystal = gain.crystal / playerTotals.length;
-            total.cut.deuterium = gain.deuterium / playerTotals.length;
-        })
 
         net.metal = gain.metal - loss.metal;
         net.crystal = gain.crystal - loss.crystal;
         net.deuterium = gain.deuterium - loss.deuterium - deuteriumConsumption;
+
+        playerTotals.forEach(playerTotal => {
+            playerTotal.cut = { ...resources };
+            playerTotal.cut.metal = net.metal / playerTotals.length;
+            playerTotal.cut.crystal = net.crystal / playerTotals.length;
+            playerTotal.cut.deuterium = net.deuterium / playerTotals.length;
+        })
+
+        playerTotals.forEach(playerTotal => {
+            console.log(playerTotal);
+            playerTotal.contribution = {
+                metal: playerTotal.resources.metal - playerTotal.losses.metal - playerTotal.cut.metal,
+                crystal: playerTotal.resources.crystal - playerTotal.losses.crystal - playerTotal.cut.crystal,
+                deuterium: playerTotal.resources.deuterium - playerTotal.losses.deuterium - playerTotal.deuteriumConsumption - playerTotal.cut.deuterium,
+            }
+        })
 
         setTotalResult({
             gain,

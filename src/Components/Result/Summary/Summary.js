@@ -42,7 +42,7 @@ export default function Summary({ totalResult }) {
                             </div>
 
                             <div className="row">
-                                <div>{t("NetGain")}</div>
+                                <div>{t("NetSplit")}</div>
                                 <div>{FormatUnits(Math.round(totalResult.net.metal))}</div>
                                 <div>{FormatUnits(Math.round(totalResult.net.crystal))}</div>
                                 <div>{FormatUnits(Math.round(totalResult.net.deuterium))}</div>

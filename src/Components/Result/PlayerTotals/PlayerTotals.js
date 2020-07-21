@@ -10,7 +10,6 @@ export default function PlayerTotals({ playerTotalsStatistics }) {
     const [PlayersTotals, setPlayersTotals] = useState([]);
 
     useEffect(() => {
-        console.log(playerTotalsStatistics);
         setPlayersTotals(playerTotalsStatistics.map((player, index) => {
             return (
                 <div className="player-total">
@@ -45,16 +44,16 @@ export default function PlayerTotals({ playerTotalsStatistics }) {
                                 <div>{FormatUnits(Math.round(player.deuteriumConsumption))}</div>
                             </div>
                             <div className="row">
-                                <div>{t("NetGain")}</div>
-                                <div>{FormatUnits(Math.round(player.net.metal))}</div>
-                                <div>{FormatUnits(Math.round(player.net.crystal))}</div>
-                                <div>{FormatUnits(Math.round(player.net.deuterium))}</div>
-                            </div>
-                            <div className="row">
                                 <div>{t("PlayerCut")}</div>
                                 <div>{FormatUnits(Math.round(player.cut.metal))}</div>
                                 <div>{FormatUnits(Math.round(player.cut.crystal))}</div>
                                 <div>{FormatUnits(Math.round(player.cut.deuterium))}</div>
+                            </div>
+                            <div className="row">
+                                <div>{t("Contribution")}</div>
+                                <div>{FormatUnits(Math.round(player.contribution.metal))}</div>
+                                <div>{FormatUnits(Math.round(player.contribution.crystal))}</div>
+                                <div>{FormatUnits(Math.round(player.contribution.deuterium))}</div>
                             </div>
                         </div>
                     </div>
