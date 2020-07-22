@@ -64,7 +64,7 @@
 }
 
 .player-totals-main .player-totals .player-total .result-resources {
-  width: 60%;
+  width: 80%;
   padding: 0px 2.5px;
 }
 
@@ -78,19 +78,36 @@
 
 .player-totals-main .player-totals .player-total .row {
   display: flex;
-  justify-content: space-around;
 }
 
 .player-totals-main .player-totals .player-total .row div {
-  width: 25%;
+  width: 30%;
   text-align: right;
 }
 
 .player-totals-main .player-totals .player-total .row div:first-child {
-  width: 25%;
+  width: 10%;
   text-align: left;
 }
 
 .player-totals-main .player-totals .player-total .row.title {
   margin-bottom: 5px;
+}
+
+.player-totals-main .player-totals .player-total .row .contribution-prompt{
+  display: flex;
+  align-items: center;
+}
+
+.player-totals-main .player-totals .player-total .row .contribution-prompt div{
+  width: 50%;
+  text-align: right;
+  padding-right: 5px;
+  cursor: pointer;
+}
+
+.player-totals-main .player-totals .player-total .row .contribution-prompt .text-input{
+  width: 50%;
+  text-align: center;
+  height: 15px;
 }

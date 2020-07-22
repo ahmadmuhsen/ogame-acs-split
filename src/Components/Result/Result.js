@@ -117,14 +117,13 @@ export default function Result({ combatReports, recycleReports }) {
         net.deuterium = gain.deuterium - loss.deuterium - deuteriumConsumption;
 
         playerTotals.forEach(playerTotal => {
+        })
+
+        playerTotals.forEach(playerTotal => {
             playerTotal.cut = { ...resources };
             playerTotal.cut.metal = net.metal / playerTotals.length;
             playerTotal.cut.crystal = net.crystal / playerTotals.length;
             playerTotal.cut.deuterium = net.deuterium / playerTotals.length;
-        })
-
-        playerTotals.forEach(playerTotal => {
-            console.log(playerTotal);
             playerTotal.contribution = {
                 metal: playerTotal.resources.metal - playerTotal.losses.metal - playerTotal.cut.metal,
                 crystal: playerTotal.resources.crystal - playerTotal.losses.crystal - playerTotal.cut.crystal,
@@ -167,6 +166,7 @@ export default function Result({ combatReports, recycleReports }) {
                 />
                 <PlayerTotals
                     playerTotalsStatistics={PlayerTotalsStatistics}
+                    setPlayerTotalsStatistics={setPlayerTotalsStatistics}
                 />
             </div>
         </div>

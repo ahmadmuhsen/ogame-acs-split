@@ -76,7 +76,8 @@
             "NetGain": "Net Gain",
             "PlayerCut": "Player Cut",
             "NetSplit": "Net Split",
-            "Contribution": "Contribution"
+            "Contribution": "Contribution",
+            "Settlement": "Settlement"
         }
     }
 }

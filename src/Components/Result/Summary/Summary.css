@@ -5,7 +5,7 @@
 }
 
 .result-summary .result-resources{
-  width: 60%;
+  width: 80%;
   padding: 0px 2.5px;
 }
 
@@ -23,12 +23,12 @@
 }
 
 .result-summary .row div {
-  width: 25%;
+  width: 30%;
   text-align: right;
 }
 
 .result-summary .row div:first-child {
-  width: 25%;
+  width: 10%;
   text-align: left;
 }
 
