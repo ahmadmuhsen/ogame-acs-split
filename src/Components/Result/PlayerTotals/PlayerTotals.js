@@ -30,6 +30,8 @@ export default function PlayerTotals({ playerTotalsStatistics, setPlayerTotalsSt
             fromPlayer.settlements = [];
         if (!fromPlayer.settled)
             fromPlayer.settled = { metal: 0, crystal: 0, deuterium: 0 };
+        if (!toPlayer.settlementsRecieved)
+            toPlayer.settlementsRecieved = { metal: 0, crystal: 0, deuterium: 0 };
 
         let settlement = fromPlayer.settlements.find(sett => sett.to === to && sett.resource === resource);
         if (!settlement) {
@@ -53,13 +55,24 @@ export default function PlayerTotals({ playerTotalsStatistics, setPlayerTotalsSt
                 fromPlayer.settled[resource] += sett.value
         });
 
+        let totalSettlementRecieved = 0;
+        playerTotalTemp.forEach(total => {
+            if (total.settlements) {
+                let resSett = total.settlements.find(sett => sett.to === to && sett.resource === resource);
+                if (resSett) {
+                    totalSettlementRecieved += resSett.value;
+                }
+            }
+        })
+        toPlayer.settlementsRecieved[resource] = totalSettlementRecieved;
+
         setPlayerTotalsStatistics(playerTotalTemp);
 
     }
 
     useEffect(() => {
         setPlayersTotals(playerTotalsStatistics.map(player => {
-
+            console.log(player);
             let resourceNeeded = {
                 metal: player.contribution.metal < 0 ? true : false,
                 crystal: player.contribution.crystal < 0 ? true : false,
@@ -70,6 +83,12 @@ export default function PlayerTotals({ playerTotalsStatistics, setPlayerTotalsSt
                 if ((playerTotal.contribution.metal > 0 && resourceNeeded.metal)
                     || (playerTotal.contribution.crystal > 0 && resourceNeeded.crystal)
                     || (playerTotal.contribution.deuterium > 0 && resourceNeeded.deuterium)) {
+                    let metalValue = !playerTotal.settlements || !playerTotal.settlements.find(sett => sett.to === player.ownerId && sett.resource === "metal") ? 0 :
+                        playerTotal.settlements.find(sett => sett.to === player.ownerId && sett.resource === "metal").value;
+                    let crystalValue = !playerTotal.settlements || !playerTotal.settlements.find(sett => sett.to === player.ownerId && sett.resource === "crystal") ? 0 :
+                        playerTotal.settlements.find(sett => sett.to === player.ownerId && sett.resource === "crystal").value;
+                    let deutValue = !playerTotal.settlements || !playerTotal.settlements.find(sett => sett.to === player.ownerId && sett.resource === "deuterium") ? 0 :
+                        playerTotal.settlements.find(sett => sett.to === player.ownerId && sett.resource === "deuterium").value;
                     settlments.push((
                         <div className="row" key={`PLAYERSETTLEMENT${playerTotal.ownerId}`}>
                             <div>{playerTotal.name}</div>
@@ -77,36 +96,45 @@ export default function PlayerTotals({ playerTotalsStatistics, setPlayerTotalsSt
                             {playerTotal.contribution.metal > 0 && resourceNeeded.metal ?
                                 <div className="contribution-prompt">
                                     <div
+                                        className={player.settlementsRecieved && player.settlementsRecieved.metal === Math.round(Math.abs(player.contribution.metal)) ? "settlement-full" : ""}
                                         onClick={(e) => onSettlementChange(playerTotal.ownerId, player.ownerId, "metal", Math.abs(player.contribution.metal))}
                                     >({FormatUnits(Math.round(playerTotal.contribution.metal - (!playerTotal.settled ? 0 : playerTotal.settled.metal)))})</div>
-                                    <TextInput value={
-                                        !playerTotal.settlements || !playerTotal.settlements.find(sett => sett.to === player.ownerId && sett.resource === "metal") ? 0 :
-                                            playerTotal.settlements.find(sett => sett.to === player.ownerId && sett.resource === "metal").value
-                                    } onChange={(e) => onSettlementChange(playerTotal.ownerId, player.ownerId, "metal", parseInt(e.target.value))} />
+                                    <TextInput
+                                        className={player.settlementsRecieved
+                                            && player.settlementsRecieved.metal === Math.round(Math.abs(player.contribution.metal))
+                                            && metalValue === 0 ? "settlement-full" : ""}
+                                        value={metalValue}
+                                        onChange={(e) => onSettlementChange(playerTotal.ownerId, player.ownerId, "metal", parseInt(e.target.value))} />
                                 </div>
                                 : <div></div>}
 
                             {playerTotal.contribution.crystal > 0 && resourceNeeded.crystal ?
                                 <div className="contribution-prompt">
                                     <div
+                                        className={player.settlementsRecieved && player.settlementsRecieved.crystal === Math.round(Math.abs(player.contribution.crystal)) ? "settlement-full" : ""}
                                         onClick={(e) => onSettlementChange(playerTotal.ownerId, player.ownerId, "crystal", Math.abs(player.contribution.crystal))}
                                     >({FormatUnits(Math.round(playerTotal.contribution.crystal - (!playerTotal.settled ? 0 : playerTotal.settled.crystal)))})</div>
-                                    <TextInput value={
-                                        !playerTotal.settlements || !playerTotal.settlements.find(sett => sett.to === player.ownerId && sett.resource === "crystal") ? 0 :
-                                            playerTotal.settlements.find(sett => sett.to === player.ownerId && sett.resource === "crystal").value
-                                    } onChange={(e) => onSettlementChange(playerTotal.ownerId, player.ownerId, "crystal", parseInt(e.target.value))} />
+                                    <TextInput
+                                        className={player.settlementsRecieved
+                                            && player.settlementsRecieved.crystal === Math.round(Math.abs(player.contribution.crystal))
+                                            && crystalValue === 0 ? "settlement-full" : ""}
+                                        value={crystalValue}
+                                        onChange={(e) => onSettlementChange(playerTotal.ownerId, player.ownerId, "crystal", parseInt(e.target.value))} />
                                 </div>
                                 : <div></div>}
 
                             {playerTotal.contribution.deuterium > 0 && resourceNeeded.deuterium ?
                                 <div className="contribution-prompt">
                                     <div
+                                        className={player.settlementsRecieved && player.settlementsRecieved.deuterium === Math.round(Math.abs(player.contribution.deuterium)) ? "settlement-full" : ""}
                                         onClick={(e) => onSettlementChange(playerTotal.ownerId, player.ownerId, "deuterium", Math.abs(player.contribution.deuterium))}
                                     >({FormatUnits(Math.round(playerTotal.contribution.deuterium - (!playerTotal.settled ? 0 : playerTotal.settled.deuterium)))})</div>
-                                    <TextInput value={
-                                        !playerTotal.settlements || !playerTotal.settlements.find(sett => sett.to === player.ownerId && sett.resource === "deuterium") ? 0 :
-                                            playerTotal.settlements.find(sett => sett.to === player.ownerId && sett.resource === "deuterium").value
-                                    } onChange={(e) => onSettlementChange(playerTotal.ownerId, player.ownerId, "deuterium", parseInt(e.target.value))} />
+                                    <TextInput
+                                        className={player.settlementsRecieved
+                                            && player.settlementsRecieved.deuterium === Math.round(Math.abs(player.contribution.deuterium))
+                                            && deutValue === 0 ? "settlement-full" : ""}
+                                        value={deutValue}
+                                        onChange={(e) => onSettlementChange(playerTotal.ownerId, player.ownerId, "deuterium", parseInt(e.target.value))} />
                                 </div>
                                 : <div></div>}
                         </div>
@@ -159,8 +187,8 @@ export default function PlayerTotals({ playerTotalsStatistics, setPlayerTotalsSt
                                 <div>{FormatUnits(Math.round(player.contribution.deuterium))}</div>
                             </div>
                             {settlments.length > 0 ?
-                                <div className="row">
-                                    <div>{t("Settlement")}</div>
+                                <div className="row settlement-title">
+                                    {t("ResourceTransports")}
                                 </div> : ""}
                             {settlments.length > 0 ?
                                 settlments : ""}

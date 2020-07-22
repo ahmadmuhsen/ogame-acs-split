@@ -80,6 +80,12 @@
   display: flex;
 }
 
+.player-totals-main .player-totals .player-total .row.settlement-title{
+  justify-content: center;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
 .player-totals-main .player-totals .player-total .row div {
   width: 30%;
   text-align: right;
@@ -104,6 +110,14 @@
   text-align: right;
   padding-right: 5px;
   cursor: pointer;
+}
+
+.player-totals-main .player-totals .player-total .row .contribution-prompt div.settlement-full{
+  color: grey;
+}
+
+.player-totals-main .player-totals .player-total .row .contribution-prompt .text-input.settlement-full{
+  background-color: grey;
 }
 
 .player-totals-main .player-totals .player-total .row .contribution-prompt .text-input{
