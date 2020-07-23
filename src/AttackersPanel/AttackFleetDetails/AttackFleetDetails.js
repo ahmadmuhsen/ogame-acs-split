@@ -22,7 +22,6 @@ export default function AttackFleetDetails({
     const [FleetComposition, setFleetComposition] = useState([]);
 
     useEffect(() => {
-        console.log(attackFleet);
         setFleetComposition(Object.keys(FleetTypes.ships).map((shipType) => {
             let fleetShip = attackFleet.fleet.find(flt => flt.shipType === parseInt(shipType));
             return (

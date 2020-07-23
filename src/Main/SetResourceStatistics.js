@@ -1,6 +1,7 @@
 import FleetTypes from '../FleetTypes.json';
 
 export function SetResourceStatistics(combatReports) {
+
     combatReports.forEach(report => {
         let totalCapacity = 0;
         report.attackers.forEach(attacker => {

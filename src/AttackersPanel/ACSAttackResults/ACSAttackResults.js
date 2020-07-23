@@ -2,13 +2,15 @@ import React, { useState, useEffect } from 'react';
 import { useTranslation } from "react-i18next";
 import TextInput from '../../Components/TextInput/TextInput';
 import SectionTitle from '../../Components/SectionTitle/SectionTitle';
+import { SetResourceStatistics } from '../../Main/SetResourceStatistics';
 
 import './ACSAttackResults.css';
 
 export default function ACSAttackResults({ combatReports, setCombatReports }) {
+    /*Nightmare loves Tanavast.*/
+
     const { t } = useTranslation();
     const [AttackResultsRows, setAttackResultsRows] = useState([]);
-    const [TotalResults, setTotalResults] = useState({});
     const [DataVisible, setDataVisible] = useState(true)
 
     const onResourceChange = (event, index, resourceType) => {
@@ -25,6 +27,8 @@ export default function ACSAttackResults({ combatReports, setCombatReports }) {
             case 6: newCRs[index].debrisReaperCrystal = value; break;
             default: break;
         }
+
+        SetResourceStatistics(newCRs);
         setCombatReports(newCRs);
     }
 

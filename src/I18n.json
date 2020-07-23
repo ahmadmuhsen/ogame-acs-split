@@ -58,7 +58,7 @@
             "Launch": "Launch",
             "DF": "DF",
             "UnitsLost": "Units Lost",
-            "FlightConsumption": "Flight Consumption",
+            "FlightConsumption": "Consumption",
             "ChooseSidePrompt": "Which side are you on?",
             "Attackers": "Attackers",
             "Defenders": "Defenders",
@@ -66,7 +66,20 @@
             "AttacksOverview": "Attacks Overview",
             "HyperspaceTech": "Hyperspace Tech",
             "HarvestsOverview": "Harvests Overview",
-            "Harvest": "Harvest"
+            "Harvest": "Harvest",
+            "Result": "Result",
+            "PlayerTotals": "Player Totals",
+            "ResCollected": "Resources",
+            "Summary": "Summary",
+            "TotalGain": "Total Gain",
+            "TotalLoss": "Total Loss",
+            "NetGain": "Net Gain",
+            "PlayerCut": "Player Cut",
+            "NetSplit": "Net Split",
+            "Contribution": "Contribution",
+            "ResourceTransports": "Resource Transports",
+            "TransportSummary": "Transport Summary",
+            "TransportMessage": "%FromPlayer% should send %Resources% to %ToPlayer%"
         }
     }
 }
