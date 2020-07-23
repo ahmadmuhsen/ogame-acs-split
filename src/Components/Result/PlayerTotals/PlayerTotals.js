@@ -72,7 +72,6 @@ export default function PlayerTotals({ playerTotalsStatistics, setPlayerTotalsSt
 
     useEffect(() => {
         setPlayersTotals(playerTotalsStatistics.map(player => {
-            console.log(player);
             let resourceNeeded = {
                 metal: player.contribution.metal < 0 ? true : false,
                 crystal: player.contribution.crystal < 0 ? true : false,

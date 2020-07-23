@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react';
+
 import SectionTitle from '../SectionTitle/SectionTitle';
 import PlayerTotals from './PlayerTotals/PlayerTotals';
 import Summary from './Summary/Summary';
+import TransportSummary from './TransportSummary/TransportSummary';
+
 import { useTranslation } from "react-i18next";
 import './Result.css';
 
@@ -168,6 +171,10 @@ export default function Result({ combatReports, recycleReports }) {
                     playerTotalsStatistics={PlayerTotalsStatistics}
                     setPlayerTotalsStatistics={setPlayerTotalsStatistics}
                 />
+                <TransportSummary
+                    playerTotalsStatistics={PlayerTotalsStatistics}
+                />
+
             </div>
         </div>
     )

@@ -77,7 +77,9 @@
             "PlayerCut": "Player Cut",
             "NetSplit": "Net Split",
             "Contribution": "Contribution",
-            "ResourceTransports": "Resource Transports"
+            "ResourceTransports": "Resource Transports",
+            "TransportSummary": "Transport Summary",
+            "TransportMessage": "%FromPlayer% should send %Resources% to %ToPlayer%"
         }
     }
 }
