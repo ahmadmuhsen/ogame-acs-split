@@ -79,7 +79,8 @@
             "Contribution": "Contribution",
             "ResourceTransports": "Resource Transports",
             "TransportSummary": "Transport Summary",
-            "TransportMessage": "%FromPlayer% should send %Resources% to %ToPlayer%"
+            "TrasnsportSummaryTitle": "%FromPlayer% should send:",
+            "TransportMessage": "%Resources% to %ToPlayer%"
         }
     }
 }

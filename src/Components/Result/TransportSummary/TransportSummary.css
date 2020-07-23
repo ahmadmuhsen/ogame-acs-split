@@ -19,6 +19,10 @@
   text-align: center;
 }
 
+.transport-summary .result-transport .data > div {
+  padding: 5px 0px;
+}
+
 .transport-summary .title {
   width: 20%;
   padding: 0px 2.5px;

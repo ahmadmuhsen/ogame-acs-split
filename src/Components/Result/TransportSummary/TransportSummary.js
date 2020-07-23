@@ -14,25 +14,30 @@ export default function TransportSummary({ playerTotalsStatistics }) {
             if (stat.settlements) {
                 stat.settlements.forEach(sett => {
                     let toName = playerTotalsStatistics.find(pl => pl.ownerId === sett.to).name;
-                    let trnsprt = transports.find(tr => tr.from === stat.name && tr.to === toName);
+                    let trnsprt = transports.find(tr => tr.from === stat.name);
                     if (!trnsprt) {
                         transports.push({
                             from: stat.name,
-                            to: toName,
-                            resources: {
-                                metal: 0,
-                                crystal: 0,
-                                deuterium: 0
-                            }
+                            allTransports: []
                         });
-                        trnsprt = transports.find(tr => tr.from === stat.name && tr.to === toName);
+                        trnsprt = transports.find(tr => tr.from === stat.name);
                     }
+
+                    let trnsprtTo = trnsprt.allTransports.find(atr => atr.to === toName);
+                    if (!trnsprtTo)
+                        trnsprt.allTransports.push({
+                            to: toName,
+                            resources: { metal: 0, crystal: 0, deuterium: 0 }
+                        })
+                    trnsprtTo = trnsprt.allTransports.find(atr => atr.to === toName);
+
                     if (sett.value > 0)
-                        trnsprt.resources[sett.resource] += sett.value
+                        trnsprtTo.resources[sett.resource] += sett.value
 
                 })
             }
         });
+        console.log(transports);
         setTransports(transports);
     }, [playerTotalsStatistics])
 
@@ -49,29 +54,35 @@ export default function TransportSummary({ playerTotalsStatistics }) {
                     {Transports.length === 0 ?
                         <div>{t("NoTransports")}</div> :
                         Transports.map(trs => {
-                            let typesCount = 0;
-                            let resMessage = "";
-                            let resTypes = ["metal", "crystal", "deuterium"];
-                            resTypes.forEach(resType => {
-                                if (trs.resources[resType] > 0) {
-                                    switch (typesCount) {
-                                        case 0: resMessage += `${FormatUnits(trs.resources[resType])} ${resType}`; break;
-                                        case 1:
-                                        case 2: resMessage += ` + ${FormatUnits(trs.resources[resType])} ${resType}`; break;
-                                        default: break;
-                                    }
-                                    typesCount++;
-                                }
-                            })
+                            let section = [];
+                            section.push((<div>{t("TrasnsportSummaryTitle").replace("%FromPlayer%", trs.from)}</div>))
 
-                            let message = t("TransportMessage")
-                                .replace("%FromPlayer%", trs.from)
-                                .replace("%ToPlayer%", trs.to)
-                                .replace("%Resources%", resMessage);
+                            trs.allTransports.forEach(atr => {
+                                let typesCount = 0;
+                                let resMessage = "";
+                                let resTypes = ["metal", "crystal", "deuterium"];
+                                resTypes.forEach(resType => {
+                                    if (atr.resources[resType] > 0) {
+                                        switch (typesCount) {
+                                            case 0: resMessage += `${FormatUnits(atr.resources[resType])} ${resType}`; break;
+                                            case 1:
+                                            case 2: resMessage += ` + ${FormatUnits(atr.resources[resType])} ${resType}`; break;
+                                            default: break;
+                                        }
+                                        typesCount++;
+                                    }
+                                })
+
+                                let message = t("TransportMessage")
+                                    .replace("%ToPlayer%", atr.to)
+                                    .replace("%Resources%", resMessage);
+                                if (typesCount > 0)
+                                    section.push((<div>{message}</div>))
+                            })
 
                             return (
                                 <div>
-                                    {message}
+                                    {section}
                                 </div>
                             )
                         })}
