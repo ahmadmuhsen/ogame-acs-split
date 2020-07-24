@@ -53,7 +53,7 @@ export default function TransportSummary({ playerTotalsStatistics }) {
                         <div>{t("NoTransports")}</div> :
                         Transports.map(trs => {
                             let section = [];
-                            section.push((<div>{t("TrasnsportSummaryTitle").replace("%FromPlayer%", trs.from)}</div>))
+                            section.push((<div key={`TRANSPORTSUMMARY${trs.from}`}>{t("TrasnsportSummaryTitle").replace("%FromPlayer%", trs.from)}</div>))
 
                             trs.allTransports.forEach(atr => {
                                 let typesCount = 0;
@@ -75,11 +75,11 @@ export default function TransportSummary({ playerTotalsStatistics }) {
                                     .replace("%ToPlayer%", atr.to)
                                     .replace("%Resources%", resMessage);
                                 if (typesCount > 0)
-                                    section.push((<div>{message}</div>))
+                                    section.push((<div key={`TRANSPORTSUMMARY${trs.from}${atr.to}`}>{message}</div>))
                             })
 
                             return (
-                                <div>
+                                <div key={`TRANSPORTSUMMARYRESULT${trs.from}`}>
                                     {section}
                                 </div>
                             )
