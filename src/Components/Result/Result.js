@@ -44,6 +44,10 @@ export default function Result({ combatReports, recycleReports, settingsData }) 
                                 deuterium: attacker.unitsLost.deuterium,
                             },
                             deuteriumConsumption: attacker.deuteriumConsumption,
+                            consumptionConverted: {
+                                metal: (attacker.deuteriumConsumption / 2) * parseFloat(settingsData.conversationRate[0]),
+                                crystal: (attacker.deuteriumConsumption / 2) * parseFloat(settingsData.conversationRate[1])
+                            },
                             fleet: fleetTotal,
                             ownerId: attacker.ownerId,
                             name: attacker.name,
@@ -63,6 +67,8 @@ export default function Result({ combatReports, recycleReports, settingsData }) 
                         player.fleetValue += attacker.fleetValue;
                         player.fleet.preCount += fleetTotal.preCount;
                         player.fleet.postCount += fleetTotal.postCount;
+                        player.consumptionConverted.metal += (attacker.deuteriumConsumption / 2) * parseFloat(settingsData.conversationRate[0]);
+                        player.consumptionConverted.crystal += (attacker.deuteriumConsumption / 2) * parseFloat(settingsData.conversationRate[1]);
                     }
                 });
             });
@@ -118,10 +124,15 @@ export default function Result({ combatReports, recycleReports, settingsData }) 
             loss.deuterium += playerTotal.losses.deuterium;
             deuteriumConsumption += playerTotal.deuteriumConsumption;
         });
+        
+        let consumptionConverted = {
+            metal: (deuteriumConsumption / 2) * parseFloat(settingsData.conversationRate[0]),
+            crystal: (deuteriumConsumption / 2) * parseFloat(settingsData.conversationRate[1])
+        }
 
-        net.metal = gain.metal - loss.metal;
-        net.crystal = gain.crystal - loss.crystal;
-        net.deuterium = gain.deuterium - loss.deuterium - deuteriumConsumption;
+        net.metal = gain.metal - loss.metal - (settingsData.convertConsumption ? consumptionConverted.metal : 0);
+        net.crystal = gain.crystal - loss.crystal - (settingsData.convertConsumption ? consumptionConverted.crystal : 0);;
+        net.deuterium = gain.deuterium - loss.deuterium - (!settingsData.convertConsumption ? deuteriumConsumption : 0);
 
         playerTotals.forEach(playerTotal => {
             playerTotal.cut = { ...resources };
@@ -136,9 +147,20 @@ export default function Result({ combatReports, recycleReports, settingsData }) 
                 playerTotal.cut.deuterium = net.deuterium / playerTotals.length;
             }
             playerTotal.contribution = {
-                metal: playerTotal.resources.metal - playerTotal.losses.metal - playerTotal.cut.metal,
-                crystal: playerTotal.resources.crystal - playerTotal.losses.crystal - playerTotal.cut.crystal,
-                deuterium: playerTotal.resources.deuterium - playerTotal.losses.deuterium - playerTotal.deuteriumConsumption - playerTotal.cut.deuterium,
+                metal: playerTotal.resources.metal
+                    - playerTotal.losses.metal
+                    - playerTotal.cut.metal
+                    - (settingsData.convertConsumption ? playerTotal.consumptionConverted.metal : 0),
+
+                crystal: playerTotal.resources.crystal
+                    - playerTotal.losses.crystal
+                    - playerTotal.cut.crystal
+                    - (settingsData.convertConsumption ? playerTotal.consumptionConverted.crystal : 0),
+
+                deuterium: playerTotal.resources.deuterium
+                    - playerTotal.losses.deuterium
+                    - playerTotal.cut.deuterium
+                    - (!settingsData.convertConsumption ? playerTotal.deuteriumConsumption : 0)
             }
         })
 
@@ -146,6 +168,7 @@ export default function Result({ combatReports, recycleReports, settingsData }) 
             gain,
             loss,
             deuteriumConsumption,
+            consumptionConverted,
             net
         });
         setPlayerTotalsStatistics(playerTotals);
@@ -174,10 +197,12 @@ export default function Result({ combatReports, recycleReports, settingsData }) 
 
                 <Summary
                     totalResult={TotalResult}
+                    settingsData={settingsData}
                 />
                 <PlayerTotals
                     playerTotalsStatistics={PlayerTotalsStatistics}
                     setPlayerTotalsStatistics={setPlayerTotalsStatistics}
+                    settingsData={settingsData}
                 />
                 <TransportSummary
                     playerTotalsStatistics={PlayerTotalsStatistics}

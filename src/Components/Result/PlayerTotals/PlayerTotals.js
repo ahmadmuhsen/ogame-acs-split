@@ -5,7 +5,7 @@ import { FormatUnits } from "../../../Main/FormatUnits";
 
 import './PlayerTotals.css';
 
-export default function PlayerTotals({ playerTotalsStatistics, setPlayerTotalsStatistics }) {
+export default function PlayerTotals({ playerTotalsStatistics, setPlayerTotalsStatistics, settingsData }) {
     const { t } = useTranslation();
     const [DataVisible, setDataVisible] = useState(true);
     const [PlayersTotals, setPlayersTotals] = useState([]);
@@ -169,9 +169,9 @@ export default function PlayerTotals({ playerTotalsStatistics, setPlayerTotalsSt
                             </div>
                             <div className="row">
                                 <div>{t("FlightConsumption")}</div>
-                                <div>0</div>
-                                <div>0</div>
-                                <div>{FormatUnits(Math.round(player.deuteriumConsumption))}</div>
+                                <div>{settingsData.convertConsumption ? FormatUnits(Math.round(player.consumptionConverted.metal)) : 0}</div>
+                                <div>{settingsData.convertConsumption ? FormatUnits(Math.round(player.consumptionConverted.crystal)) : 0}</div>
+                                <div>{!settingsData.convertConsumption ? FormatUnits(Math.round(player.deuteriumConsumption)) : 0}</div>
                             </div>
                             <div className="row">
                                 <div>{t("PlayerCut")}</div>

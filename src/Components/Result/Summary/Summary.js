@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 import { FormatUnits } from "../../../Main/FormatUnits";
 import './Summary.css';
 
-export default function Summary({ totalResult }) {
+export default function Summary({ totalResult, settingsData }) {
     const { t } = useTranslation();
     const [SummaryView, setSummaryView] = useState([]);
 
@@ -36,9 +36,9 @@ export default function Summary({ totalResult }) {
 
                             <div className="row">
                                 <div>{t("FlightConsumption")}</div>
-                                <div>{0}</div>
-                                <div>{0}</div>
-                                <div>{FormatUnits(Math.round(totalResult.deuteriumConsumption))}</div>
+                                <div>{settingsData.convertConsumption ? FormatUnits(Math.round(totalResult.consumptionConverted.metal)) : 0}</div>
+                                <div>{settingsData.convertConsumption ? FormatUnits(Math.round(totalResult.consumptionConverted.crystal)) : 0}</div>
+                                <div>{!settingsData.convertConsumption ? FormatUnits(Math.round(totalResult.deuteriumConsumption)) : 0}</div>
                             </div>
 
                             <div className="row">

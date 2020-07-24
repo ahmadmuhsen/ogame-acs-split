@@ -11,10 +11,10 @@ export default function Settings({ settingsData, setSettingsData, setShowSetting
         if (!pattern.test(value))
             value = parseFloat(value);
         let parsedValue = parseFloat(value);
-        value = isNaN(parsedValue) ? 0 : value;
-        value = parsedValue < 0 ? 0 : value;
-        if (type === 0 && parsedValue > 3) value = 3;
-        if (type === 1 && parsedValue > 2) value = 2;
+        value = isNaN(parsedValue) ? type === 0 ? 2 : 1 : value;
+        value = parsedValue < 0 ? type === 0 ? 2 : 1 : value;
+        value = type === 0 && parsedValue > 3 ? 3 : value;
+        value = type === 1 && parsedValue > 2 ? 2 : value;
         let rate = [...settingsData.conversationRate];
         rate[type] = value;
         setSettingsData({ ...settingsData, conversationRate: rate })
