@@ -57,6 +57,13 @@ export default function AttackDetails({ combatReports, setCombatReports, index }
         setCombatReports(combatNew);
     }
 
+    const onCollecterChange = (crIndex, attackerIndex, isCollecter) => {
+        let combatNew = [...combatReports];
+        combatNew[crIndex].attackers[attackerIndex].isCollecter = isCollecter;
+        SetResourceStatistics(combatNew);
+        setCombatReports(combatNew);
+    }
+
     useEffect(() => {
         setAttacksFleetDetails(combatReports[index].attackers.map((attacker, attackerIndex) => {
             return (
@@ -71,6 +78,7 @@ export default function AttackDetails({ combatReports, setCombatReports, index }
                     onPreFleetCompositionChange={onPreFleetCompositionChange}
                     onPostFleetCompositionChange={onPostFleetCompositionChange}
                     onLootChange={onLootChange}
+                    onCollecterChange={onCollecterChange}
                 />
             )
         }))

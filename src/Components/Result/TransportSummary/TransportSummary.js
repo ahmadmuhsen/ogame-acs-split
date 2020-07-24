@@ -10,7 +10,6 @@ export default function TransportSummary({ playerTotalsStatistics }) {
     useEffect(() => {
         let transports = [];
         playerTotalsStatistics.forEach(stat => {
-            console.log(stat);
             if (stat.settlements) {
                 stat.settlements.forEach(sett => {
                     let toName = playerTotalsStatistics.find(pl => pl.ownerId === sett.to).name;
@@ -37,7 +36,6 @@ export default function TransportSummary({ playerTotalsStatistics }) {
                 })
             }
         });
-        console.log(transports);
         setTransports(transports);
     }, [playerTotalsStatistics])
 

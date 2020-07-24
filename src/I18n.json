@@ -80,7 +80,8 @@
             "ResourceTransports": "Resource Transports",
             "TransportSummary": "Transport Summary",
             "TrasnsportSummaryTitle": "%FromPlayer% should send:",
-            "TransportMessage": "%Resources% to %ToPlayer%"
+            "TransportMessage": "%Resources% to %ToPlayer%",
+            "Collecter": "Collecter"
         }
     }
 }

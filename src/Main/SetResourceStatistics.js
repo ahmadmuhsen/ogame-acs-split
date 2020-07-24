@@ -7,7 +7,13 @@ export function SetResourceStatistics(combatReports) {
         report.attackers.forEach(attacker => {
             let playerCapacity = 0;
             attacker.fleet.forEach(ship => {
-                playerCapacity += ship.postCount * (FleetTypes.ships[ship.shipType].baseCapacity * (1 + (attacker.hyperspaceTech * 0.05)));
+                let classBonus = 0;
+                if ([202, 203].includes(ship.shipType) && attacker.isCollecter) {
+                    classBonus = FleetTypes.ships[ship.shipType].baseCapacity * 0.25;
+                }
+                playerCapacity += ship.postCount
+                    * ((FleetTypes.ships[ship.shipType].baseCapacity
+                        * (1 + (attacker.hyperspaceTech * 0.05))) + classBonus);
             })
             attacker.fleetCapacity = playerCapacity;
             totalCapacity += playerCapacity;

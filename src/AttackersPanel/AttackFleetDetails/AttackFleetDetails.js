@@ -15,7 +15,8 @@ export default function AttackFleetDetails({
     onDeuteriumConsumptionChange,
     onPreFleetCompositionChange,
     onPostFleetCompositionChange,
-    onLootChange
+    onLootChange,
+    onCollecterChange
 }) {
 
     const { t } = useTranslation();
@@ -51,6 +52,12 @@ export default function AttackFleetDetails({
         <div className="attack-fleet-details">
             <div className="card">
                 <div className="player-name">{attackFleet.alliance ? `[${attackFleet.alliance}]` : "attackFleet.alliance"} {attackFleet.name}</div>
+
+                <div className="character-class">
+                    <input type="checkbox" checked={(attackFleet.isCollecter)} onChange={event => onCollecterChange(crIndex, index, event.target.checked)}></input>
+                    {t("Collecter")}
+                </div>
+
                 <div className="hyperspace-tech">
                     {t("HyperspaceTech")}
                     <TextInput
