@@ -4,8 +4,10 @@ export function SetResourceStatistics(combatReports) {
 
     combatReports.forEach(report => {
         let totalCapacity = 0;
+        let totalValue = 0;
         report.attackers.forEach(attacker => {
             let playerCapacity = 0;
+            let playerFleetValue = 0;
             attacker.fleet.forEach(ship => {
                 let classBonus = 0;
                 if ([202, 203].includes(ship.shipType) && attacker.isCollecter) {
@@ -14,11 +16,20 @@ export function SetResourceStatistics(combatReports) {
                 playerCapacity += ship.postCount
                     * ((FleetTypes.ships[ship.shipType].baseCapacity
                         * (1 + (attacker.hyperspaceTech * 0.05))) + classBonus);
+
+                playerFleetValue += ship.preCount * (
+                    FleetTypes.ships[ship.shipType].buildCost.metal 
+                    + FleetTypes.ships[ship.shipType].buildCost.crystal 
+                    + FleetTypes.ships[ship.shipType].buildCost.deuterium 
+                )
             })
             attacker.fleetCapacity = playerCapacity;
+            attacker.fleetValue = playerFleetValue;
             totalCapacity += playerCapacity;
+            totalValue += playerFleetValue;
         })
-
+        
+        report.totalFleetValue = totalValue;
         report.attackers.forEach(attacker => {
             attacker.metalLoot = report.metalLoot * (attacker.fleetCapacity / totalCapacity)
             attacker.crystalLoot = report.crystalLoot * (attacker.fleetCapacity / totalCapacity)

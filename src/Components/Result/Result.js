@@ -8,15 +8,17 @@ import TransportSummary from './TransportSummary/TransportSummary';
 import { useTranslation } from "react-i18next";
 import './Result.css';
 
-export default function Result({ combatReports, recycleReports }) {
+export default function Result({ combatReports, recycleReports, settingsData }) {
     const { t } = useTranslation();
     const [DataVisible, setDataVisible] = useState(true);
     const [PlayerTotalsStatistics, setPlayerTotalsStatistics] = useState([]);
     const [TotalResult, setTotalResult] = useState({});
     useEffect(() => {
         let playerTotals = [];
+        let totalFleetValue = 0;
         if (combatReports.length > 0)
             combatReports.forEach(report => {
+                totalFleetValue += report.totalFleetValue;
                 report.attackers.forEach(attacker => {
                     let player = playerTotals.find(plyr => plyr.ownerId === attacker.ownerId);
 
@@ -46,6 +48,7 @@ export default function Result({ combatReports, recycleReports }) {
                             ownerId: attacker.ownerId,
                             name: attacker.name,
                             alliance: attacker.alliance,
+                            fleetValue: attacker.fleetValue
                         }
                         playerTotals.push(player);
                     }
@@ -57,6 +60,7 @@ export default function Result({ combatReports, recycleReports }) {
                         player.losses.crystal += attacker.unitsLost.crystal;
                         player.losses.deuterium += attacker.unitsLost.deuterium;
                         player.deuteriumConsumption += attacker.deuteriumConsumption;
+                        player.fleetValue += attacker.fleetValue;
                         player.fleet.preCount += fleetTotal.preCount;
                         player.fleet.postCount += fleetTotal.postCount;
                     }
@@ -120,13 +124,17 @@ export default function Result({ combatReports, recycleReports }) {
         net.deuterium = gain.deuterium - loss.deuterium - deuteriumConsumption;
 
         playerTotals.forEach(playerTotal => {
-        })
-
-        playerTotals.forEach(playerTotal => {
             playerTotal.cut = { ...resources };
-            playerTotal.cut.metal = net.metal / playerTotals.length;
-            playerTotal.cut.crystal = net.crystal / playerTotals.length;
-            playerTotal.cut.deuterium = net.deuterium / playerTotals.length;
+            if (settingsData.weightedCut) {
+                let percentage = playerTotal.fleetValue / totalFleetValue;
+                playerTotal.cut.metal = net.metal * percentage;
+                playerTotal.cut.crystal = net.crystal * percentage;
+                playerTotal.cut.deuterium = net.deuterium * percentage;
+            } else {
+                playerTotal.cut.metal = net.metal / playerTotals.length;
+                playerTotal.cut.crystal = net.crystal / playerTotals.length;
+                playerTotal.cut.deuterium = net.deuterium / playerTotals.length;
+            }
             playerTotal.contribution = {
                 metal: playerTotal.resources.metal - playerTotal.losses.metal - playerTotal.cut.metal,
                 crystal: playerTotal.resources.crystal - playerTotal.losses.crystal - playerTotal.cut.crystal,
@@ -141,7 +149,7 @@ export default function Result({ combatReports, recycleReports }) {
             net
         });
         setPlayerTotalsStatistics(playerTotals);
-    }, [combatReports, recycleReports])
+    }, [settingsData, combatReports, recycleReports])
 
     return (
         <div className="result-main">

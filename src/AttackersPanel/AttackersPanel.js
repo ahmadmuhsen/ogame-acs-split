@@ -8,7 +8,7 @@ import Result from '../Components/Result/Result';
 import { useTranslation } from "react-i18next";
 import './AttackersPanel.css';
 
-export default function AttackersPanel({ combatReports, setCombatReports, recycleReports, setRecycleReports }) {
+export default function AttackersPanel({ combatReports, setCombatReports, recycleReports, setRecycleReports, settingsData }) {
     const { t } = useTranslation();
     return (
         <div className="attackers-panel">
@@ -27,6 +27,7 @@ export default function AttackersPanel({ combatReports, setCombatReports, recycl
             <Result
                 combatReports={combatReports}
                 recycleReports={recycleReports}
+                settingsData={settingsData}
             />
         </div>
     )

@@ -75,6 +75,7 @@ export default function Main({ settingsData, setShowSettings }) {
                     setCombatReports={setCombatReports}
                     recycleReports={RecycleReports}
                     setRecycleReports={setRecycleReports}
+                    settingsData={settingsData}
                 />
                 : "Defenders Panel Still Not Set"
             }
