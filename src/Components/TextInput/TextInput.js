@@ -5,7 +5,7 @@ export default function TextInput({ className, placeholder, value, onChange, val
     return (
         <input
             type="text"
-            className={`text-input ${valid ? "" : "invalid"} ${className}`}
+            className={(`text-input ${valid ? "" : "invalid"} ${className ? className : ""}`).trim()}
             placeholder={placeholder}
             onChange={onChange}
             value={value}
