@@ -81,7 +81,10 @@
             "TransportSummary": "Transport Summary",
             "TrasnsportSummaryTitle": "%FromPlayer% should send:",
             "TransportMessage": "%Resources% to %ToPlayer%",
-            "Collecter": "Collecter"
+            "Collecter": "Collecter",
+            "WeighedSettingDescription": "Calculate the Net Split based on fleet weight",
+            "ConsumptionSettingDescription": "Convert deuterium consumption to metal and crystal",
+            "ConsumptionRateSettingDescription": "Unit conversion rate"
         }
     }
 }

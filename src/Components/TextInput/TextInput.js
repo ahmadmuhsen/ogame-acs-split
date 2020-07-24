@@ -1,7 +1,7 @@
 import React from 'react';
 import './TextInput.css';
 
-export default function TextInput({ className, placeholder, value, onChange, valid = true, disabled = false, onMouseLeave }) {
+export default function TextInput({ className, placeholder, value, onChange, valid = true, disabled = false, step }) {
     return (
         <input
             type="text"
@@ -10,7 +10,6 @@ export default function TextInput({ className, placeholder, value, onChange, val
             onChange={onChange}
             value={value}
             disabled={disabled}
-            onMouseLeave={onMouseLeave}
         />
     )
 }

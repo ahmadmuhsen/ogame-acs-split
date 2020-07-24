@@ -10,19 +10,28 @@
   font-size: 15px;
 }
 
-.api-keys-input .button {
-  width: 10%;
+.api-keys-input button {
+  width: 8%;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 15px;
 }
 
-.api-keys-input .button .fas {
+.api-keys-input .settings{
+  width: 4%;
+}
+
+.api-keys-input button .fas {
   margin-right: 5px;
 }
 
-.api-keys-input .button .fa-spinner {
+.api-keys-input button .fas.fa-cogs {
+  margin-right: 0px;
+  font-size: 20px;
+}
+
+.api-keys-input button .fa-spinner {
   animation: loading-spinner 2s linear infinite;
 }
 @keyframes loading-spinner {
@@ -37,6 +46,6 @@
 .api-key-validity-message {
   margin-bottom: 20px;
   color: var(--main-invalid-message-color);
-  font-size: 20px;
+  font-size: 15px;
   padding: 5px;
 }

@@ -10,7 +10,7 @@ import { GetRecycleReport } from './GetRecycleReport';
 
 import './Main.css';
 
-export default function Main() {
+export default function Main({ settingsData, setShowSettings }) {
     const { t } = useTranslation();
     const [Side, setSide] = useState(-1);
     const [CombatReports, setCombatReports] = useState([]);
@@ -67,6 +67,7 @@ export default function Main() {
                 resetReports={ResetReports}
                 apiKeyInputValidity={ApiKeyInputValidity}
                 apiKeyInputValidityMessage={ApiKeyInputValidityMessage}
+                setShowSettings={setShowSettings}
             />
             {Side === 0 ?
                 <AttackersPanel

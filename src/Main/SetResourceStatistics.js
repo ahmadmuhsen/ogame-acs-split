@@ -27,8 +27,16 @@ export function SetResourceStatistics(combatReports) {
 
         CalculateLossFromShips(report.attackers);
         CalculateLossFromShips(report.defenders);
-        CalculateDeuteriumConsumption(report.attackers);
-        CalculateDeuteriumConsumption(report.attackers);
+
+        report.attackers.forEach(fleeter => {
+            if (!fleeter.deuteriumConsumption)
+                fleeter.deuteriumConsumption = 0;
+        })
+
+        report.attackers.forEach(fleeter => {
+            if (!fleeter.deuteriumConsumption)
+                fleeter.deuteriumConsumption = 0;
+        })
     })
 }
 
@@ -53,12 +61,5 @@ function CalculateLossFromShips(fleeters) {
             }
         })
         fleeter.unitsLost = totalLoss
-    })
-}
-
-function CalculateDeuteriumConsumption(fleeters) {
-    fleeters.forEach(fleeter => {
-        if (!fleeter.deuteriumConsumption)
-            fleeter.deuteriumConsumption = 0;
     })
 }
