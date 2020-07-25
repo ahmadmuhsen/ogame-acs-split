@@ -29,7 +29,7 @@ body {
   background: var(--main-panel-bg-color);
 }
 ::-webkit-scrollbar-thumb {
-  background: black;
+  background: white;
 }
 ::-webkit-scrollbar-thumb:hover {
   background: white;

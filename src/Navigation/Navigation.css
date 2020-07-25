@@ -13,11 +13,10 @@
     color: white;
 }
 
-.navigation .github {
+.navigation .right-toolbar {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 310px;
 }
 
 .navigation a {
@@ -34,6 +33,7 @@
 
 .navigation a.repo{
     width: 140px;
+    margin: 0px 10px;
 }
 
 .navigation a.issue{
@@ -44,4 +44,43 @@
 .navigation .fas  {
     color: white;
     font-size: 20px;
+}
+
+
+.navigation .right-toolbar .language .selected-language{
+    color: white;
+    background-color: black;
+    height: 35px;
+    width: 140px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.navigation .right-toolbar .language .fas{
+    margin-right: 5px;
+}
+
+.navigation .right-toolbar .language .language-options{
+    color: white;
+    background-color: black;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    position: absolute;
+    top: 45px;
+    max-height: 175px;
+    overflow-x: hidden;
+    overflow-y: scroll; 
+    width: 140px;
+}
+
+.navigation .right-toolbar .language .language-option{
+    min-height: 35px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

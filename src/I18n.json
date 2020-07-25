@@ -2,6 +2,8 @@
     "en": {
         "translation": {
             "SiteName": "ACS Split",
+            "AddEditLanguage": "Add/Edit",
+            "en": "English",
             "Repository": "Repository",
             "ReportIssue": "Report Issue",
             "ApiKeysInputPlaceholder": "Combat/Recycler Report API",
