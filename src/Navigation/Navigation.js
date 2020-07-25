@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useTranslation } from "react-i18next";
 import i18next from "i18next";
 import './Navigation.css';
+import config from '../config.json';
 
 export default function Navigation() {
     const [Language, setLanguage] = useState(localStorage.preferredLanguage);
@@ -44,7 +45,7 @@ export default function Navigation() {
                             {LanguageSelect}
                             <a
                                 className="language-option"
-                                href="https://github.com/ahmadmuhsen/ogame-acs-split/wiki/Adding-Languages"
+                                href={config.LanguageContributionLink}
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
@@ -54,13 +55,13 @@ export default function Navigation() {
                         </div> : ""}
                 </div>
                 <a
-                    href="https://github.com/ahmadmuhsen/ogame-acs-split"
+                    href={config.GithubRepositoryLink}
                     className="repo"
                     target="_blank"
                     rel="noopener noreferrer"
                 ><i className="fab fa-github" />{t("Repository")}</a>
                 <a
-                    href="https://github.com/ahmadmuhsen/ogame-acs-split/issues"
+                    href={config.ReportBugLink}
                     className="issue"
                     target="_blank"
                     rel="noopener noreferrer"
