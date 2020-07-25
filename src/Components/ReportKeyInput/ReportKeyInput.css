@@ -1,6 +1,7 @@
 .api-keys-input {
   display: flex;
   justify-content: space-between;
+  margin-bottom: 5px;
 }
 
 .api-keys-input .text-input {
@@ -44,8 +45,11 @@
 }
 
 .api-key-validity-message {
-  margin-bottom: 20px;
   color: var(--main-invalid-message-color);
   font-size: 15px;
-  padding: 5px;
+  padding: 5px 10px;
+  background: var(--main-invalid-key-bg-color);
+  border-radius: 5px;
+  width: 78%;
+  margin: 5px 0px;
 }

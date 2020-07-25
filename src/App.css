@@ -16,6 +16,7 @@ body {
   --main-input-txt-color: rgb(0, 0, 0);
 
   --main-invalid-bg-color: rgb(255, 8, 0);
+  --main-invalid-key-bg-color: rgb(255, 8, 0, 0.3);
   --main-invalid-message-color: rgb(255, 8, 0);
 
   --main-gain-bg-color: rgb(13, 255, 0);

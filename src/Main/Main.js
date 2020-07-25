@@ -19,6 +19,7 @@ export default function Main({ settingsData, setShowSettings }) {
     const [ApiKeyInputValidity, setApiKeyInputValidity] = useState(true);
     const [ApiKeyInputValidityMessage, setApiKeyInputValidityMessage] = useState("");
     const [Loading, setLoading] = useState(false);
+    const [ApiKeyList, setApiKeyList] = useState([])
 
     const GetReport = () => {
         let keyArray = ApiKeyInput.split('-');
@@ -49,10 +50,54 @@ export default function Main({ settingsData, setShowSettings }) {
         setSide(-1);
     }
 
+    const DeleteCombatReport = index => {
+        let combatReports = [...CombatReports];
+        combatReports.splice(index, 1);
+        setCombatReports(combatReports);
+    }
+
+    const DeleteRecycleReport = index => {
+        let recycleReports = [...RecycleReports];
+        recycleReports.splice(index, 1);
+        setRecycleReports(recycleReports);
+    }
+
     useEffect(() => {
         setLoading(false);
         setApiKeyInput("");
-    }, [CombatReports, RecycleReports])
+        let reports = [];
+        CombatReports.forEach((rep, index) => {
+            reports.push((
+                <div
+                    key={`CRLIST${index}`}
+                    className="api-key-list-item"
+                >
+                    <i
+                        className="fas fa-times-circle"
+                        onClick={() => DeleteCombatReport(index)}
+                    />
+                    {`${t("Attack")} #${index + 1} [${rep.key}] `}
+                </div>
+            ))
+        })
+
+        RecycleReports.forEach((rep, index) => {
+            console.log(rep);
+            reports.push((
+                <div
+                    key={`RRLIST${index}`}
+                    className="api-key-list-item"
+                >
+                    <i
+                        className="fas fa-times-circle"
+                        onClick={() => DeleteRecycleReport(index)}
+                    />
+                    {`${t("Harvest")} #${index + 1} [${rep.key}] `}
+                </div>
+            ))
+        })
+        setApiKeyList(reports);
+    }, [CombatReports, RecycleReports, t])
 
     if (Side === -1)
         return (<ChooseSide setSide={setSide} />)
@@ -69,6 +114,7 @@ export default function Main({ settingsData, setShowSettings }) {
                 apiKeyInputValidityMessage={ApiKeyInputValidityMessage}
                 setShowSettings={setShowSettings}
             />
+            {ApiKeyList}
             {Side === 0 ?
                 <AttackersPanel
                     combatReports={CombatReports}

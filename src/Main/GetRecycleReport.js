@@ -18,7 +18,7 @@ export const GetRecycleReport = (recycleReport, RecycleReports, setRecycleReport
                 setLoading(false);
             } else {
                 let rrdata = {
-                    id: data.Id,
+                    key: data.Id,
                     coordinates: data.generic.coordinates,
                     metal: data.generic.recycler_metal_retrieved + data.generic.reaper_metal_retrieved,
                     crystal: data.generic.recycler_crystal_retrieved + data.generic.reaper_crystal_retrieved,

@@ -47,9 +47,11 @@ export default function ReportKeyInput({
                     <i className="fas fa-cogs" />
                 </Button>
             </div>
-            <div className="api-key-validity-message">
-                {t(apiKeyInputValidityMessage)}
-            </div>
+            {apiKeyInputValidityMessage !== "" ?
+                <div className="api-key-validity-message">
+                    {t(apiKeyInputValidityMessage)}
+                </div>
+                : ""}
         </div>
     )
 }

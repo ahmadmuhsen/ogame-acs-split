@@ -4,3 +4,21 @@
   max-width: 1600px;
   margin: auto;
 }
+
+.main .api-key-list-item{
+  width: 78%;
+  background-color: var(--main-panel-bg-color);
+  color: var(--main-panel-txt-color);
+  border-radius: 5px;
+  margin-bottom: 5px;
+  font-size: 14px;
+  padding: 5px 10px;
+  display: flex;
+  align-items: center;
+}
+
+
+.main .api-key-list-item .fas{
+  margin-right: 10px;
+  cursor: pointer;
+}
