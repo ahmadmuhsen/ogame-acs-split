@@ -30,6 +30,24 @@ export default function Settings({ settingsData, setSettingsData, setShowSetting
                     />
                 </div>
                 <div className="setting-section">
+                    <div className="description">{t("ReimburseFleetLossDescription")}</div>
+                    <div className="control">
+                        <i
+                            className={`fas fa-toggle-${settingsData.reimburseFleetLoss ? "on" : "off"}`}
+                            onClick={() => setSettingsData({ ...settingsData, reimburseFleetLoss: !settingsData.reimburseFleetLoss })}
+                        />
+                    </div>
+                </div>
+                <div className="setting-section">
+                    <div className="description">{t("ReimburseDeutConsumptionDescription")}</div>
+                    <div className="control">
+                        <i
+                            className={`fas fa-toggle-${settingsData.reimburseDeutConsumption ? "on" : "off"}`}
+                            onClick={() => setSettingsData({ ...settingsData, reimburseDeutConsumption: !settingsData.reimburseDeutConsumption })}
+                        />
+                    </div>
+                </div>
+                <div className="setting-section">
                     <div className="description">{t("WeighedSettingDescription")}</div>
                     <div className="control">
                         <i

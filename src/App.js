@@ -6,7 +6,12 @@ import './App.css';
 
 function App() {
   const [ShowSettings, setShowSettings] = useState(false)
-  const [SettingsData, setSettingsData] = useState({ weightedCut: false, convertConsumption: false, conversationRate: ["3", "2"] })
+  const [SettingsData, setSettingsData] = useState({ 
+    reimburseFleetLoss: true,
+    reimburseDeutConsumption: true,
+    weightedCut: false, 
+    convertConsumption: false, 
+    conversationRate: ["3", "2"] })
   return (
     <div className="app">
       <Navigation />

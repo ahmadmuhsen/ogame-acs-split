@@ -124,15 +124,23 @@ export default function Result({ combatReports, recycleReports, settingsData }) 
             loss.deuterium += playerTotal.losses.deuterium;
             deuteriumConsumption += playerTotal.deuteriumConsumption;
         });
-        
+
         let consumptionConverted = {
             metal: (deuteriumConsumption / 2) * parseFloat(settingsData.conversationRate[0]),
             crystal: (deuteriumConsumption / 2) * parseFloat(settingsData.conversationRate[1])
         }
 
-        net.metal = gain.metal - loss.metal - (settingsData.convertConsumption ? consumptionConverted.metal : 0);
-        net.crystal = gain.crystal - loss.crystal - (settingsData.convertConsumption ? consumptionConverted.crystal : 0);;
-        net.deuterium = gain.deuterium - loss.deuterium - (!settingsData.convertConsumption ? deuteriumConsumption : 0);
+        net.metal = gain.metal
+            - (settingsData.reimburseFleetLoss ? loss.metal : 0)
+            - (settingsData.reimburseDeutConsumption ? (settingsData.convertConsumption ? consumptionConverted.metal : 0) : 0);
+
+        net.crystal = gain.crystal
+            - (settingsData.reimburseFleetLoss ? loss.crystal : 0)
+            - (settingsData.reimburseDeutConsumption ? (settingsData.convertConsumption ? consumptionConverted.crystal : 0) : 0);
+
+        net.deuterium = gain.deuterium
+            - (settingsData.reimburseFleetLoss ? loss.deuterium : 0)
+            - (settingsData.reimburseDeutConsumption ? (!settingsData.convertConsumption ? deuteriumConsumption : 0) : 0);
 
         playerTotals.forEach(playerTotal => {
             playerTotal.cut = { ...resources };
@@ -148,19 +156,19 @@ export default function Result({ combatReports, recycleReports, settingsData }) 
             }
             playerTotal.contribution = {
                 metal: playerTotal.resources.metal
-                    - playerTotal.losses.metal
+                    - (settingsData.reimburseFleetLoss ? playerTotal.losses.metal : 0)
                     - playerTotal.cut.metal
-                    - (settingsData.convertConsumption ? playerTotal.consumptionConverted.metal : 0),
+                    - (settingsData.reimburseDeutConsumption ? (settingsData.convertConsumption ? playerTotal.consumptionConverted.metal : 0) : 0),
 
                 crystal: playerTotal.resources.crystal
-                    - playerTotal.losses.crystal
+                    - (settingsData.reimburseFleetLoss ? playerTotal.losses.crystal : 0)
                     - playerTotal.cut.crystal
-                    - (settingsData.convertConsumption ? playerTotal.consumptionConverted.crystal : 0),
+                    - (settingsData.reimburseDeutConsumption ? (settingsData.convertConsumption ? playerTotal.consumptionConverted.crystal : 0) : 0),
 
                 deuterium: playerTotal.resources.deuterium
-                    - playerTotal.losses.deuterium
+                    - (settingsData.reimburseFleetLoss ? playerTotal.losses.deuterium : 0)
                     - playerTotal.cut.deuterium
-                    - (!settingsData.convertConsumption ? playerTotal.deuteriumConsumption : 0)
+                    - (settingsData.reimburseDeutConsumption ? (!settingsData.convertConsumption ? playerTotal.deuteriumConsumption : 0) : 0)
             }
         })
 

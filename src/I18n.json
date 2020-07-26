@@ -86,7 +86,9 @@
             "Collecter": "Collecter",
             "WeighedSettingDescription": "Calculate the Net Split based on fleet weight",
             "ConsumptionSettingDescription": "Convert deuterium consumption to metal and crystal",
-            "ConsumptionRateSettingDescription": "Unit conversion rate"
+            "ConsumptionRateSettingDescription": "Unit conversion rate",
+            "ReimburseFleetLossDescription": "Reimburse resources lost from destroyed fleet",
+            "ReimburseDeutConsumptionDescription": "Reimburse resources lost in fuel consumption"
         }
     }
 }
