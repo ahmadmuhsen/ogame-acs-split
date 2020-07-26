@@ -4,7 +4,8 @@ export function SetResourceStatistics(combatReports) {
 
     combatReports.forEach(report => {
         let totalCapacity = 0;
-        let totalValue = 0;
+        let totalAttackersFleetValue = 0;
+        let totalDefendersFleetValue = 0;
         report.attackers.forEach(attacker => {
             let playerCapacity = 0;
             let playerFleetValue = 0;
@@ -18,18 +19,37 @@ export function SetResourceStatistics(combatReports) {
                         * (1 + (attacker.hyperspaceTech * 0.05))) + classBonus);
 
                 playerFleetValue += ship.preCount * (
-                    FleetTypes.ships[ship.shipType].buildCost.metal 
-                    + FleetTypes.ships[ship.shipType].buildCost.crystal 
-                    + FleetTypes.ships[ship.shipType].buildCost.deuterium 
+                    FleetTypes.ships[ship.shipType].buildCost.metal
+                    + FleetTypes.ships[ship.shipType].buildCost.crystal
+                    + FleetTypes.ships[ship.shipType].buildCost.deuterium
                 )
             })
             attacker.fleetCapacity = playerCapacity;
             attacker.fleetValue = playerFleetValue;
             totalCapacity += playerCapacity;
-            totalValue += playerFleetValue;
+            totalAttackersFleetValue += playerFleetValue;
         })
-        
-        report.totalFleetValue = totalValue;
+
+        report.defenders.forEach(defender => {
+            let playerFleetValue = 0;
+            defender.fleet.forEach(ship => {
+                playerFleetValue += ship.preCount * (
+                    FleetTypes.ships[ship.shipType] ?
+                        FleetTypes.ships[ship.shipType].buildCost.metal
+                        + FleetTypes.ships[ship.shipType].buildCost.crystal
+                        + FleetTypes.ships[ship.shipType].buildCost.deuterium :
+                        FleetTypes.defence[ship.shipType].buildCost.metal
+                        + FleetTypes.defence[ship.shipType].buildCost.crystal
+                        + FleetTypes.defence[ship.shipType].buildCost.deuterium
+                )
+            })
+            defender.fleetValue = playerFleetValue;
+            totalDefendersFleetValue += playerFleetValue;
+        })
+
+        report.totalAttackersFleetValue = totalAttackersFleetValue;
+        report.totalDefendersFleetValue = totalDefendersFleetValue;
+
         report.attackers.forEach(attacker => {
             attacker.metalLoot = report.metalLoot * (attacker.fleetCapacity / totalCapacity)
             attacker.crystalLoot = report.crystalLoot * (attacker.fleetCapacity / totalCapacity)
@@ -44,7 +64,7 @@ export function SetResourceStatistics(combatReports) {
                 fleeter.deuteriumConsumption = 0;
         })
 
-        report.attackers.forEach(fleeter => {
+        report.defenders.forEach(fleeter => {
             if (!fleeter.deuteriumConsumption)
                 fleeter.deuteriumConsumption = 0;
         })

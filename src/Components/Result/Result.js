@@ -8,7 +8,7 @@ import TransportSummary from './TransportSummary/TransportSummary';
 import { useTranslation } from "react-i18next";
 import './Result.css';
 
-export default function Result({ combatReports, recycleReports, settingsData }) {
+export default function Result({ combatReports, recycleReports, settingsData, side }) {
     const { t } = useTranslation();
     const [DataVisible, setDataVisible] = useState(true);
     const [PlayerTotalsStatistics, setPlayerTotalsStatistics] = useState([]);
@@ -18,15 +18,16 @@ export default function Result({ combatReports, recycleReports, settingsData }) 
         let totalFleetValue = 0;
         if (combatReports.length > 0)
             combatReports.forEach(report => {
-                totalFleetValue += report.totalFleetValue;
-                report.attackers.forEach(attacker => {
-                    let player = playerTotals.find(plyr => plyr.ownerId === attacker.ownerId);
+                totalFleetValue += side === 0 ? report.totalAttackersFleetValue : report.totalDefendersFleetValue;
+                let fleeters = side === 0 ? report.attackers : report.defenders;
+                fleeters.forEach(fleeter => {
+                    let player = playerTotals.find(plyr => plyr.ownerId === fleeter.ownerId);
 
                     let fleetTotal = {
                         preCount: 0,
                         postCount: 0
                     };
-                    attacker.fleet.forEach(ship => {
+                    fleeter.fleet.forEach(ship => {
                         fleetTotal.preCount += ship.preCount;
                         fleetTotal.postCount += ship.postCount;
                     })
@@ -34,41 +35,41 @@ export default function Result({ combatReports, recycleReports, settingsData }) 
                     if (!player) {
                         player = {
                             resources: {
-                                metal: attacker.metalLoot,
-                                crystal: attacker.crystalLoot,
-                                deuterium: attacker.deuteriumLoot,
+                                metal: side === 0 ? fleeter.metalLoot : 0,
+                                crystal: side === 0 ? fleeter.crystalLoot : 0,
+                                deuterium: side === 0 ? fleeter.deuteriumLoot : 0,
                             },
                             losses: {
-                                metal: attacker.unitsLost.metal,
-                                crystal: attacker.unitsLost.crystal,
-                                deuterium: attacker.unitsLost.deuterium,
+                                metal: fleeter.unitsLost.metal,
+                                crystal: fleeter.unitsLost.crystal,
+                                deuterium: fleeter.unitsLost.deuterium,
                             },
-                            deuteriumConsumption: attacker.deuteriumConsumption,
+                            deuteriumConsumption: fleeter.deuteriumConsumption,
                             consumptionConverted: {
-                                metal: (attacker.deuteriumConsumption / 2) * parseFloat(settingsData.conversationRate[0]),
-                                crystal: (attacker.deuteriumConsumption / 2) * parseFloat(settingsData.conversationRate[1])
+                                metal: (fleeter.deuteriumConsumption / 2) * parseFloat(settingsData.conversationRate[0]),
+                                crystal: (fleeter.deuteriumConsumption / 2) * parseFloat(settingsData.conversationRate[1])
                             },
                             fleet: fleetTotal,
-                            ownerId: attacker.ownerId,
-                            name: attacker.name,
-                            alliance: attacker.alliance,
-                            fleetValue: attacker.fleetValue
+                            ownerId: fleeter.ownerId,
+                            name: fleeter.name,
+                            alliance: fleeter.alliance,
+                            fleetValue: fleeter.fleetValue
                         }
                         playerTotals.push(player);
                     }
                     else {
-                        player.resources.metal += attacker.metalLoot;
-                        player.resources.crystal += attacker.crystalLoot;
-                        player.resources.deuterium += attacker.deuteriumLoot;
-                        player.losses.metal += attacker.unitsLost.metal;
-                        player.losses.crystal += attacker.unitsLost.crystal;
-                        player.losses.deuterium += attacker.unitsLost.deuterium;
-                        player.deuteriumConsumption += attacker.deuteriumConsumption;
-                        player.fleetValue += attacker.fleetValue;
+                        player.resources.metal += fleeter.metalLoot;
+                        player.resources.crystal += fleeter.crystalLoot;
+                        player.resources.deuterium += fleeter.deuteriumLoot;
+                        player.losses.metal += fleeter.unitsLost.metal;
+                        player.losses.crystal += fleeter.unitsLost.crystal;
+                        player.losses.deuterium += fleeter.unitsLost.deuterium;
+                        player.deuteriumConsumption += fleeter.deuteriumConsumption;
+                        player.fleetValue += fleeter.fleetValue;
                         player.fleet.preCount += fleetTotal.preCount;
                         player.fleet.postCount += fleetTotal.postCount;
-                        player.consumptionConverted.metal += (attacker.deuteriumConsumption / 2) * parseFloat(settingsData.conversationRate[0]);
-                        player.consumptionConverted.crystal += (attacker.deuteriumConsumption / 2) * parseFloat(settingsData.conversationRate[1]);
+                        player.consumptionConverted.metal += (fleeter.deuteriumConsumption / 2) * parseFloat(settingsData.conversationRate[0]);
+                        player.consumptionConverted.crystal += (fleeter.deuteriumConsumption / 2) * parseFloat(settingsData.conversationRate[1]);
                     }
                 });
             });
@@ -81,7 +82,7 @@ export default function Result({ combatReports, recycleReports, settingsData }) 
                         resources: {
                             metal: report.metal,
                             crystal: report.crystal,
-                            deuterium: report.deuterium,
+                            deuterium: 0,
                         },
                         losses: {
                             metal: 0,
@@ -89,12 +90,16 @@ export default function Result({ combatReports, recycleReports, settingsData }) 
                             deuterium: 0,
                         },
                         deuteriumConsumption: report.deuteriumConsumption,
+                        consumptionConverted: {
+                            metal: (report.deuteriumConsumption / 2) * parseFloat(settingsData.conversationRate[0]),
+                            crystal: (report.deuteriumConsumption / 2) * parseFloat(settingsData.conversationRate[1])
+                        },
                         fleet: {
                             preCount: 0,
                             postCount: 0
                         },
                         ownerId: report.ownerId,
-                        name: report.name
+                        name: report.ownerName
                     }
                     playerTotals.push(player);
                 }
@@ -102,6 +107,8 @@ export default function Result({ combatReports, recycleReports, settingsData }) 
                     player.resources.metal += report.metal;
                     player.resources.crystal += report.crystal;
                     player.deuteriumConsumption += report.deuteriumConsumption;
+                    player.consumptionConverted.metal += (report.deuteriumConsumption / 2) * parseFloat(settingsData.conversationRate[0]);
+                    player.consumptionConverted.crystal += (report.deuteriumConsumption / 2) * parseFloat(settingsData.conversationRate[1]);
                 }
             })
 

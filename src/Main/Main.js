@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 import ReportKeyInput from '../Components/ReportKeyInput/ReportKeyInput';
 import ChooseSide from '../Components/ChooseSide/ChooseSide';
-import AttackersPanel from '../AttackersPanel/AttackersPanel';
+import ACSplitPanel from '../ACSplitPanel/ACSplitPanel';
 
 import { useTranslation } from "react-i18next";
 import { GetCombatReport } from './GetCombatReport';
@@ -76,7 +76,7 @@ export default function Main({ settingsData, setShowSettings }) {
                         className="fas fa-times-circle"
                         onClick={() => DeleteCombatReport(index)}
                     />
-                    {`${t("Attack")} #${index + 1} [${rep.key}] `}
+                    {`${t(Side === 0 ? "Attack" : "Defence")} #${index + 1} [${rep.key}] `}
                 </div>
             ))
         })
@@ -115,16 +115,14 @@ export default function Main({ settingsData, setShowSettings }) {
                 setShowSettings={setShowSettings}
             />
             {ApiKeyList}
-            {Side === 0 ?
-                <AttackersPanel
-                    combatReports={CombatReports}
-                    setCombatReports={setCombatReports}
-                    recycleReports={RecycleReports}
-                    setRecycleReports={setRecycleReports}
-                    settingsData={settingsData}
-                />
-                : "Defenders Panel Still Not Set"
-            }
+            <ACSplitPanel
+                combatReports={CombatReports}
+                setCombatReports={setCombatReports}
+                recycleReports={RecycleReports}
+                setRecycleReports={setRecycleReports}
+                settingsData={settingsData}
+                side={Side}
+            />
         </div>
     )
 }

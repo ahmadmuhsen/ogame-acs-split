@@ -205,7 +205,7 @@ export default function PlayerTotals({ playerTotalsStatistics, setPlayerTotalsSt
                 onClick={() => setDataVisible(!DataVisible)}
             >
                 <i className={`fas fa-${DataVisible ? "caret-right" : "caret-down"}`} />
-                {t("PlayerTotals")}
+                {t("Fleeters")}
             </div>
             <div
                 className="player-totals"

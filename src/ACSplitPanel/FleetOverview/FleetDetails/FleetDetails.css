@@ -1,9 +1,9 @@
-.attack-details {
+.fleet-details {
   display: flex;
   margin-top: 2.5px;
 }
 
-.attack-details .attack-label {
+.fleet-details .fleet-label {
   color: var(--main-panel-txt-color);
   background-color: var(--main-panel-bg-color);;
   display: flex;
@@ -14,24 +14,24 @@
   font-size: 15px;
 }
 
-.attack-details .attack-label.expanded {
+.fleet-details .fleet-label.expanded {
   writing-mode: vertical-rl;
   transform: rotate(180deg);
   background-color: transparent;
   width: 2%;
 }
 
-.attack-details .attack-fleet-details-panel {
+.fleet-details .fleeter-details-panel {
   width: 98%;
   display: flex;
 }
 
-.attack-details .attack-label .fa-caret-right {
+.fleet-details .fleet-label .fa-caret-right {
   font-size: 20px;
   margin-bottom: 8px;
 }
 
-.attack-details .attack-label .fa-caret-down {
+.fleet-details .fleet-label .fa-caret-down {
   font-size: 20px;
   margin-right: 8px;
 }

@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from "react-i18next";
 import SectionTitle from '../../Components/SectionTitle/SectionTitle';
-import AttackDetails from '../AttackDetails/AttackDetails';
+import FleetDetails from './FleetDetails/FleetDetails';
 
-import './AttacksOverview.css';
+import './FleetOverview.css';
 
-export default function AttacksOverview({ combatReports, setCombatReports }) {
+export default function FleetOverview({ combatReports, setCombatReports, side }) {
     const { t } = useTranslation();
     const [DataVisible, setDataVisible] = useState(true)
     const [AttacksDetails, setAttacksDetails] = useState([]);
@@ -13,25 +13,26 @@ export default function AttacksOverview({ combatReports, setCombatReports }) {
     useEffect(() => {
         setAttacksDetails(combatReports.map((report, index) => {
             return (
-                <AttackDetails
+                <FleetDetails
                     combatReports={combatReports}
                     setCombatReports={setCombatReports}
                     index={index}
-                    key={`ATTACKDETAILS${index}`}
+                    key={`FLEETDETAILS${index}`}
+                    side={side}
                 />
             )
         }));
     }, [combatReports])
 
     return (
-        <div className="attacks-overview-main">
+        <div className="fleet-overview-main">
             <SectionTitle
-                title={t("AttacksOverview")}
+                title={side === 0 ? t("AttackersOverview") : t("DefendersOverview")}
                 icon={DataVisible ? "caret-up" : "caret-down"}
                 onClick={() => setDataVisible(!DataVisible)}
             />
             <div
-                className="attacks-overview"
+                className="fleet-overview"
                 style={{ display: DataVisible ? "flex" : "none" }}
             >
             {AttacksDetails}
