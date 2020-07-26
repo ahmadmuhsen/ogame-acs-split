@@ -76,7 +76,7 @@ export default function Main({ settingsData, setShowSettings }) {
                         className="fas fa-times-circle"
                         onClick={() => DeleteCombatReport(index)}
                     />
-                    {`${t(Side === 0 ? "Attack" : "Defence")} #${index + 1} [${rep.key}] `}
+                    {`${t(Side === 0 ? "Attack" : "Defend")} #${index + 1} [${rep.key}] `}
                 </div>
             ))
         })

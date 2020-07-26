@@ -104,7 +104,7 @@ export default function FleetDetails({ combatReports, setCombatReports, index, s
                 onClick={() => setDataVisible(!DataVisible)}
             >
                 <i className={`fas fa-${DataVisible ? "caret-right" : "caret-down"}`} />
-                {t(side === 0 ? "Attack" : "Defence")} #{index + 1}
+                {t(side === 0 ? "Attack" : "Defend")} #{index + 1}
             </div>
             <div className="fleeter-details-panel" style={{ display: DataVisible ? "flex" : "none" }}>
                 {FleetersDetails}
