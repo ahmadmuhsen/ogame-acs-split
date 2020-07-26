@@ -62,7 +62,7 @@ export default function FleeterDetails({
                 {side === 0 ?
                     <div className="character-class">
                         <input type="checkbox" checked={(fleeter.isCollecter)} onChange={event => onCollecterChange(crIndex, index, event.target.checked)}></input>
-                        {t("Collecter")}
+                        {t("Collector")}
                     </div> : ""}
 
                 {side === 0 ?
