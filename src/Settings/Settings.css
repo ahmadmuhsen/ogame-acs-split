@@ -12,9 +12,10 @@
 
 .settings-panel .card{
     padding: 10px 10px;
-    background-color: var(--main-panel-bg-color);
-    color: var(--main-panel-txt-color);
+    background-color: var(--main-panel-txt-color);
+    color: var(--main-paneltitle-bg-color);
     border-radius: 5px;
+    font-weight: bold;
 }
 
 .settings-panel .card .title{
@@ -49,4 +50,6 @@
     width: 35px;
     padding: 0px;
     text-align: center;
+    background-color:  var(--main-paneltitle-bg-color);
+    color: var(--main-panel-txt-color);
 }

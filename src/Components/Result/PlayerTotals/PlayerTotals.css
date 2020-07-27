@@ -39,7 +39,7 @@
   justify-content: center;
 }
 
-.player-totals-main .player-totals .player-total{
+.player-totals-main .player-totals .player-total {
   display: flex;
   width: 100%;
   padding: 2.5px;
@@ -50,7 +50,7 @@
   padding: 0px 2.5px;
 }
 
-.player-totals-main .player-totals .player-total .player-name .text{
+.player-totals-main .player-totals .player-total .player-name .text {
   height: 100%;
   color: var(--main-panel-txt-color);
   background: var(--main-panel-bg-color);
@@ -80,7 +80,7 @@
   display: flex;
 }
 
-.player-totals-main .player-totals .player-total .row.settlement-title{
+.player-totals-main .player-totals .player-total .row.settlement-title {
   justify-content: center;
   margin-top: 10px;
   margin-bottom: 5px;
@@ -89,6 +89,14 @@
 .player-totals-main .player-totals .player-total .row div {
   width: 30%;
   text-align: right;
+}
+
+.player-totals-main .player-totals .player-total .row div.green {
+  color: rgb(13, 255, 0);
+}
+
+.player-totals-main .player-totals .player-total .row div.red {
+  color: rgb(252, 3, 32);
 }
 
 .player-totals-main .player-totals .player-total .row div:first-child {
@@ -100,27 +108,42 @@
   margin-bottom: 5px;
 }
 
-.player-totals-main .player-totals .player-total .row .contribution-prompt{
+.player-totals-main .player-totals .player-total .row .contribution-prompt {
   display: flex;
   align-items: center;
 }
 
-.player-totals-main .player-totals .player-total .row .contribution-prompt div{
+.player-totals-main .player-totals .player-total .row .contribution-prompt div {
   width: 50%;
   text-align: right;
   padding-right: 5px;
   cursor: pointer;
 }
 
-.player-totals-main .player-totals .player-total .row .contribution-prompt div.settlement-full{
+.player-totals-main
+  .player-totals
+  .player-total
+  .row
+  .contribution-prompt
+  div.settlement-full {
   color: grey;
 }
 
-.player-totals-main .player-totals .player-total .row .contribution-prompt .text-input.settlement-full{
+.player-totals-main
+  .player-totals
+  .player-total
+  .row
+  .contribution-prompt
+  .text-input.settlement-full {
   background-color: grey;
 }
 
-.player-totals-main .player-totals .player-total .row .contribution-prompt .text-input{
+.player-totals-main
+  .player-totals
+  .player-total
+  .row
+  .contribution-prompt
+  .text-input {
   width: 50%;
   text-align: center;
   height: 15px;

@@ -21,6 +21,7 @@
 
 .api-keys-input .settings{
   width: 4%;
+  background-color: rgb(204, 22, 22);
 }
 
 .api-keys-input button .fas {

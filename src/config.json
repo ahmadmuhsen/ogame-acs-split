@@ -1,5 +1,5 @@
 {
-    "api":"http://ogameapi.tdnserver.com",
+    "api":"https://acssplit.com/backend",
     "LanguageContributionLink": "https://github.com/ahmadmuhsen/ogame-acs-split/wiki/Language-Contributions",
     "GithubRepositoryLink": "https://github.com/ahmadmuhsen/ogame-acs-split",
     "ReportBugLink": "https://github.com/ahmadmuhsen/ogame-acs-split/issues"
