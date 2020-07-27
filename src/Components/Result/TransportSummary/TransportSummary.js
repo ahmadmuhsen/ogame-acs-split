@@ -62,9 +62,9 @@ export default function TransportSummary({ playerTotalsStatistics }) {
                                 resTypes.forEach(resType => {
                                     if (atr.resources[resType] > 0) {
                                         switch (typesCount) {
-                                            case 0: resMessage += `${FormatUnits(atr.resources[resType])} ${resType}`; break;
+                                            case 0: resMessage += `${FormatUnits(atr.resources[resType])} ${t(resType)}`; break;
                                             case 1:
-                                            case 2: resMessage += ` + ${FormatUnits(atr.resources[resType])} ${resType}`; break;
+                                            case 2: resMessage += ` + ${FormatUnits(atr.resources[resType])} ${t(resType)}`; break;
                                             default: break;
                                         }
                                         typesCount++;

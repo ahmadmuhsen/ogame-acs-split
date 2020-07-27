@@ -9,7 +9,7 @@ export default function Navigation() {
     const [LanguageSelect, setLanguageSelect] = useState([])
     const [SelectVisible, setSelectVisible] = useState(false)
     const { t } = useTranslation();
-    const AllLanguages = ["en"]
+    const AllLanguages = ["en", "ba"]
 
     useEffect(() => {
         localStorage.preferredLanguage = Language;

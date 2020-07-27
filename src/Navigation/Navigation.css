@@ -22,13 +22,14 @@
 .navigation a {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-evenly;
     text-decoration: none;
     color: white;
     background-color: black;
     padding: 0px 10px;
     border-radius: 10px;
-    height: 35px;
+    height: 30px;
+    font-size: 13px;
 }
 
 .navigation a.repo{
@@ -50,7 +51,8 @@
 .navigation .right-toolbar .language .selected-language{
     color: white;
     background-color: black;
-    height: 35px;
+    height: 30px;
+    font-size: 13px;
     width: 140px;
     border-radius: 10px;
     display: flex;
@@ -79,8 +81,13 @@
 
 .navigation .right-toolbar .language .language-option{
     min-height: 35px;
+    font-size: 13px;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.navigation .right-toolbar .language .language-option .fas{
+    font-size: 13px;
 }

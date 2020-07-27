@@ -196,7 +196,7 @@ export default function PlayerTotals({ playerTotalsStatistics, setPlayerTotalsSt
                 </div>
             )
         }));
-    }, [playerTotalsStatistics])
+    }, [playerTotalsStatistics, t])
 
     return (
         <div className="player-totals-main">

@@ -52,7 +52,7 @@ export default function Summary({ totalResult, settingsData }) {
                 </div>
             ))
         }
-    }, [totalResult])
+    }, [totalResult, t])
 
     return (SummaryView)
 }
