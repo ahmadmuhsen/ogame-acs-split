@@ -63,7 +63,7 @@ export default function FleetDetails({ combatReports, setCombatReports, index, s
 
     const onLootChange = (crIndex, fleeterIndex, resType, units) => {
         let combatNew = [...combatReports];
-        combatNew[crIndex][resType] = !isNaN(units) ? (units > 0 ? units : 0) : 0;
+        combatNew[crIndex].attackers[fleeterIndex][resType] = !isNaN(units) ? (units > 0 ? units : 0) : 0;
         setCombatReports(combatNew);
     }
 
