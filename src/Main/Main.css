@@ -22,3 +22,21 @@
   margin-right: 10px;
   cursor: pointer;
 }
+
+.main .manual-add-button{
+  width: 78%;
+  background-color: var(--main-paneltitle-bg-color);
+  color: var(--main-paneltitle-txt-color);
+  border-radius: 5px;
+  margin-bottom: 5px;
+  font-size: 14px;
+  padding: 5px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.main .manual-add-button .fas{
+  margin-right: 5px;
+}

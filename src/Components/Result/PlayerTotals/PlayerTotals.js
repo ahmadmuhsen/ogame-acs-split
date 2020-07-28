@@ -182,8 +182,8 @@ export default function PlayerTotals({ playerTotalsStatistics, setPlayerTotalsSt
                             <div className="row">
                                 <div>{t("Contribution")}</div>
                                 <div className={player.contribution.metal >= 0 ? "green" : "red"}>{FormatUnits(Math.round(player.contribution.metal))}</div>
-                                <div className={player.contribution.metal >= 0 ? "green" : "red"}>{FormatUnits(Math.round(player.contribution.crystal))}</div>
-                                <div className={player.contribution.metal >= 0 ? "green" : "red"}>{FormatUnits(Math.round(player.contribution.deuterium))}</div>
+                                <div className={player.contribution.crystal >= 0 ? "green" : "red"}>{FormatUnits(Math.round(player.contribution.crystal))}</div>
+                                <div className={player.contribution.deuterium >= 0 ? "green" : "red"}>{FormatUnits(Math.round(player.contribution.deuterium))}</div>
                             </div>
                             {settlments.length > 0 ?
                                 <div className="row settlement-title">

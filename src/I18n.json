@@ -99,7 +99,15 @@
             "ConsumptionSettingDescription": "Convert deuterium consumption to metal and crystal",
             "ConsumptionRateSettingDescription": "Unit conversion rate",
             "ReimburseFleetLossDescription": "Reimburse resources lost from destroyed fleet",
-            "ReimburseDeutConsumptionDescription": "Reimburse resources lost in fuel consumption"
+            "ReimburseDeutConsumptionDescription": "Reimburse resources lost in fuel consumption",
+            "AddManual": "Add Custom Report",
+            "CR": "Combat Report",
+            "RR": "Recycle Report",
+            "AddPlayer": "Add Player",
+            "AddManualReportTypeDesc": "What is the report type?",
+            "AddManualPlayerCountDesc": "How many players?",
+            "AddManualChosePlayersDesc": "Who are the players? (max: %count%)",
+            "Save": "Save"
         }
     },
     "ba": {

@@ -51,9 +51,12 @@ export function SetResourceStatistics(combatReports) {
         report.totalDefendersFleetValue = totalDefendersFleetValue;
 
         report.attackers.forEach(attacker => {
-            attacker.metalLoot = report.metalLoot * (attacker.fleetCapacity / totalCapacity)
-            attacker.crystalLoot = report.crystalLoot * (attacker.fleetCapacity / totalCapacity)
-            attacker.deuteriumLoot = report.deuteriumLoot * (attacker.fleetCapacity / totalCapacity)
+            attacker.metalLoot = report.metalLoot * (attacker.fleetCapacity / totalCapacity);
+            attacker.metalLoot = isNaN(attacker.metalLoot) ? 0 : attacker.metalLoot;
+            attacker.crystalLoot = report.crystalLoot * (attacker.fleetCapacity / totalCapacity);
+            attacker.crystalLoot = isNaN(attacker.crystalLoot) ? 0 : attacker.crystalLoot;
+            attacker.deuteriumLoot = report.deuteriumLoot * (attacker.fleetCapacity / totalCapacity);
+            attacker.deuteriumLoot = isNaN(attacker.deuteriumLoot) ? 0 : attacker.deuteriumLoot;
         })
 
         CalculateLossFromShips(report.attackers);

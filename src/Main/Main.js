@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 import ReportKeyInput from '../Components/ReportKeyInput/ReportKeyInput';
 import ChooseSide from '../Components/ChooseSide/ChooseSide';
+import CustomReport from '../Components/CustomReport/CustomReport';
 import ACSplitPanel from '../ACSplitPanel/ACSplitPanel';
 
 import { useTranslation } from "react-i18next";
@@ -9,6 +10,7 @@ import { GetCombatReport } from './GetCombatReport';
 import { GetRecycleReport } from './GetRecycleReport';
 
 import './Main.css';
+import Button from '../Components/Button/Button';
 
 export default function Main({ settingsData, setShowSettings }) {
     const { t } = useTranslation();
@@ -20,6 +22,7 @@ export default function Main({ settingsData, setShowSettings }) {
     const [ApiKeyInputValidityMessage, setApiKeyInputValidityMessage] = useState("");
     const [Loading, setLoading] = useState(false);
     const [ApiKeyList, setApiKeyList] = useState([])
+    const [ShowCustom, setShowCustom] = useState(false);
 
     const GetReport = () => {
         let keyArray = ApiKeyInput.split('-');
@@ -114,6 +117,23 @@ export default function Main({ settingsData, setShowSettings }) {
                 apiKeyInputValidityMessage={ApiKeyInputValidityMessage}
                 setShowSettings={setShowSettings}
             />
+            <div
+                className="manual-add-button"
+                onClick={() => setShowCustom(true)}
+            >
+                <i className="fas fa-plus" />
+                {t("AddManual")}
+            </div>
+            {ShowCustom ?
+                <CustomReport
+                    combatReports={CombatReports}
+                    setCombatReports={setCombatReports}
+                    recycleReports={RecycleReports}
+                    setRecycleReports={setRecycleReports}
+                    side={Side}
+                    addCustomReport={() => { }}
+                    setShowCustom={setShowCustom}
+                /> : ""}
             {ApiKeyList}
             <ACSplitPanel
                 combatReports={CombatReports}

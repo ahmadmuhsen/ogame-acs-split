@@ -57,7 +57,7 @@ export default function FleeterDetails({
     return (
         <div className="attack-fleet-details">
             <div className="card">
-                <div className="player-name">{fleeter.alliance ? `[${fleeter.alliance}]` : "fleeter.alliance"} {fleeter.name}</div>
+                <div className="player-name">{fleeter.alliance ? `[${fleeter.alliance}]` : ""} {fleeter.name}</div>
 
                 {side === 0 ?
                     <div className="character-class">
