@@ -11,11 +11,11 @@ export default function Settings({ settingsData, setSettingsData, setShowSetting
         if (!pattern.test(value))
             value = parseFloat(value);
         let parsedValue = parseFloat(value);
-        value = isNaN(parsedValue) ? type === 0 ? 2 : 1 : value;
-        value = parsedValue < 0 ? type === 0 ? 2 : 1 : value;
-        value = type === 0 && parsedValue > 3 ? 3 : value;
-        value = type === 1 && parsedValue > 2 ? 2 : value;
-        let rate = [...settingsData.conversationRate];
+        value = isNaN(parsedValue) ? type === "metal" ? 2 : 1 : value;
+        value = parsedValue < 0 ? type === "metal" ? 2 : 1 : value;
+        value = type === "metal" && parsedValue > 3 ? 3 : value;
+        value = type === "crystal" && parsedValue > 2 ? 2 : value;
+        let rate = {...settingsData.conversationRate};
         rate[type] = value;
         setSettingsData({ ...settingsData, conversationRate: rate })
     }
@@ -70,12 +70,12 @@ export default function Settings({ settingsData, setSettingsData, setShowSetting
                         <div className="description">{t("ConsumptionRateSettingDescription")}</div>
                         <div className="control conversion">
                             <TextInput
-                                value={settingsData.conversationRate[0]}
-                                onChange={event => onConverstionRateChange(0, event.target.value)}
+                                value={settingsData.conversationRate.metal}
+                                onChange={event => onConverstionRateChange("metal", event.target.value)}
                             />:
                             <TextInput
-                                value={settingsData.conversationRate[1]}
-                                onChange={event => onConverstionRateChange(1, event.target.value)}
+                                value={settingsData.conversationRate.crystal}
+                                onChange={event => onConverstionRateChange("crystal", event.target.value)}
                             />:1
                         </div>
                     </div> : ""}

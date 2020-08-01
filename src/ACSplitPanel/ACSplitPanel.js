@@ -8,7 +8,17 @@ import Result from '../Components/Result/Result';
 import { useTranslation } from "react-i18next";
 import './ACSplitPanel.css';
 
-export default function ACSplitPanel({ combatReports, setCombatReports, recycleReports, setRecycleReports, settingsData, side }) {
+export default function ACSplitPanel({ 
+    combatReports, 
+    setCombatReports, 
+    recycleReports, 
+    setRecycleReports, 
+    playerTotalsStatistics, 
+    setPlayerTotalsStatistics, 
+    settingsData, 
+    side,
+    dataFromSharedReport
+}) {
     const { t } = useTranslation();
     return (
         <div className="acsplit-panel">
@@ -30,7 +40,10 @@ export default function ACSplitPanel({ combatReports, setCombatReports, recycleR
                 combatReports={combatReports}
                 recycleReports={recycleReports}
                 settingsData={settingsData}
+                playerTotalsStatistics={playerTotalsStatistics}
+                setPlayerTotalsStatistics={setPlayerTotalsStatistics}
                 side={side}
+                dataFromSharedReport={dataFromSharedReport}
             />
         </div>
     )

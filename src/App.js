@@ -11,12 +11,13 @@ function App() {
     reimburseDeutConsumption: true,
     weightedCut: false, 
     convertConsumption: false, 
-    conversationRate: ["3", "2"] })
+    conversationRate: {metal: "3", crystal: "2"} })
   return (
     <div className="app">
       <Navigation />
       <Main
         settingsData={SettingsData}
+        setSettingsData={setSettingsData}
         setShowSettings={setShowSettings} />
       {ShowSettings ?
         <Settings

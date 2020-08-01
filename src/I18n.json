@@ -107,7 +107,8 @@
             "AddManualReportTypeDesc": "What is the report type?",
             "AddManualPlayerCountDesc": "How many players?",
             "AddManualChosePlayersDesc": "Who are the players? (max: %count%)",
-            "Save": "Save"
+            "Save": "Save",
+            "Share": "Share"
         }
     },
     "ba": {
