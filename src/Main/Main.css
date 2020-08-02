@@ -1,0 +1,112 @@
+.main {
+  padding: 10px;
+  width: 100%;
+  max-width: 1600px;
+  margin: auto;
+}
+
+.loading-main {
+  display: flex;
+  height: 100%;
+  margin-top: 200px;
+  justify-content: center;
+}
+
+.loading-main .fas{
+  animation: loading-spinner 2s linear infinite;
+  color: var(--main-panel-txt-color);;
+  font-size: 100px;
+}
+
+.main .api-key-list-item{
+  width: 78%;
+  background-color: var(--main-panel-bg-color);
+  color: var(--main-panel-txt-color);
+  border-radius: 5px;
+  margin-bottom: 5px;
+  font-size: 14px;
+  padding: 5px 10px;
+  display: flex;
+  align-items: center;
+}
+
+.main .api-key-list-item .fas{
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.main .add-share {
+  display: flex;
+  justify-content: space-between;
+}
+
+.main .add-share .manual-add-button{
+  width: 78%;
+  background-color: var(--main-paneltitle-bg-color);
+  color: var(--main-paneltitle-txt-color);
+  border-radius: 5px;
+  margin-bottom: 5px;
+  font-size: 14px;
+  padding: 5px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.main .add-share .share{
+  width: 21%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.main .add-share .share-button{
+  width: 100%;
+  background-color: var(--main-paneltitle-bg-color);
+  color: var(--main-paneltitle-txt-color);
+  border-radius: 5px;
+  margin-bottom: 5px;
+  font-size: 14px;
+  padding: 5px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.main .add-share .share-link{
+  width: 89%;
+  background-color: var(--main-panel-bg-color);
+  color: var(--main-panel-txt-color);
+  border-radius: 5px;
+  margin-bottom: 5px;
+  font-size: 13px;
+  padding: 5px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.main .add-share .share-button.small{
+  width: 10%;
+}
+
+.main .add-share .share-button.small .fas{
+  margin-right: 0px;
+}
+
+.main .add-share .fas{
+  margin-right: 5px;
+}
+
+.main .add-share .fa-spinner {
+  animation: loading-spinner 2s linear infinite;
+}
+@keyframes loading-spinner {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

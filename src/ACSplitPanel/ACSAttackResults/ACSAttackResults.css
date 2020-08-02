@@ -1,0 +1,28 @@
+.acs-attack-results{
+    background-color: var(--main-panel-bg-color);
+    flex-direction: column;
+    margin-top: 5px;
+    border-radius: 5px;
+}
+
+.acs-attack-results .row{
+    display: flex;
+    align-items: center;
+    color: var(--main-panel-txt-color);
+}
+
+.acs-attack-results .row div {
+    width: calc(100%/8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 15px;
+}
+
+.acs-attack-results .row .text-input {
+    width: 85%;
+    height: 15px;
+    text-align: center;
+    font-size: 15px;
+    padding: 0px;
+}

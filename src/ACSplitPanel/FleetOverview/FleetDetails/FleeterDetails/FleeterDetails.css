@@ -1,0 +1,84 @@
+.attack-fleet-details {
+  width: 20%;
+  padding: 2.5px;
+}
+
+.attack-fleet-details .card{
+  background-color: var(--main-panel-bg-color);
+  border-radius: 5px;
+  padding: 5px 10px;
+  font-size: 13px;
+  color: var(--main-panel-txt-color);
+}
+
+.attack-fleet-details .player-name {
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.attack-fleet-details .hyperspace-tech {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.attack-fleet-details .character-class{
+  display: flex;
+  align-items: center;
+  padding: 2.5px 0px;
+}
+
+.attack-fleet-details .character-class input{
+  margin: 0px 5px 0px 0px;
+}
+
+.attack-fleet-details .hyperspace-tech .text-input {
+  width: 70px;
+  height: 15px;
+  padding: 0px;
+  text-align: center;
+}
+
+.attack-fleet-details .label {
+  text-align: center;
+  margin: 5px 0px;
+}
+
+.attack-fleet-details .one-input-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.attack-fleet-details .one-input-info .text-input {
+  width: 110px;
+}
+
+.attack-fleet-details .fleet-composition {
+  display: flex;
+}
+
+.attack-fleet-details .fleet-composition .ship-name {
+  width: 30%;
+  font-size: 11px;
+}
+
+.attack-fleet-details .fleet-composition .ship-count {
+  display: flex;
+  width: 70%;
+  justify-content: space-around;
+  font-size: 11px;
+}
+
+.attack-fleet-details .fleet-composition .ship-count .text-input {
+  width: 49%;
+  height: 12px;
+  border-radius: 3px;
+  font-size: inherit ;
+}
+
+.attack-fleet-details .text-input {
+  height: 15px;
+  padding: 0px;
+  text-align: center;
+}

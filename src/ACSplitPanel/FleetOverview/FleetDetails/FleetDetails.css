@@ -1,0 +1,37 @@
+.fleet-details {
+  display: flex;
+  margin-top: 2.5px;
+}
+
+.fleet-details .fleet-label {
+  color: var(--main-panel-txt-color);
+  background-color: var(--main-panel-bg-color);;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 15px;
+}
+
+.fleet-details .fleet-label.expanded {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  background-color: transparent;
+  width: 2%;
+}
+
+.fleet-details .fleeter-details-panel {
+  width: 98%;
+  display: flex;
+}
+
+.fleet-details .fleet-label .fa-caret-right {
+  font-size: 20px;
+  margin-bottom: 8px;
+}
+
+.fleet-details .fleet-label .fa-caret-down {
+  font-size: 20px;
+  margin-right: 8px;
+}

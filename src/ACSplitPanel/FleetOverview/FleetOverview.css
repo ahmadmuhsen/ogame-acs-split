@@ -1,0 +1,8 @@
+.fleet-overview-main{
+    margin-top: 5px;
+}
+
+.fleet-overview{
+    display: flex;
+    flex-direction: column;
+}

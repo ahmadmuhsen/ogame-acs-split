@@ -1,0 +1,19 @@
+.choose-side {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  margin: 200px;
+}
+
+.choose-side .label {
+  color: var(--main-panel-txt-color);
+  font-size: 17px;
+}
+
+.choose-side .button {
+  margin-top: 5px;
+  width: 200px;
+  font-size: 14px;
+}

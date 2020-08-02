@@ -1,0 +1,7 @@
+{
+    "api":"http://localhost:54107/",
+    "app": "localhost:3000",
+    "LanguageContributionLink": "https://github.com/ahmadmuhsen/ogame-acs-split/wiki/Language-Contributions",
+    "GithubRepositoryLink": "https://github.com/ahmadmuhsen/ogame-acs-split",
+    "ReportBugLink": "https://github.com/ahmadmuhsen/ogame-acs-split/issues"
+}

@@ -1,5 +1,5 @@
 body {
-  background-image: url("assets/background.jpg");
+  background-image: url("assets/background-compressed.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
@@ -7,17 +7,31 @@ body {
 
 :root {
   --main-panel-bg-color: rgb(0, 0, 0, 0.7);
+  --main-panel-txt-color: rgb(255, 255, 255);
+
+  --main-paneltitle-bg-color: rgb(0, 0, 0);
+  --main-paneltitle-txt-color: rgb(255, 255, 255);
+
+  --main-input-bg-color: rgb(255, 255, 255, 0.9);
+  --main-input-txt-color: rgb(0, 0, 0);
+
+  --main-invalid-bg-color: rgb(255, 8, 0);
+  --main-invalid-key-bg-color: rgb(255, 8, 0, 0.3);
+  --main-invalid-message-color: rgb(255, 8, 0);
+
+  --main-gain-bg-color: rgb(13, 255, 0);
+  --main-loss-bg-color: rgb(252, 3, 32);
 }
 
 ::-webkit-scrollbar {
   width: 3px;
 }
 ::-webkit-scrollbar-track {
-  background: transparent;
+  background: var(--main-panel-bg-color);
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--primary-bg-color);
+  background: white;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--info-bg-color);;
+  background: white;
 }

@@ -1,0 +1,16 @@
+.player-panel {
+  background-color: var(--main-panel-bg-color);
+  color: white;
+  padding: 5px;
+}
+
+.player-section {
+  width: 100%;
+  display: flex;
+}
+
+.player-panel .fleet-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}

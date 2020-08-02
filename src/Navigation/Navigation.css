@@ -13,27 +13,28 @@
     color: white;
 }
 
-.navigation .github {
+.navigation .right-toolbar {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 310px;
 }
 
 .navigation a {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-evenly;
     text-decoration: none;
     color: white;
     background-color: black;
     padding: 0px 10px;
     border-radius: 10px;
-    height: 35px;
+    height: 30px;
+    font-size: 13px;
 }
 
 .navigation a.repo{
     width: 140px;
+    margin: 0px 10px;
 }
 
 .navigation a.issue{
@@ -44,4 +45,49 @@
 .navigation .fas  {
     color: white;
     font-size: 20px;
+}
+
+
+.navigation .right-toolbar .language .selected-language{
+    color: white;
+    background-color: black;
+    height: 30px;
+    font-size: 13px;
+    width: 140px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.navigation .right-toolbar .language .fas{
+    margin-right: 5px;
+}
+
+.navigation .right-toolbar .language .language-options{
+    color: white;
+    background-color: black;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    position: absolute;
+    top: 45px;
+    max-height: 175px;
+    overflow-x: hidden;
+    overflow-y: scroll; 
+    width: 140px;
+}
+
+.navigation .right-toolbar .language .language-option{
+    min-height: 35px;
+    font-size: 13px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navigation .right-toolbar .language .language-option .fas{
+    font-size: 13px;
 }

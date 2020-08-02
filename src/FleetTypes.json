@@ -1,0 +1,239 @@
+{
+    "ships": {
+        "202": {
+            "i18nKey": "SmallCargo",
+            "baseCapacity": 5000,
+            "buildCost": {
+                "metal": 2000,
+                "crystal": 2000,
+                "deuterium": 0
+            }
+        },
+        "203": {
+            "i18nKey": "LargeCargo",
+            "baseCapacity": 25000,
+            "buildCost": {
+                "metal": 6000,
+                "crystal": 6000,
+                "deuterium": 0
+            }
+        },
+        "204": {
+            "i18nKey": "LightFighter",
+            "baseCapacity": 50,
+            "buildCost": {
+                "metal": 3000,
+                "crystal": 1000,
+                "deuterium": 0
+            }
+        },
+        "205": {
+            "i18nKey": "HeavyFighter",
+            "baseCapacity": 100,
+            "buildCost": {
+                "metal": 6000,
+                "crystal": 4000,
+                "deuterium": 0
+            }
+        },
+        "206": {
+            "i18nKey": "Cruiser",
+            "baseCapacity": 800,
+            "buildCost": {
+                "metal": 20000,
+                "crystal": 7000,
+                "deuterium": 2000
+            }
+        },
+        "207": {
+            "i18nKey": "BattleShip",
+            "baseCapacity": 1500,
+            "buildCost": {
+                "metal": 45000,
+                "crystal": 15000,
+                "deuterium": 0
+            }
+        },
+        "208": {
+            "i18nKey": "ColonyShip",
+            "baseCapacity": 7500,
+            "buildCost": {
+                "metal": 10000,
+                "crystal": 20000,
+                "deuterium": 10000
+            }
+        },
+        "209": {
+            "i18nKey": "Recycler",
+            "baseCapacity": 20000,
+            "buildCost": {
+                "metal": 10000,
+                "crystal": 6000,
+                "deuterium": 2000
+            }
+        },
+        "210": {
+            "i18nKey": "EspionageProbe",
+            "baseCapacity": 0,
+            "buildCost": {
+                "metal": 0,
+                "crystal": 1000,
+                "deuterium": 0
+            }
+        },
+        "211": {
+            "i18nKey": "Bomber",
+            "baseCapacity": 500,
+            "buildCost": {
+                "metal": 50000,
+                "crystal": 25000,
+                "deuterium": 15000
+            }
+        },
+        "213": {
+            "i18nKey": "Destroyer",
+            "baseCapacity": 2000,
+            "buildCost": {
+                "metal": 60000,
+                "crystal": 50000,
+                "deuterium": 15000
+            }
+        },
+        "214": {
+            "i18nKey": "Deathstar",
+            "baseCapacity": 1000000,
+            "buildCost": {
+                "metal": 5000000,
+                "crystal": 4000000,
+                "deuterium": 1000000
+            }
+        },
+        "215": {
+            "i18nKey": "BattleCruiser",
+            "baseCapacity": 750,
+            "buildCost": {
+                "metal": 30000,
+                "crystal": 40000,
+                "deuterium": 15000
+            }
+        },
+        "218": {
+            "i18nKey": "Reaper",
+            "baseCapacity": 10000,
+            "buildCost": {
+                "metal": 85000,
+                "crystal": 55000,
+                "deuterium": 20000
+            }
+        },
+        "219": {
+            "i18nKey": "Pathfinder",
+            "baseCapacity": 10000,
+            "buildCost": {
+                "metal": 8000,
+                "crystal": 15000,
+                "deuterium": 8000
+            }
+        }
+    },
+    "defence": {
+        "212": {
+            "i18nKey": "SolarSatellite",
+            "baseCapacity": 10000,
+            "buildCost": {
+                "metal": 2000,
+                "crystal": 500,
+                "deuterium": 0
+            }
+        },
+        "217": {
+            "i18nKey": "Crawler",
+            "baseCapacity": 10000,
+            "buildCost": {
+                "metal": 2000,
+                "crystal": 2000,
+                "deuterium": 1000
+            }
+        },
+        "401": {
+            "i18nKey": "RocketLauncher",
+            "buildCost": {
+                "metal": 2000,
+                "crystal": 0,
+                "deuterium": 0
+            }
+        },
+        "402": {
+            "i18nKey": "LightLaser",
+            "buildCost": {
+                "metal": 1500,
+                "crystal": 500,
+                "deuterium": 0
+            }
+        },
+        "403": {
+            "i18nKey": "HeavyLaser",
+            "buildCost": {
+                "metal": 6000,
+                "crystal": 2000,
+                "deuterium": 0
+            }
+        },
+        "404": {
+            "i18nKey": "GaussCannon",
+            "buildCost": {
+                "metal": 20000,
+                "crystal": 15000,
+                "deuterium": 2000
+            }
+        },
+        "405": {
+            "i18nKey": "IonCannon",
+            "buildCost": {
+                "metal": 5000,
+                "crystal": 3000,
+                "deuterium": 0
+            }
+        },
+        "406": {
+            "i18nKey": "PlasmaTurret",
+            "buildCost": {
+                "metal": 50000,
+                "crystal": 50000,
+                "deuterium": 30000
+            }
+        },
+        "407": {
+            "i18nKey": "SmallShieldDome",
+            "buildCost": {
+                "metal": 10000,
+                "crystal": 10000,
+                "deuterium": 0
+            }
+        },
+        "408": {
+            "i18nKey": "LargeShieldDome",
+            "buildCost": {
+                "metal": 50000,
+                "crystal": 50000,
+                "deuterium": 0
+            }
+        },
+        "502": {
+            "i18nKey": "AntiBallisticMissiles",
+            "buildCost": {
+                "metal": 8000,
+                "crystal": 2000,
+                "deuterium": 0
+            }
+        },
+        "503": {
+            "i18nKey": "InterplanetaryMissiles",
+            "buildCost": {
+                "metal": 12500,
+                "crystal": 2500,
+                "deuterium": 10000
+            }
+        }
+    }
+}

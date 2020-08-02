@@ -1,0 +1,92 @@
+.fleet-statistic {
+  display: flex;
+  margin-bottom: 5px;
+}
+
+.fleet-statistic .fleet-results {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-right: 5px;
+}
+
+.fleet-statistic .fleet-results .report-number {
+  display: flex;
+  justify-content: center;
+}
+
+.fleet-statistic .fleet-results .resources-result {
+  display: flex;
+  font-weight: 700;
+}
+
+.fleet-statistic .fleet-results .resources-result.gain {
+  color: var(--main-gain-bg-color);
+}
+
+.fleet-statistic .fleet-results .resources-result.loss {
+  color: var(--main-loss-bg-color);
+}
+
+.fleet-statistic .fleet-results .resources-result div {
+  width: calc(100% / 4);
+  text-align: center;
+}
+
+.fleet-statistic .fleet-results .resources-result .hidden {
+  display: none;
+}
+
+.fleet-statistic .fleet-results .deuterium-consumption {
+  display: flex;
+}
+
+.fleet-statistic .fleet-results .deuterium-consumption .label {
+  width:75%;
+  display: flex;
+  justify-content: center;
+  font-weight: 700;
+  color: rgb(0, 29, 250);
+}
+
+.fleet-statistic .fleet-results .deuterium-consumption .input {
+  width:25%;
+}
+
+.fleet-statistic .fleet-results .deuterium-consumption .input .text-input {
+  width:100%;
+  text-align: center;
+}
+
+.fleet-statistic .fleet-composition {
+  width: 60%;
+  display: flex;
+}
+
+.fleet-statistic .fleet-composition .composition-labels {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-size: 12px;
+  width: 5%;
+  height: 80px;
+}
+
+.fleet-statistic .fleet-composition .composition-labels div {
+  height: 25%;
+  display: flex;
+  align-items: center;
+}
+
+.fleet-statistic .fleet-composition .composition-statistics {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  font-size: 12px;
+  width: 95%;
+}
+
+.fleet-statistic .hidden {
+  display: none !important;
+}

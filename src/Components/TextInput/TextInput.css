@@ -1,0 +1,16 @@
+.text-input {
+    border-radius: 5px;
+    border: none;
+    color: var(--main-input-txt-color);;
+    background-color: var(--main-input-bg-color);
+    padding: 0px 10px;
+}
+
+.text-input.invalid{
+    background-color: var(--main-invalid-bg-color);
+    color: var(--main-invalid-txt-color);
+}
+
+.text-input:focus{
+    outline: none;
+}

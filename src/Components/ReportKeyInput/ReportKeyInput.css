@@ -1,0 +1,56 @@
+.api-keys-input {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+
+.api-keys-input .text-input {
+  width: 78%;
+  background-color: var(--main-panel-bg-color);
+  color: var(--main-panel-txt-color);
+  font-size: 15px;
+}
+
+.api-keys-input button {
+  width: 8%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 15px;
+}
+
+.api-keys-input .settings{
+  width: 3%;
+  background-color: rgb(204, 22, 22);
+}
+
+.api-keys-input button .fas {
+  margin-right: 5px;
+}
+
+.api-keys-input button .fas.fa-cogs {
+  margin-right: 0px;
+  font-size: 20px;
+}
+
+.api-keys-input button .fa-spinner {
+  animation: loading-spinner 2s linear infinite;
+}
+@keyframes loading-spinner {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.api-key-validity-message {
+  color: var(--main-invalid-message-color);
+  font-size: 15px;
+  padding: 5px 10px;
+  background: var(--main-invalid-key-bg-color);
+  border-radius: 5px;
+  width: 78%;
+  margin: 5px 0px;
+}
