@@ -6,7 +6,7 @@ import { SetResourceStatistics } from '../../Main/SetResourceStatistics';
 
 import './ACSAttackResults.css';
 
-export default function ACSAttackResults({ combatReports, setCombatReports }) {
+export default function ACSAttackResults({ combatReports, setCombatReports, settingsData }) {
     /*Nightmare loves Tanavast.*/
 
     const { t } = useTranslation();
@@ -28,7 +28,7 @@ export default function ACSAttackResults({ combatReports, setCombatReports }) {
             default: break;
         }
 
-        SetResourceStatistics(newCRs);
+        SetResourceStatistics(newCRs, settingsData);
         setCombatReports(newCRs);
     }
 

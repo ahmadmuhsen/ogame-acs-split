@@ -2,7 +2,16 @@ import axios from 'axios';
 import config from '../config.json';
 import { SetResourceStatistics } from './SetResourceStatistics';
 
-export const GetCombatReport = (combatReport, CombatReports, setCombatReports, setApiKeyInputValidity, setLoading, setApiKeyInputValidityMessage) => {
+export const GetCombatReport = (
+    combatReport,
+    CombatReports,
+    setCombatReports,
+    setApiKeyInputValidity,
+    setLoading,
+    setApiKeyInputValidityMessage,
+    settingsData,
+    setSettingsData
+) => {
     setLoading(true);
     const request = {
         method: "GET",
@@ -48,8 +57,9 @@ export const GetCombatReport = (combatReport, CombatReports, setCombatReports, s
                 crs.push(crdata);
                 setApiKeyInputValidity(true);
                 setApiKeyInputValidityMessage("");
-                SetResourceStatistics(crs);
+                SetResourceStatistics(crs, settingsData);
                 setCombatReports(crs);
+                setSettingsData({...settingsData, probeStorage: crdata.probe_storage})
             }
         })
         .catch(function (error) {

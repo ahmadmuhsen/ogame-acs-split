@@ -1,6 +1,6 @@
 import FleetTypes from '../FleetTypes.json';
 
-export function SetResourceStatistics(combatReports) {
+export function SetResourceStatistics(combatReports, settingsData) {
 
     combatReports.forEach(report => {
         let totalCapacity = 0;
@@ -15,7 +15,7 @@ export function SetResourceStatistics(combatReports) {
                     classBonus = FleetTypes.ships[ship.shipType].baseCapacity * 0.25;
                 }
                 playerCapacity += ship.postCount
-                    * ((FleetTypes.ships[ship.shipType].baseCapacity
+                    * (((ship.shipType === 210 && settingsData.probeStorage ? FleetTypes.ships[ship.shipType].baseCapacitySpecial : FleetTypes.ships[ship.shipType].baseCapacity)
                         * (1 + (attacker.hyperspaceTech * 0.05))) + classBonus);
 
                 playerFleetValue += ship.preCount * (

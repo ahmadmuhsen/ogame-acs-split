@@ -11,7 +11,9 @@ function App() {
     reimburseDeutConsumption: true,
     weightedCut: false, 
     convertConsumption: false, 
-    conversationRate: {metal: "3", crystal: "2"} })
+    conversationRate: {metal: "3", crystal: "2"},
+    probeStorage: false
+   })
   return (
     <div className="app">
       <Navigation />

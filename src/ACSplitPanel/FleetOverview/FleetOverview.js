@@ -5,7 +5,7 @@ import FleetDetails from './FleetDetails/FleetDetails';
 
 import './FleetOverview.css';
 
-export default function FleetOverview({ combatReports, setCombatReports, side }) {
+export default function FleetOverview({ combatReports, setCombatReports, side, settingsData }) {
     const { t } = useTranslation();
     const [DataVisible, setDataVisible] = useState(true)
     const [AttacksDetails, setAttacksDetails] = useState([]);
@@ -19,6 +19,7 @@ export default function FleetOverview({ combatReports, setCombatReports, side })
                     index={index}
                     key={`FLEETDETAILS${index}`}
                     side={side}
+                    settingsData={settingsData}
                 />
             )
         }));

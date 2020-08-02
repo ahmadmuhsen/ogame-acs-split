@@ -14,6 +14,7 @@ import { GetSharedReport } from './GetSharedReport';
 import config from '../config.json';
 
 import './Main.css';
+import { SetResourceStatistics } from './SetResourceStatistics';
 
 export default function Main({ settingsData, setShowSettings, setSettingsData }) {
     const { t } = useTranslation();
@@ -36,7 +37,7 @@ export default function Main({ settingsData, setShowSettings, setSettingsData })
         if (keyArray.length === 4) {
             switch (keyArray[0]) {
                 case "cr":
-                    GetCombatReport(ApiKeyInput, CombatReports, setCombatReports, setApiKeyInputValidity, setLoading, setApiKeyInputValidityMessage);
+                    GetCombatReport(ApiKeyInput, CombatReports, setCombatReports, setApiKeyInputValidity, setLoading, setApiKeyInputValidityMessage, settingsData, setSettingsData);
                     break;
                 case "rr":
                     GetRecycleReport(ApiKeyInput, RecycleReports, setRecycleReports, setApiKeyInputValidity, setLoading, setApiKeyInputValidityMessage);
@@ -73,6 +74,12 @@ export default function Main({ settingsData, setShowSettings, setSettingsData })
         recycleReports.splice(index, 1);
         setRecycleReports(recycleReports);
     }
+
+    useEffect(() => {
+        let cmbtrp = [...CombatReports];
+        SetResourceStatistics(cmbtrp, settingsData);
+        setCombatReports(cmbtrp);
+    }, [settingsData])
 
     useEffect(() => {
         setLoading(false);
@@ -185,8 +192,8 @@ export default function Main({ settingsData, setShowSettings, setSettingsData })
                     recycleReports={RecycleReports}
                     setRecycleReports={setRecycleReports}
                     side={Side}
-                    addCustomReport={() => { }}
                     setShowCustom={setShowCustom}
+                    settingsData={settingsData}
                 /> : ""}
             {ApiKeyList}
             <ACSplitPanel

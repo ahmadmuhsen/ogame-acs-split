@@ -12,9 +12,10 @@ export default function CustomReport({
     setCombatReports,
     recycleReports,
     setRecycleReports,
-    addCustomReport,
     side,
-    setShowCustom }) {
+    setShowCustom, 
+    settingsData
+ }) {
     const [Players, setPlayers] = useState([]);
     const [ReportType, setReportType] = useState("CR")
     const [PlayerCount, setNumberOfPlayers] = useState(2);
@@ -53,7 +54,7 @@ export default function CustomReport({
                             })
                         })
                         let newCRs = [...combatReports, newCR];
-                        SetResourceStatistics(newCRs);
+                        SetResourceStatistics(newCRs, settingsData);
                         setCombatReports(newCRs);
                         setShowCustom(false);
                     }
@@ -107,7 +108,7 @@ export default function CustomReport({
             }
         })
         setPlayers(players);
-    }, [combatReports, recycleReports, side])
+    }, [combatReports, recycleReports, side, settingsData])
 
     useEffect(() => {
         let playersChosen = [...PlayersChosen]

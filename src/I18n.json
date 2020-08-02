@@ -99,6 +99,7 @@
             "ConsumptionSettingDescription": "Convert deuterium consumption to metal and crystal",
             "ConsumptionRateSettingDescription": "Unit conversion rate",
             "ReimburseFleetLossDescription": "Reimburse resources lost from destroyed fleet",
+            "ProbesStorageSettingDescription": "Esponiage probes have storage capacity",
             "ReimburseDeutConsumptionDescription": "Reimburse resources lost in fuel consumption",
             "AddManual": "Add Custom Report",
             "CR": "Combat Report",

@@ -75,6 +75,7 @@
         "210": {
             "i18nKey": "EspionageProbe",
             "baseCapacity": 0,
+            "baseCapacitySpecial": 5,
             "buildCost": {
                 "metal": 0,
                 "crystal": 1000,

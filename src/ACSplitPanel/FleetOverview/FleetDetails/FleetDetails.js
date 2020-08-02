@@ -5,7 +5,7 @@ import { SetResourceStatistics } from '../../../Main/SetResourceStatistics';
 
 import './FleetDetails.css';
 
-export default function FleetDetails({ combatReports, setCombatReports, index, side }) {
+export default function FleetDetails({ combatReports, setCombatReports, index, side, settingsData }) {
     const { t } = useTranslation();
     const [FleetersDetails, setFleetersDetails] = useState([]);
     const [DataVisible, setDataVisible] = useState(true)
@@ -14,7 +14,7 @@ export default function FleetDetails({ combatReports, setCombatReports, index, s
         let combatNew = [...combatReports];
         let fleeter = side === 0 ? combatNew[crIndex].attackers[fleeterIndex] : combatNew[crIndex].defenders[fleeterIndex];
         fleeter.hyperspaceTech = !isNaN(hyperspaceTech) ? hyperspaceTech : 0;
-        SetResourceStatistics(combatNew);
+        SetResourceStatistics(combatNew, settingsData);
         setCombatReports(combatNew);
     }
 
@@ -42,7 +42,7 @@ export default function FleetDetails({ combatReports, setCombatReports, index, s
         } else {
             ship.preCount = !isNaN(preCount) ? preCount > ship.postCount ? preCount : ship.postCount : ship.postCount;
         }
-        SetResourceStatistics(combatNew);
+        SetResourceStatistics(combatNew, settingsData);
         setCombatReports(combatNew);
     }
 
@@ -57,7 +57,7 @@ export default function FleetDetails({ combatReports, setCombatReports, index, s
         if (ship) {
             ship.postCount = !isNaN(postCount) ? (postCount < ship.preCount ? postCount : ship.preCount) : 0;
         }
-        SetResourceStatistics(combatNew);
+        SetResourceStatistics(combatNew, settingsData);
         setCombatReports(combatNew);
     }
 
@@ -71,7 +71,7 @@ export default function FleetDetails({ combatReports, setCombatReports, index, s
         let combatNew = [...combatReports];
         let fleeter = side === 0 ? combatNew[crIndex].attackers[fleeterIndex] : combatNew[crIndex].defenders[fleeterIndex];
         fleeter.isCollecter = isCollecter;
-        SetResourceStatistics(combatNew);
+        SetResourceStatistics(combatNew, settingsData);
         setCombatReports(combatNew);
     }
 

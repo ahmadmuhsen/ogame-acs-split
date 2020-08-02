@@ -57,6 +57,15 @@ export default function Settings({ settingsData, setSettingsData, setShowSetting
                     </div>
                 </div>
                 <div className="setting-section">
+                    <div className="description">{t("ProbesStorageSettingDescription")}</div>
+                    <div className="control">
+                        <i
+                            className={`fas fa-toggle-${settingsData.probeStorage ? "on" : "off"}`}
+                            onClick={() => setSettingsData({ ...settingsData, probeStorage: !settingsData.probeStorage })}
+                        />
+                    </div>
+                </div>
+                <div className="setting-section">
                     <div className="description">{t("ConsumptionSettingDescription")}</div>
                     <div className="control">
                         <i

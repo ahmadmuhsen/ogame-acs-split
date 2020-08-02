@@ -26,11 +26,13 @@ export default function ACSplitPanel({
                 <ACSAttackResults
                     combatReports={combatReports}
                     setCombatReports={setCombatReports}
+                    settingsData={settingsData}
                 /> : ""}
             <FleetOverview
                 combatReports={combatReports}
                 setCombatReports={setCombatReports}
                 side={side}
+                settingsData={settingsData}
             />
             <RecyclerPickups
                 recycleReports={recycleReports}
