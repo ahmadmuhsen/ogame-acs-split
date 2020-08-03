@@ -125,7 +125,6 @@ export default function Main({ settingsData, setShowSettings, setSettingsData })
             settings: settingsData,
             playersStatistics: PlayerTotalsStatistics
         }
-        console.log(JSON.stringify(data));
         PostSharedReport(data, setSharedReportId, setApiKeyInputValidity, setShareLoading, setApiKeyInputValidityMessage);
     }
 
