@@ -4,10 +4,16 @@ import './index.css';
 import App from './App';
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
-import i18nJSON from "./I18n.json";
+import English from "./I18n/English.json";
+import Balkan from "./I18n/Balkan.json";
+import Danish from "./I18n/Danish.json";
 
 i18n.use(initReactI18next).init({
-  resources: i18nJSON,
+  resources: {
+    en: English,
+    ba: Balkan,
+    da: Danish,
+  },
   lng: getPreferredLanguage(),
   fallbackLng: "en",
   interpolation: {
