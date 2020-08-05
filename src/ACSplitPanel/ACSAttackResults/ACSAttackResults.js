@@ -95,7 +95,7 @@ export default function ACSAttackResults({ combatReports, setCombatReports, sett
     }, [combatReports])
 
     return (
-        <div>
+        <div className="acs-attack-results-main">
             <SectionTitle
                 title={t("ACSAttackResults")}
                 icon={DataVisible ? "caret-up" : "caret-down"}
