@@ -105,6 +105,7 @@
         "AddManualPlayerCountDesc": "How many players?",
         "AddManualChosePlayersDesc": "Who are the players? (max: %count%)",
         "Save": "Save",
-        "Share": "Share"
+        "Share": "Share",
+        "KeyAlreadyExists": "This key already exists"
     }
 }

@@ -105,6 +105,7 @@
         "AddManualPlayerCountDesc": "Hvor mange spillere?",
         "AddManualChosePlayersDesc": "Hvem er spillerne? (maks: %count%)",
         "Save": "Gem",
-        "Share": "Del"
+        "Share": "Del",
+        "KeyAlreadyExists": "This key already exists"
     }
 }
