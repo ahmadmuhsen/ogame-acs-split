@@ -1,7 +1,7 @@
 {
     "translation": {
         "SiteName": "ACS Podjela",
-        "AddEditLanguage": "Add/Edit",
+        "AddEditLanguage": "Dodaj/Uredi",
         "en": "Engleski",
         "ba": "Balkanski",
         "da": "Danski",
@@ -96,16 +96,16 @@
         "ConsumptionRateSettingDescription": "Tečaj kod pretvorbe jedinica",
         "ReimburseFleetLossDescription": "Nadoknadi resurse izgubljene zbog uništene flote",
         "ReimburseDeutConsumptionDescription": "Nadoknadi resurse izgubljene zbog potrošnje goriva",
-        "ProbesStorageSettingDescription": "Espionage probes have storage capacity",
-        "AddManual": "Add Custom Report",
-        "CR": "Combat Report",
-        "RR": "Recycle Report",
-        "AddPlayer": "Add Player",
-        "AddManualReportTypeDesc": "What is the report type?",
-        "AddManualPlayerCountDesc": "How many players?",
-        "AddManualChosePlayersDesc": "Who are the players? (max: %count%)",
-        "Save": "Save",
-        "Share": "Share",
-        "KeyAlreadyExists": "This key already exists"
+        "ProbesStorageSettingDescription": "Sonde za špijunažu imaju transportni kapacitet",
+        "AddManual": "Dodaj vlastiti izvještaj",
+        "CR": "Izvještaj o Borbi",
+        "RR": "Izvještaj o Reciklaži",
+        "AddPlayer": "Dodaj igrača",
+        "AddManualReportTypeDesc": "Koji je tip izvještaja?",
+        "AddManualPlayerCountDesc": "Koliko igrača?",
+        "AddManualChosePlayersDesc": "Tko su igrači? (max: %count%)",
+        "Save": "Spremi",
+        "Share": "Podijeli",
+        "KeyAlreadyExists": "Ovaj ključ već postoji"
     }
 }
