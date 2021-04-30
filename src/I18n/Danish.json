@@ -2,9 +2,10 @@
     "translation": {
         "SiteName": "AKS Split",
         "AddEditLanguage": "Tilføj/Rediger",
-        "en": "Engelsk",
-        "ba": "Balkansk",
+        "en": "English",
+        "ba": "Balkanski",
         "da": "Dansk",
+        "fr": "Française",
         "Repository": "Repositorie",
         "ReportIssue": "Rapporter et problem",
         "ApiKeysInputPlaceholder": "Kamp/Recycler Rapport API",

@@ -2,9 +2,10 @@
     "translation": {
         "SiteName": "ACS Podjela",
         "AddEditLanguage": "Dodaj/Uredi",
-        "en": "Engleski",
+        "en": "Enlgish",
         "ba": "Balkanski",
-        "da": "Danski",
+        "da": "Dansk",
+        "fr": "Française",
         "Repository": "Repozitorij",
         "ReportIssue": "Prijavi problem",
         "ApiKeysInputPlaceholder": "API izvještaj borbe/reciklaže",
