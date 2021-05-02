@@ -110,13 +110,12 @@ function ParseFleeterData(data, finalRound, isDefender, repairedDefences) {
                 fleeters[fleeterIndex].fleet.push({
                     shipType: fltcmp.ship_type,
                     preCount: fltcmp.count,
-                    postCount: fltcmp.count
+                    postCount: 0
                 })
             }
             else {
                 let fleetIndex = fleeters[fleeterIndex].fleet.findIndex(flt => flt.shipType === fltcmp.ship_type);
                 fleeters[fleeterIndex].fleet[fleetIndex].preCount += fltcmp.count;
-                fleeters[fleeterIndex].fleet[fleetIndex].postCount = fleeters[fleeterIndex].fleet[fleetIndex].preCount;
             }
         })
     });
@@ -125,7 +124,7 @@ function ParseFleeterData(data, finalRound, isDefender, repairedDefences) {
         finalRound.forEach(ship => {
             let fleeterIndex = fleeters.findIndex(fltr => fltr.ownerId === data[ship.owner].fleet_owner_id);
             let fleetIndex = fleeters[fleeterIndex].fleet.findIndex(flt => flt.shipType === ship.ship_type);
-            fleeters[fleeterIndex].fleet[fleetIndex].postCount = ship.count;
+            fleeters[fleeterIndex].fleet[fleetIndex].postCount += ship.count;
         })
     }
 
